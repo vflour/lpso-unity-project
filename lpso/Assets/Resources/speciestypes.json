@@ -1,0 +1,14 @@
+{
+	"Items":[
+	{
+	"name": "Kitty",
+	"model": "kitty_model"
+
+	},
+	{
+	"name": "Dog",
+	"model": "dog_model"
+
+	}
+	]
+}

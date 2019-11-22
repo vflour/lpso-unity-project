@@ -1,0 +1,2189 @@
+fileFormatVersion: 2
+guid: 23a2b34defffc80409a4e60f701c1f60
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: felina idle_0
+    21300002: felina idle_1
+    21300004: felina idle_2
+    21300006: felina idle_3
+    21300008: felina idle_4
+    21300010: felina idle_5
+    21300012: felina idle_6
+    21300014: felina idle_7
+    21300016: felina idle_8
+    21300018: felina idle_9
+    21300020: felina idle_10
+    21300022: felina idle_11
+    21300024: felina idle_12
+    21300026: felina idle_13
+    21300028: felina idle_14
+    21300030: felina idle_15
+    21300032: felina idle_16
+    21300034: felina idle_17
+    21300036: felina idle_18
+    21300038: felina idle_19
+    21300040: felina idle_20
+    21300042: felina idle_21
+    21300044: felina idle_22
+    21300046: felina idle_23
+    21300048: felina idle_24
+    21300050: felina idle_25
+    21300052: felina idle_26
+    21300054: felina idle_27
+    21300056: felina idle_28
+    21300058: felina idle_29
+    21300060: felina idle_30
+    21300062: felina idle_31
+    21300064: felina idle_32
+    21300066: felina idle_33
+    21300068: felina idle_34
+    21300070: felina idle_35
+    21300072: felina idle_36
+    21300074: felina idle_37
+    21300076: felina idle_38
+    21300078: felina idle_39
+    21300080: felina idle_40
+    21300082: felina idle_41
+    21300084: felina idle_42
+    21300086: felina idle_43
+    21300088: felina idle_44
+    21300090: felina idle_45
+    21300092: felina idle_46
+    21300094: felina idle_47
+    21300096: felina idle_48
+    21300098: felina idle_49
+    21300100: felina idle_50
+    21300102: felina idle_51
+    21300104: felina idle_52
+    21300106: felina idle_53
+    21300108: felina idle_54
+    21300110: felina idle_55
+    21300112: felina idle_56
+    21300114: felina idle_57
+    21300116: felina idle_58
+    21300118: felina idle_59
+    21300120: felina idle_60
+    21300122: felina idle_61
+    21300124: felina idle_62
+    21300126: felina idle_63
+    21300128: felina idle_64
+    21300130: felina idle_65
+    21300132: felina idle_66
+    21300134: felina idle_67
+    21300136: felina idle_68
+    21300138: felina idle_69
+    21300140: felina idle_70
+    21300142: felina idle_71
+    21300144: felina idle_72
+    21300146: felina idle_73
+    21300148: felina idle_74
+    21300150: felina idle_75
+    21300152: felina idle_76
+    21300154: felina idle_77
+    21300156: felina idle_78
+    21300158: felina idle_79
+    21300160: felina idle_80
+    21300162: felina idle_81
+    21300164: felina idle_82
+    21300166: felina idle_83
+    21300168: felina idle_84
+    21300170: felina idle_85
+    21300172: felina idle_86
+    21300174: felina idle_87
+    21300176: felina idle_88
+    21300178: felina idle_89
+    21300180: felina idle_90
+    21300182: felina idle_91
+    21300184: felina idle_92
+    21300186: felina idle_93
+    21300188: felina idle_94
+    21300190: felina idle_95
+    21300192: felina idle_96
+    21300194: felina idle_97
+    21300196: felina idle_98
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: felina idle_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3228
+        width: 311
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a16a0df345f44646a1801889148017c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 3228
+        width: 311
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2239dae288785c41b0b7fd84e551a5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_2
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 3228
+        width: 311
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec9c2936a2b607a4cb7c3b153c278e6b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_3
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 3228
+        width: 311
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64283b5adfd19546b4deecc05afedce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_4
+      rect:
+        serializedVersion: 2
+        x: 1370
+        y: 3228
+        width: 310
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d6900257078e349bcfa301ea01f745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_5
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 3228
+        width: 310
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ceae3c12344c347af1f1ac98fd8e83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_6
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 3228
+        width: 310
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de514a85d1ce194384d8ef917ffd644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_7
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 3228
+        width: 310
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d817a931bf88e849a57f7e904632e11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_8
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 3228
+        width: 310
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ff874ab7fea2a4e817e7a47234e1aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_9
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 3228
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a21d867481ee424a92fcb50cdbff521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_10
+      rect:
+        serializedVersion: 2
+        x: 3415
+        y: 3228
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35822c4d820102949b539a1f9aa0a60a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_11
+      rect:
+        serializedVersion: 2
+        x: 3756
+        y: 3228
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcaa5492f2376ac48a2fb497e8442ae8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f57e00fae7a4b46b49b36f831e4145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_13
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69e1c793ff6aafb4494f03011c108e16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_14
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c94c93a01c14b42a5a14e5ab090250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_15
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e3172abd2a35e40b019d74ebdf934f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_16
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 965ac1a35fb3abf4d89885092ce74161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_17
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778565a0eabb6534aa77858210625cd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_18
+      rect:
+        serializedVersion: 2
+        x: 2050
+        y: 2827
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2753e13df0d104e91b1ab29c28b2fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_19
+      rect:
+        serializedVersion: 2
+        x: 2391
+        y: 2827
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25b59976282d324ca6eecd66a5c2ef2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_20
+      rect:
+        serializedVersion: 2
+        x: 2732
+        y: 2827
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcd649615f6e01547b635c3eb6777583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_21
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2827
+        width: 311
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304e3382a51b0374c96bb866860ca043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_22
+      rect:
+        serializedVersion: 2
+        x: 3413
+        y: 2827
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e30f81e02453648a2c22a85c533ab8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_23
+      rect:
+        serializedVersion: 2
+        x: 3754
+        y: 2827
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6089b812aced5a04bb3d8e4fd20b85cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2426
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06ae3b750253e20469cf4f74e860b094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_25
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 2426
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73de5bd161b608b4db3da5f67e945cf7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_26
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 2426
+        width: 311
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535abd3fa97bc1846a3330752d8acb80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_27
+      rect:
+        serializedVersion: 2
+        x: 1025
+        y: 2426
+        width: 311
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 350bb1ff7aac24e41889d65d7497ce7e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_28
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 2426
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996e25997f2c8f242944c38fe41d2419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_29
+      rect:
+        serializedVersion: 2
+        x: 1707
+        y: 2426
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f0fd75f07cf9d4ca3fe5df8050441c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_30
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2426
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379e1600094d3af4dbc01babcff4b414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_31
+      rect:
+        serializedVersion: 2
+        x: 2389
+        y: 2426
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 360395ecc2af34241a5ca5ce50cc6cf0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_32
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 2426
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c706bcb868f618e4c8cc9d8450a73253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_33
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 2426
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d8d84ae06af53b43b81fc01100ac5fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_34
+      rect:
+        serializedVersion: 2
+        x: 3412
+        y: 2426
+        width: 309
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146db996ef28968458dfc1d8573d597f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_35
+      rect:
+        serializedVersion: 2
+        x: 3753
+        y: 2426
+        width: 309
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa0f0dc72b01a341989cfdc5099ceaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_36
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2025
+        width: 309
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f2a02bca89d95c4dad77b36dab54bd3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_37
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 2025
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88776df8f0f4e7447b9842642a3e6f93
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_38
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 2025
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dff81646bde16144867224561f1f00e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_39
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2025
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e22ddabec5e2d2a408a595c1e1d003d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_40
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 2025
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93e8b41c7156284889eb93d32d5cec1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_41
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 2025
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53975560ae0bbe4478f97a6405ac3d59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_42
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 2025
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c3a5f9d3b189cf42a9202d3e667f1b7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_43
+      rect:
+        serializedVersion: 2
+        x: 2388
+        y: 2025
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3916f4409cdf2874786bb1c5ca6212a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_44
+      rect:
+        serializedVersion: 2
+        x: 2729
+        y: 2025
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64584b9bfa8772b42821bcde93334d4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_45
+      rect:
+        serializedVersion: 2
+        x: 3070
+        y: 2025
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c21b39fda5d134083f16c826b5f194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_46
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 2025
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 371c3c6f6f7322740ac101d34a900252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_47
+      rect:
+        serializedVersion: 2
+        x: 3752
+        y: 2025
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bedd46ea52518544b06bfa6877982d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_48
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b58bed2a2c26e246be3079e0f496755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_49
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2191af9ec206541bef66a1ade0e3c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_50
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6b7c237352afb44aee09fbd684a9e0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_51
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc7702fa3691754db03159dbe708d91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_52
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316797e2fda12d544a076a1c23a4bbe5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_53
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ea595e1eb4b2364d9d3fa7fdde87a25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_54
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 1624
+        width: 309
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a58fc1ecde71446b7da34d18362154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_55
+      rect:
+        serializedVersion: 2
+        x: 2387
+        y: 1624
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1473f04e08b145e48baf4cae703dacd6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_56
+      rect:
+        serializedVersion: 2
+        x: 2728
+        y: 1624
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78aaebc4a703d014b970c553aaea9a5c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_57
+      rect:
+        serializedVersion: 2
+        x: 3070
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad05428ec25218c4fadf69d5338268a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_58
+      rect:
+        serializedVersion: 2
+        x: 3411
+        y: 1624
+        width: 309
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0f2e75550567d42b6286df66849312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_59
+      rect:
+        serializedVersion: 2
+        x: 3752
+        y: 1624
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7ef3e2c1cb72847ab770173f31aa8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_60
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1223
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bb001333303544da5f40f085dd9ec0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_61
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 1223
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2472006cdf967b545bc98a2f5403a0f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_62
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 1223
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af9b06223975d043bad74798e05d175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_63
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 1223
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813c127d1019d844c97cc8bbfd148aff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_64
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 1223
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff9ca8c4c9d15e5479c1b035ed240d4d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_65
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 1223
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82710f337362a6147b863d311535180c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_66
+      rect:
+        serializedVersion: 2
+        x: 2051
+        y: 1223
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dbce2f1b05b672459a83741d0bad207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_67
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 1223
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18aac6546e509c34b879e9f4a7ee3f99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_68
+      rect:
+        serializedVersion: 2
+        x: 2734
+        y: 1223
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2394c90524f1e6449a177afc92a4a152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_69
+      rect:
+        serializedVersion: 2
+        x: 3076
+        y: 1223
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4b6141fd65f0d45892501a34ede4ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_70
+      rect:
+        serializedVersion: 2
+        x: 3418
+        y: 1223
+        width: 310
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b56a92ddf29e04e847673e46c7e233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_71
+      rect:
+        serializedVersion: 2
+        x: 3759
+        y: 1223
+        width: 311
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb73db8616a13ee40a7938ada0e7061c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_72
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 822
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a935423cec5694d47893bf7a6ca799ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_73
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 822
+        width: 310
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832ffbbea2254fc45af480a94f594f7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_74
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 822
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98006d07590c3f941a529357d3e98651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_75
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 822
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db2d797234bbcf45b630ce8a96557bd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_76
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 822
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02d6aae2bbf794e4caef63ebbc342174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_77
+      rect:
+        serializedVersion: 2
+        x: 1716
+        y: 822
+        width: 310
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1af6a419c8a4e0a4b8b6fe6bc5f2f2a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_78
+      rect:
+        serializedVersion: 2
+        x: 2057
+        y: 822
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3854762c3e7783c43bef0e91d07e786c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_79
+      rect:
+        serializedVersion: 2
+        x: 2398
+        y: 822
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e40da287af3e255459d2c71987b667bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_80
+      rect:
+        serializedVersion: 2
+        x: 2739
+        y: 822
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423d404f0e3a91d48a5f7be91492cc8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_81
+      rect:
+        serializedVersion: 2
+        x: 3080
+        y: 822
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a088b79d92248479ce5d3e63a49bf8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_82
+      rect:
+        serializedVersion: 2
+        x: 3421
+        y: 822
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93775bc97d848ce459b945151109c069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_83
+      rect:
+        serializedVersion: 2
+        x: 3762
+        y: 822
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd09ed13195ae84d99760cabe90fffe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_84
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 421
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24711636fc27fb447a1da7d26344b6b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_85
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 421
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1524c6cab23b14189d1dd2a5ce272c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_86
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 421
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5fa6f8a39dd00478c412c352ced7dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_87
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 421
+        width: 310
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 349d1817f2d73fc499df652c016111da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_88
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 421
+        width: 309
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c31f6db1b02abf4ab03d2206c2e6317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_89
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 421
+        width: 310
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9901b5b1e2c60d7468abd5c3033321e8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_90
+      rect:
+        serializedVersion: 2
+        x: 2056
+        y: 421
+        width: 310
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c76c0ad9e747f4fb67329858d279c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_91
+      rect:
+        serializedVersion: 2
+        x: 2396
+        y: 421
+        width: 311
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8799aad7073b47d46ba1004c4c795e65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_92
+      rect:
+        serializedVersion: 2
+        x: 2737
+        y: 421
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b5b6c85c85d0ed459fcaea7b184a110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_93
+      rect:
+        serializedVersion: 2
+        x: 3078
+        y: 421
+        width: 310
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabfb419c126b1d4ab06ad3b46240f7f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_94
+      rect:
+        serializedVersion: 2
+        x: 3418
+        y: 421
+        width: 310
+        height: 377
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10c3ca444598c04408da24958491b597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_95
+      rect:
+        serializedVersion: 2
+        x: 3758
+        y: 421
+        width: 311
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0f0280938db694db94fe8508b4e13e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_96
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 20
+        width: 310
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e6b3996ba67f741ab70de7f383caed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_97
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 20
+        width: 310
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fac78b6938f7f044a7242dc7998e62b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: felina idle_98
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 20
+        width: 311
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd69eb15b7618d49aece384b1e6a647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 8c97527a9cc08834a9f1abfe8f9df827
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
