@@ -13,12 +13,15 @@ public class Item : ScriptableObject
     [SerializeField]
     private SlotScript slot;
 
+    [SerializeField]
+    private bool wearable;
+
 
     // public Component ItemType;
 
     public string Name;
     public string description;
-
+    public bool Wearing = false;
 
     public Sprite Icon
     {
@@ -28,6 +31,11 @@ public class Item : ScriptableObject
    public int StackSize
     {
         get { return stacksize; }
+    }
+
+    public bool Wearable
+    {
+        get { return wearable; }
     }
 
 

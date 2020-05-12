@@ -24,13 +24,17 @@ public class player_move : MonoBehaviour
         {
             if (playerchar.transform.position != newpos)
             {
-                SetAnimState(0, 1);
-                
                 playerchar.transform.position = Vector3.MoveTowards(playerchar.transform.position, newpos, Time.deltaTime * 5);
+                SetAnimState(0, 1);
             }
             else SetAnimState(1, 0); 
-            InterpolateCamera();
+            
         }
+    }
+
+    private void LateUpdate()
+    {
+        InterpolateCamera();
     }
 
     void SetAnimState(float iw, float ww) // animation wait for player
@@ -48,7 +52,7 @@ public class player_move : MonoBehaviour
         float smoothtime = 0.075f;
         Vector3 velocity = Vector3.zero;
         Vector3 targetpos = playerchar.transform.position - new Vector3(0, 0, 10);
-        camera.transform.position = Vector3.SmoothDamp(camera.transform.position, targetpos, ref velocity, smoothtime);
+        camera.transform.position = Vector3.SmoothDamp(camera.transform.position, targetpos, ref velocity, Time.deltaTime*2);
     }
 
 

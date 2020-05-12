@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class ItemDatabase : MonoBehaviour
 {
-    public Dictionary<string, Item> ItemBase = new Dictionary<string, Item>();
-    void Start()
-    {
-        
-    }
+    public Dictionary<string, Item> ItemBase;
 
     // 00 = Consumable
     // 11 = HeadItem
+    // 20 = GlassesItem
+
     // etc for now
     public void InitDatabase()
     {
-        ItemBase = new Dictionary<string, Item>()
+     ItemBase = new Dictionary<string, Item>()
         {
-            { "100001",Resources.Load<Item>("Items/Cupcake")},
-            { "110001",Resources.Load<Item>("Items/RedBow")},
-
+            { "000001",Resources.Load<Item>("Items/Cupcake")},
+            { "110001",Resources.Load<Item>("Items/RedBow")}
         };
     }
 

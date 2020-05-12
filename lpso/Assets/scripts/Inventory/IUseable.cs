@@ -7,3 +7,8 @@ public interface IUseable
     void Use(Transform player);
 }
 
+public interface IWearable
+{
+    void ChangeSlot(InventoryScript inventoryRef);
+}
+

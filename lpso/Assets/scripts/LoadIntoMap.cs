@@ -146,7 +146,7 @@ public class LoadIntoMap : MonoBehaviour
             List<InventorySlot_s> page0 = new List<InventorySlot_s>()
             {
                 {new InventorySlot_s("110001",1)},
-                {new InventorySlot_s("100001",3)}
+                {new InventorySlot_s("000001",3)}
             };
 
             InventoryData = new List<List<InventorySlot_s>>()

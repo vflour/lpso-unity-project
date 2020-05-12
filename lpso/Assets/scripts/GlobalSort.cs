@@ -15,11 +15,11 @@ public class GlobalSort : MonoBehaviour
     List<SpriteRenderer> charpieces;
     // Update is called once per frame
 
-    void Update()
+    private void Update()
     {
         if (rdy)
         {
-            StartCoroutine(setPlayerSort());
+            setPlayerSort();
         }
     }
 
@@ -41,14 +41,25 @@ public class GlobalSort : MonoBehaviour
         }
     }
 
-    IEnumerator setPlayerSort()
+    public void setPlayerSort()
     {
         foreach (SpriteRenderer v in charpieces)
         {
+            if (v == null)
+            {
+                charpieces.Remove(v);
+                break;
+            }
             v.sortingOrder = character_sort[v] + (int)((character.position.y) * -100);
-            
-            yield return null;
         }
+    }
+
+    public void RemoveFromSort(Transform Object)
+    {
+        rdy = false;
+        SpriteRenderer Sprite = Object.GetComponent<SpriteRenderer>();
+        charpieces.Remove(Sprite);
+        rdy = true;
     }
 
     void defcharsort()

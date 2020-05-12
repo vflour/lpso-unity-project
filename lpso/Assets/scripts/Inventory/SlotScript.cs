@@ -12,6 +12,10 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler
     public Transform character;
     public GameObject dialogbox;
     public ItemDialog dialogt;
+    public int Page;
+
+    public InventoryScript Inven_Ref;
+
     //private Sprite Icon;
 
     public void SetItem(Stack<Item> citem)
@@ -41,16 +45,24 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler
     {
         if (item.Peek() is IUseable)
         {
+
             (item.Peek() as IUseable).Use(character);
+            
+            if (item.Peek().Wearable)  (item.Peek() as IWearable).ChangeSlot(Inven_Ref);
             RemoveItem();
             SetCounter();
         }
     }
 
+
     public void RemoveItem()
     {
         item.Pop();
-        if (IsEmpty) transform.GetComponent<Image>().sprite = defaulticon;
+        if (IsEmpty)
+        {
+            Wipe();
+            if (Inven_Ref != null) Inven_Ref.RemoveEntry(Page, item);
+        }
     }
 
     void SetCounter()
@@ -67,15 +79,16 @@ public class SlotScript : MonoBehaviour, IPointerClickHandler
 
     public void Wipe()
     {
+       
         item = new Stack<Item>();
         transform.GetComponent<Image>().sprite = defaulticon;
+        
     }
 
     public bool IsEmpty
     {
         get
         {
-           
             if (item.Count < 1) return true;
             else return false;
         }
