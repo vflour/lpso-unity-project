@@ -17,6 +17,6 @@ public class PaletteStorage : ScriptableObject
     [System.Serializable]
     public struct ColorPaletteField
     {
-        public Color[] Colors;
+        public float[] Colors;
     }
 }

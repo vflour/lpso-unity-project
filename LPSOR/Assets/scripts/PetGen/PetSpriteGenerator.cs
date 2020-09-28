@@ -12,17 +12,17 @@ public class PetSpriteGenerator
         this.petDatabase = petDatabase;
     }
 
-    public GameObject GenerateCrAPSprite(int[] PaletteData, int Species, int speciesSubtype, int[] PartTypes, Transform Parent)
+    public GameObject GenerateCrAPSprite(int[] PaletteData, int Species, int speciesSubtype, int[] PartTypes)
     {
         // Find the species array
         SpeciesSubtype[] SpeciesArray = petDatabase.GetSpeciesArray(Species);
         SpeciesSubtype Subtype = SpeciesArray[speciesSubtype];
         
         // Instantiate the subtype's body
-        GameObject CharacterObject = GameObject.Instantiate(Subtype.BodyPrefab, Parent);
+        GameObject CharacterObject = GameObject.Instantiate(Subtype.BodyPrefab);
 
         // sets the actual color palette based on palette data
-        Color[] Palette = SetPalette(Species, PaletteData); 
+        float[,] Palette = GetPalette(Species, PaletteData); 
 
         // Cycle through every Part in PartTypes
         for (int Index = 0; Index < PartTypes.Length; Index++)
@@ -47,49 +47,46 @@ public class PetSpriteGenerator
                 }
             } 
         }
-        
-        ColorPetAccordingToPalette(CharacterObject, Palette);
+        SetPalette(CharacterObject,Palette);
         return CharacterObject;
     }
 
-    public Color[] SetPalette(int species, int[] paletteData)
+    public float[,] GetPalette(int species, int[] paletteData)
     {
         //paletteData corresponds to the palette index, aka pD[0] = coat index, pD[1] eyes index, pD[2] = patch index
         PaletteStorage paletteStorage = petDatabase.GetPaletteArray(species);
-        Color[] colorArray = new Color[9];
+        float[,] colorArray = new float[3,3];
         
-        Color[] coatArray = paletteStorage.coatPalettes[paletteData[0]].Colors; // Selecting the coat Palette based on what index PaletteData[0] is
-        Color[] eyesArray = paletteStorage.eyePalettes[paletteData[1]].Colors; // selecting the eyes palette based on paletteData[1]
-        Color[] patchArray = paletteStorage.patchPalettes[paletteData[2]].Colors; // selecting the patch palette based on paletteData[2]
+        float[] coatArray = paletteStorage.coatPalettes[paletteData[0]].Colors; // Selecting the coat Palette based on what index PaletteData[0] is
+        float[] eyesArray = paletteStorage.eyePalettes[paletteData[1]].Colors; // selecting the eyes palette based on paletteData[1]
+        float[] patchArray = paletteStorage.patchPalettes[paletteData[2]].Colors; // selecting the patch palette based on paletteData[2]
 
-        // bluh im assigning them manually cuz coatarray[4] is a weird outliar
-        colorArray[0] = coatArray[0]; // coat color
-        colorArray[1] = coatArray[1];
-        colorArray[2] = coatArray[2];
-        colorArray[5] = coatArray[3]; // eyelash color
+        // set each array to an hsv multiplier
+        colorArray[0,0] = coatArray[0]; // coat color
+        colorArray[0,1] = coatArray[1];
+        colorArray[0,2] = coatArray[2];
 
-        colorArray[3] = eyesArray[0]; // eye color
-        colorArray[4] = eyesArray[1];
+        colorArray[1,0] = eyesArray[0]; // eye color
+        colorArray[1,1] = eyesArray[1];
+        colorArray[1,2] = eyesArray[2];
 
-        colorArray[6] = patchArray[0]; // patch color
-        colorArray[7] = patchArray[1];
-        colorArray[8] = patchArray[2];
+        colorArray[2,0] = patchArray[0]; // patch color
+        colorArray[2,1] = patchArray[1];
+        colorArray[2,2] = patchArray[2];
 
         return colorArray;
     }
-
-    public void ColorPetAccordingToPalette(GameObject Pet,Color[] Palette)
+    public void SetPalette(GameObject characterObject, float[,] palette)
     {
-        foreach(VectorPaletteModifier PaletteMod in Pet.GetComponentsInChildren<VectorPaletteModifier>()) // Looks for the palette modifier
+        foreach(VectorPaletteModifier PaletteMod in characterObject.GetComponentsInChildren<VectorPaletteModifier>()) // Looks for the palette modifier
         {
             for(int i = 0; i < 9; i++) // Basically mods colors 1 to 9, not touching 0 or 10
             {
-                ///Color[] NewPalette = PaletteMod.Palette;
-                ///NewPalette[i + 1] = Palette[i];
-               /// PaletteMod.Palette = NewPalette; // honestly just making sure the get function triggers 
+                PaletteMod.Palette = palette;
             }
         }
     }
+ 
 
     public Transform FindParentByName(Transform P,string Name)
     {

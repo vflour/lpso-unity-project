@@ -7,105 +7,87 @@ using Game.Networking;
 
 namespace Game.Startup
 {
-    public class SystemHandler : GameSystem // I recommend splitting the Networking component from this script.
+    public class SystemHandler : GameSystem 
     {
-        private List<ServerInformation> savedServerInfo;
-        private List<Room> serverRooms;
-        
-        public void Awake() // setting up basic variables upon startup
-        {
-            networkClient = GetComponent<NetworkClient>();
-            uiHandler = GetComponent<GameUI>();
-            UIHandler startupUI = (UIHandler)uiHandler;
 
-            startupUI.StartupGame(this); 
+#region Initialization
+        // initialize the request dictionary
+        protected override void Awake() 
+        {
+            stringRequests.Add("serverInformation",ServerDataPersistence.LoadServerData()); // Add the serverInformation request
+            base.Awake();
         }
 
-        public void RequestConnectionToIP(ServerInformation serverInformation)
+        // adds a couple of new recievers specific to this system
+        protected override void DeclareRecievers()
+        {
+            base.DeclareRecievers();
+
+            // connection recievers
+            Recieve("serverConnect",(obj)=>RequestConnectionToIP((ServerInformation)obj));
+            Recieve("userConnect",(obj)=>RequestUserAuthen());
+            
+            // setting room data
+            Recieve("setRoom",(obj)=> SetRoom((Room)obj));
+
+            // network signals
+            // processNetworkSignal exits the code if obj isnt a JSONobject or if there's an error
+            Recieve("openConnection",(obj)=>RequestUserAuthen());
+
+            Recieve("authenSuccess",(obj)=>
+            {
+                if (!processNetworkSignal(obj)) return;
+                authenticateUser((JSONObject)obj);
+            });
+
+            Recieve("registerSuccess",(obj)=>
+            {
+                if (!processNetworkSignal(obj)) return;
+                registerUser((JSONObject)obj);
+            });
+
+        }
+#endregion
+
+#region GameData modification requests
+        private void SetRoom(Room room) // sets the current room
+        {
+            gameData.roomData = room;
+        }
+        
+#endregion
+
+#region Connection requests
+        // sets the server information and tells the networkClient to connect to it
+        private void RequestConnectionToIP(ServerInformation serverInformation)
         {
             networkClient.SetCurrentServer(serverInformation);
             networkClient.ConnectToIP();
         }
 
-        public void RequestUserAuthen()
+        // asks networkClient to authenticate the user if theres a connection to the server
+        private void RequestUserAuthen()
         {
             networkClient.ConnectAsUser();
         }
+#endregion
 
-        public List<ServerInformation> RequestServerInformation()
+#region Modifications to the Server and Room lists
+        private void AddNewServer(ServerInformation serverInformation)
         {
-            savedServerInfo = ServerDataPersistence.LoadServerData();
-            return savedServerInfo;
+            List<ServerInformation> serverList = Request("serverInformation") as List<ServerInformation>;
+            serverList.Add(serverInformation);
+            ServerDataPersistence.SaveServerData(serverList);
         }
 
-        public List<Room> RequestRooms()
-        {
-            return serverRooms;
-        }
-
-        public void SetRoom(Room room)
-        {
-            gameData.roomData = room;
-        }
-
-
-        public void AddNewServer(ServerInformation serverInformation)
-        {
-            savedServerInfo.Add(serverInformation);
-            ServerDataPersistence.SaveServerData(savedServerInfo);
-        }
-
-        public override void ProcessNetworkSignal(string signal, int code, JSONObject data){
-            if (CheckErrorCode(code)) // checks if no errors in server
-            {
-                CheckSignalType(signal,data); // sends signal to uI
-            }
-        }
-
-        public bool CheckErrorCode(int code)
-        {
-            if(code == 0) return true; // lets the code pass, because code 0 = success
-            else
-            { /// hghghdhghsgjks fuckign why
-                UIHandler startupUI = (UIHandler)uiHandler;
-                startupUI.ShowErrorCode(ErrorCodes.CodeStrings[code]); // sends errorcode to ui 
-                return false; 
-            }
-        }
-
-        public void CheckSignalType(string signal, JSONObject data)
-        {
-            UIHandler startupUI = (UIHandler)uiHandler;
-            switch(signal)
-            {
-                case "open":
-                    startupUI.ConnectAsUser();
-                    break;
-                case "authenSuccess":
-                    SetServerConnection(data);
-                    break;
-                case "registerSuccess":
-                    AddNewServer(networkClient.CurrentServer);
-                    startupUI.ShowKey(data["keyId"].str);
-                    SetServerConnection(data);
-                    break;
-            }
-        }
-        
-        private void SetServerConnection(JSONObject data)
-        {
-            SetServerData(data);
-            uiHandler.RemoveScreen(0);
-            uiHandler.InstantiateScreen(3);
-
-            gameData.serverInformation = networkClient.CurrentServer;
-            gameData.playerData = new PlayerData(data["playerData"]);
-        }
-        private void SetServerData(JSONObject data)
+        //gets all the rooms sent from the server and adds it to the request dictionary
+        private void SetRoomList(JSONObject data)
         {
             List<JSONObject> array = data["rooms"].list;
-            serverRooms = TransformJSONintoRoom(array);
+            stringRequests.Add("roomInformation",TransformJSONintoRoom(array));
         }
+
+        // cycles through each JSONObject in the list and turns it into a Room object
         private List<Room> TransformJSONintoRoom(List<JSONObject> JSONlist)
         {
             List<Room> rooms = new List<Room>();
@@ -116,7 +98,36 @@ namespace Game.Startup
             }
             return rooms;
         }
+#endregion
 
+#region Network signal adapters
+        private void authenticateUser(JSONObject data) 
+        {
+            SetRoomList(data); // sets the room lists
+     
+            // modifies gamedata values
+            gameData.serverInformation = networkClient.CurrentServer; 
+            gameData.playerData = new PlayerData(data["playerData"]);
+            
+            //removes the current screen (multiplayerScreen) and instantiates the room select screen
+            gameUI.RemoveScreen(0);
+            gameUI.InstantiateScreen(3);
+            
+
+        }
+
+        private void registerUser(JSONObject data)
+        {
+            // adds a new server to the list and saves it
+            AddNewServer(networkClient.CurrentServer);
+
+            // tells the startup UIHandler to show the keyID
+            UIHandler startupUI = (UIHandler)gameUI; 
+            startupUI.ShowKey(data["keyId"].str);
+
+            authenticateUser(data);
+        }
+#endregion
 
     }
 

@@ -11,7 +11,7 @@
    width="26.0px"
    version="1.1"
    id="svg8"
-   sodipodi:docname="87.svg"
+   sodipodi:docname="RPaw.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
      id="metadata14">
@@ -35,12 +35,12 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="835"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
      id="namedview10"
      showgrid="false"
      inkscape:zoom="11.423077"
-     inkscape:cx="13"
+     inkscape:cx="0.2188553"
      inkscape:cy="8.8000002"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -61,6 +61,6 @@
        fill-rule="evenodd"
        stroke="none"
        id="path4"
-       style="fill:#4d4d4d;fill-opacity:1" />
+       style="fill:#bfbfbf;fill-opacity:1" />
   </g>
 </svg>

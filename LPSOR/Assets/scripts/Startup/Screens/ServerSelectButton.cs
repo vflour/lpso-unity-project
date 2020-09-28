@@ -15,7 +15,6 @@ namespace Game.UI.Startup
             {
                 serverInfo = value;
                 ipField.text = serverInfo.IP;
-                portField.text = serverInfo.PORT;
                 UNameField.text = serverInfo.userName;
             }
             get {return serverInfo;}
@@ -23,7 +22,6 @@ namespace Game.UI.Startup
 
         [Header("Text fields")]
         public Text ipField;
-        public Text portField;
         public Text UNameField;
 
         [Header("Classes")]

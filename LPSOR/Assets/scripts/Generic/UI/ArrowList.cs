@@ -16,7 +16,8 @@ namespace Game.UI
         public List<GameObject> elements;
         public int maxCount;
         public int pageCount;
-        public void Initialize(List<GameObject> elements)
+
+        public virtual void Initialize(List<GameObject> elements)
         {
             this.elements = elements;
             SetPage(0); // setting default page to 0
@@ -34,23 +35,24 @@ namespace Game.UI
                 SetPageButtonsSize();
             }
         }
-        public void AddButton(GameObject prefab, int adder, int index)
+        public ArrowListButton AddButton(GameObject prefab, int value, int buttonType)
         {
             GameObject button = Instantiate(prefab,transform);
 
             // mirrors the button so the arrow faces the right way
-            if(adder != 0) button.transform.localScale = new Vector3(adder,1,1);
+            if(buttonType != 0) button.transform.localScale = new Vector3(value,1,1);
 
             // initializes the component
             ArrowListButton buttonComponent = button.GetComponent<ArrowListButton>(); 
-            buttonComponent.adder = adder;
-            buttonComponent.index = index;
+            buttonComponent.value = value;
+            buttonComponent.type = (ArrowListButtonType)buttonType;
             buttonComponent.arrowList = this;
             
             arrowListButtons.Add(buttonComponent);
+            return buttonComponent;
         }
 
-        public void ChangePage(int adder)
+        public virtual void ChangePage(int adder)
         {
             int newPage = currentPage+adder;
 
@@ -61,7 +63,7 @@ namespace Game.UI
             SetPage(newPage);
         }
 
-        public void SetPage(int page)
+        public virtual void SetPage(int page)
         {
             for(int i = 0; i < elements.Count ; i++) 
             {
@@ -79,10 +81,10 @@ namespace Game.UI
         {
             foreach(ArrowListButton button in arrowListButtons)
             {
-                if(button.adder != 0) continue; // skips the arrow buttons
+                if(button.type != (ArrowListButtonType)0) continue; // skips the arrow buttons
 
                 // sets the buttons size based on the current page
-                if(button.index == currentPage)  button.transform.localScale = new Vector3(1.1f,1.1f,1.1f);
+                if(button.value == currentPage)  button.transform.localScale = new Vector3(1.1f,1.1f,1.1f);
                 else  button.transform.localScale = new Vector3(1,1,1);
             }
         }

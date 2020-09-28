@@ -6,26 +6,30 @@ namespace Game.UI
 {
     public class MessageBox: MonoBehaviour
     {
+
+[Header("Text fields")]
         public UnityEngine.UI.Text titleString;
         public UnityEngine.UI.Text msgString;
 
-        public GameUI uiHandler;
+[Header("Confirmation variables")]
         public bool EnableScreenOnClick;
+        public string returnEmit = "";
         
-        public void SetMessage(string title, string msg)
+[Header("Handler")]
+        public GameUI gameUI;
+        
+        public void SetMessage(string title, string msg) //sets the main text field message
         {
             titleString.text = title;
-            msgString.text = msg; // sets the current text + pending gui 
-            
-
+            msgString.text = msg; 
         }
         
-        public void ConfirmButton()
+        public void ConfirmButton() // sends signal to the ui handler when pressed
         {
-            uiHandler.RemoveMessageBox();
-            if (EnableScreenOnClick) uiHandler.ToggleScreenInput(true);
+            if (EnableScreenOnClick) gameUI.ToggleScreenInput(true);
+            if (returnEmit!="") gameUI.EmitToSystem(returnEmit);            
+            gameUI.RemoveMessageBox();
         }
-
 
     }
 

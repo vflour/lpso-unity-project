@@ -8,16 +8,14 @@ namespace Game
     {   
         public PlayerData playerData;
         public CharacterData[] characterDataArray;
+        public int currentCharacter; // stores the current character, but also create a pet ticket data
         public Room roomData;
         public ServerInformation serverInformation;
         public string world;
-
-        public GameSystem gameSystem;
-
+        
+        
         private void Awake()
         {
-            gameSystem = GameObject.Find("System").GetComponent<GameSystem>();
-            gameSystem.gameData = this;
             DontDestroyOnLoad(this.gameObject);
         }
         public void LoadGameData(PlayerData player, CharacterData[] characterArray )

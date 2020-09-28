@@ -11,7 +11,7 @@
    width="26.2px"
    version="1.1"
    id="svg8"
-   sodipodi:docname="93.svg"
+   sodipodi:docname="LLowerArm.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
      id="metadata14">
@@ -35,13 +35,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="835"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
      id="namedview10"
      showgrid="false"
-     inkscape:zoom="5.4377878"
-     inkscape:cx="-13.657204"
-     inkscape:cy="21.700001"
+     inkscape:zoom="15.380387"
+     inkscape:cx="6.8294115"
+     inkscape:cy="22.769268"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -55,13 +55,13 @@
        fill-rule="evenodd"
        stroke="none"
        id="path2"
-       style="fill:#cccccc;fill-opacity:1" />
+       style="fill:#919191;fill-opacity:1" />
     <path
        d="M1.9 -4.7 L1.9 -0.9 Q2.1 2.3 1.45 3.6 0.6 5.25 -1.4 5.15 -3.35 4.45 -3.25 2.55 L-3.0 -3.4 -2.45 -4.4 Q-1.65 -5.3 -0.35 -5.4 0.9 -5.5 1.9 -4.7"
        fill="#eba5dd"
        fill-rule="evenodd"
        stroke="none"
        id="path4"
-       style="fill:#e6e6e6;fill-opacity:1" />
+       style="fill:#bfbfbf;fill-opacity:1" />
   </g>
 </svg>

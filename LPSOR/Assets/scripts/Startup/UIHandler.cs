@@ -7,59 +7,44 @@ namespace Game.UI.Startup
 {
     public class UIHandler : GameUI
     {
-        
-        #region Private classes
-        private SystemHandler systemHandler;
-
-        #endregion
-    
-
-        // Starting up the UI
-        public void StartupGame(SystemHandler systemHandler)
-        {
-            this.systemHandler = systemHandler;
-
-            LoadingScreen loadScreen = InstantiateLoadingScreen();
-            loadScreen.FinishLoading();
-            
-            InstantiateScreen(0);
-        }
-
 
         // Adapter functions meant to handle the bridge between the networking and the UI input
         public void ConnectToServer(ServerInformation serverInformation)
         {
             // disabling all input to the screen
             ToggleScreenInput(false);
-            // inform system to connect to an ip
-            systemHandler.RequestConnectionToIP(serverInformation);
+
+            // connect to server
+            system.Emit("serverConnect",serverInformation);
         } 
 
+        // tell system to connect as user
         public void ConnectAsUser()
         {
-            systemHandler.RequestUserAuthen();
+            system.Emit("userConnect",null);
         }
 
+        // tells the system to switch to the pet select screen
         public void JoinRoom(Room room)
         {
-            ToggleScreenInput(false);
-            systemHandler.SetRoom(room);
-            systemHandler.LoadScene(1);
+            ToggleScreenInput(false); 
+
+            // set the room values and load scene 1 (pet select)
+            system.Emit("setRoom",room);
+            system.Emit("loadScene",1);
         }
 
-        // requesting serverinformation data that was saved
-        public List<ServerInformation> GetServerInformationSaves()
+        /// System requests
+        public List<ServerInformation> GetServerInformationSaves() // request server information
         {
-            return systemHandler.RequestServerInformation();
+            return system.Request("serverInformation") as List<ServerInformation>;
         }
-
-        public List<Room> GetRooms()
+        public List<Room> GetRooms() // request room information
         {
-            return systemHandler.RequestRooms();
+            return system.Request("roomInformation") as List<Room>;
         }
 
-        // displaying error codes/messages for the connection
-
+        // method used to display the userKey to the player
         public void ShowKey(string userKey){
             MessageBoxTypes messageBoxType = MessageBoxTypes.Default;
             NewMessageBox(messageBoxType, "Connected to server!","Here is your user key for this server! Please write this down somewhere safe. \n"+userKey);

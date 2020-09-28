@@ -11,7 +11,7 @@
    width="29.4px"
    version="1.1"
    id="svg8"
-   sodipodi:docname="76.svg"
+   sodipodi:docname="LLowerLeg.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
   <metadata
      id="metadata14">
@@ -35,13 +35,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="835"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
      id="namedview10"
      showgrid="false"
-     inkscape:zoom="6.3783784"
-     inkscape:cx="-8.1114409"
-     inkscape:cy="18.5"
+     inkscape:zoom="12.756757"
+     inkscape:cx="9.4368208"
+     inkscape:cy="18.095885"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -55,13 +55,13 @@
        fill-rule="evenodd"
        stroke="none"
        id="path2"
-       style="fill:#e6e6e6;fill-opacity:1" />
+       style="fill:#bfbfbf;fill-opacity:1" />
     <path
        d="M2.7 -2.5 L2.75 -2.5 Q3.8 -1.45 3.85 0.0 L3.75 2.5 Q3.7 3.65 2.7 4.65 L2.7 -2.5"
        fill="#de6dc8"
        fill-rule="evenodd"
        stroke="none"
        id="path4"
-       style="fill:#cccccc;fill-opacity:1" />
+       style="fill:#919191;fill-opacity:1" />
   </g>
 </svg>

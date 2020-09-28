@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CharacterData 
 {
-    public CharacterData(int species)
+    public CharacterData()
     {
         this.palette = new int[] { 0, 0, 0 };
-        this.species = species;
+        this.species = 0;
         this.speciesSubtype = 0;
         this.parts = new int[] { 0, 0, 0, 0, 0, 0 };
     }
@@ -48,8 +48,9 @@ public class PlayerData
         this.userName = data["userName"].str;
         this.kibble = (int)data["kibble"].n;
         this.friends = JSONtoIntArray(data["friends"].list);
-        this.inventory = JSONtoIntArray(data["inventory"].list);;
-           
+        this.inventory = JSONtoIntArray(data["inventory"].list);;   
+        this.bronze = (int)data["bronze"].n;
+        this.silver = (int)data["silver"].n;  
     }
 
     private int[] JSONtoIntArray(List<JSONObject> list)
@@ -62,18 +63,14 @@ public class PlayerData
         return array;
     }
 
-    [SerializeField]
-    private string userName;
-
-    [SerializeField]
-    private int[] friends;
-
-    [SerializeField]
-    private int[] inventory;
+    public string userName;
+    public int[] friends;
+    public int[] inventory;
     
-    [SerializeField]
-    private int kibble;
+    public int kibble;
+    public int bronze;
 
+    public int silver;
 }
 
 public class CharacterAction // Actions are basically animations/interacting with items

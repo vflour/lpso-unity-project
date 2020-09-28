@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SetUIsize : MonoBehaviour
 {
-    public Camera camera;
+    public Camera cam;
 
     float quotient;
     float camsize;
@@ -12,14 +12,14 @@ public class SetUIsize : MonoBehaviour
     void Start()
     {
         float defsize = transform.localScale.x;
-        camsize = camera.orthographicSize;
+        camsize = cam.orthographicSize;
 
         quotient = defsize / camsize;
     }
    
     void Update()
     {
-        camsize = camera.orthographicSize;
+        camsize = cam.orthographicSize;
         transform.localScale = new Vector3(camsize * quotient, camsize * quotient,0);
     }
 }

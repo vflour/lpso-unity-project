@@ -35,13 +35,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1600"
-     inkscape:window-height="835"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
      id="namedview10"
      showgrid="false"
-     inkscape:zoom="5.4377878"
-     inkscape:cx="13.1"
-     inkscape:cy="21.700001"
+     inkscape:zoom="15.380387"
+     inkscape:cx="17.584399"
+     inkscape:cy="21.2767"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -55,13 +55,13 @@
        fill-rule="evenodd"
        stroke="none"
        id="path2"
-       style="fill:#e6e6e6;fill-opacity:1" />
+       style="fill:#bfbfbf;fill-opacity:1" />
     <path
        d="M-1.9 -4.7 L-1.85 -0.9 Q-2.1 2.3 -1.4 3.6 -0.55 5.25 1.45 5.15 L-0.25 5.45 Q-1.65 5.35 -2.5 4.35 -3.15 3.65 -3.2 2.8 -3.35 -0.25 -2.9 -2.55 -2.7 -3.95 -1.9 -4.7"
        fill="#de6dc8"
        fill-rule="evenodd"
        stroke="none"
        id="path4"
-       style="fill:#cccccc;fill-opacity:1" />
+       style="fill:#919191;fill-opacity:1" />
   </g>
 </svg>

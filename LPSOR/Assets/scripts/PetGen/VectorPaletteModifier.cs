@@ -9,36 +9,28 @@ public class VectorPaletteModifier : MonoBehaviour
     private float[] coatPalette = new float[3];
     private float[] patchPalette = new float[3];
     private float[] eyesPalette = new float[3];
-    public float IsColorable = 1;
+    public float ColorIndex = 3;
 
-    public float[] CoatPalette{
+    public float[,] Palette
+    {
         set {
-            coatPalette = value;
-            InitColorSwapTex(GetComponent<SpriteRenderer>());
-        }
-    }
-    public float[] PatchPalette{
-        set {
-            patchPalette = value;
-            InitColorSwapTex(GetComponent<SpriteRenderer>());
-        }
-    }
-    public float[] EyesPalette{
-        set {
-            eyesPalette = value;
+            coatPalette = new float[]{value[0,2],value[0,1],value[0,2]};
+            patchPalette = new float[]{value[1,2],value[1,1],value[1,2]};
+            eyesPalette = new float[]{value[2,2],value[2,1],value[2,2]};
+
             InitColorSwapTex(GetComponent<SpriteRenderer>());
         }
     }
 
     private void Start()
     {   
-        //InitColorSwapTex(GetComponent<SpriteRenderer>());
+        InitColorSwapTex(GetComponent<SpriteRenderer>());
     }
     public void InitColorSwapTex(SpriteRenderer sprite)
     {
         Color[] HSVarray = new Color[3];
-        sprite.material.SetFloat("_IsColorable", IsColorable);
-        if (IsColorable == 0) return;
+        sprite.material.SetFloat("_ColorIndex", ColorIndex);
+        if (ColorIndex >= 2) return;
         
     
         HSVarray[0] = new Color(coatPalette[0],coatPalette[1],coatPalette[2],1);

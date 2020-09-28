@@ -4,7 +4,8 @@
 	{
 		[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 		
-		_IsColorable("IsColorable",Float) = 1 // 1 is true, 0 is false
+		_ColorIndex("Color Index",Float) = 1 // 0,1,2 => Coat,Patch,Eyecolor
+		// if bigger than 2 then its non applicable and exits
 
 		_Color("Tint", Color) = (1,1,1,1)
 
@@ -46,7 +47,7 @@
 				#include "UnitySprites.cginc"
 				
 				
-				float _IsColorable;
+				float _ColorIndex;
 				float4 _ColorArray[3];
 
 				//sampler2D _MainTex;
@@ -98,37 +99,24 @@
 					fixed4 xcolor = SampleSpriteTexture(IN.texcoord) * IN.color;
 					// if operations might be expensive, if there's a better way to implement it, please do
 	
-					// exit if r=g=b
-					if (xcolor.r == xcolor.g && xcolor.g == xcolor.b) return xcolor;
-					// exits if multiplying r,g, or b does not equal to zero (since one of the two values HAVE to be equal to zero)
-					if (xcolor.r*xcolor.g != 0 || xcolor.r*xcolor.b !=0  || xcolor.b*xcolor.g != 0 ) return xcolor;
-					// exits if the shader isnt meant to be colored
-					if ( _IsColorable == 0) return xcolor;
+					// exit if r,g and b are not equal
+					if (xcolor.r != xcolor.g && xcolor.g != xcolor.b) return xcolor;
+					// exits if colorIndex isn't valid
+					if ( _ColorIndex == 3) return xcolor;
 
-					int index;
 					float base = 0.74f; // base color AKA saturation cant go any lower
-					
-					// sets index based on whether or not rgb values are equal to 0
-					if (xcolor.r != 0) index = 0;
-					else if (xcolor.g != 0) index = 1;
-					else if (xcolor.b != 0) index = 2;
-
-					float multiplier = xcolor[index]; // color multiplier for value
+					float multiplier = xcolor[_ColorIndex]; // color multiplier for value
 
 					// multiplies the saturation if its darker than base
 					float satmultiplier = multiplier < base? 3.00f+(-3.00f*multiplier) : 1;
 
-					float4 storedcolor = _ColorArray[index];
+					float4 storedcolor = _ColorArray[_ColorIndex];
 					float f = storedcolor[0];
 
 					// converts the hsv values into rgb values
 					float3 hsvvalue = float3(storedcolor.x,storedcolor.y*satmultiplier,storedcolor.z*multiplier);
 					float4 color = HSVtoRGB(hsvvalue);
-					
-					// remnants from old codeee
-					//int index = int(floor(xcolor.r*10));
-					//float4 c = _ColorArray[index];
-					
+				
 					color.a = 255;
 					return color;
 	

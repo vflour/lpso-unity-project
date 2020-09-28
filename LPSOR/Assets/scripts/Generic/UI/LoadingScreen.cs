@@ -33,7 +33,6 @@ namespace Game.UI
             LoadingVisual();
         }
 
-
         public void FinishLoading()
         {         
             StartCoroutine(TweenLoadingBar(1.00f));
@@ -62,7 +61,13 @@ namespace Game.UI
             load = percentage;
 
             // destroys the gameobject if loading is completed
-            if(load == 1.00f) gameUI.RemoveScreen(this.gameObject);
+            if(load == 1.00f)
+            {
+                gameUI.SetScreenVisibility(1,true);
+                gameUI.RemoveBackground(0);
+                gameUI.RemoveScreen(this.gameObject);
+            } 
+
             isLoading = false;
         }
 

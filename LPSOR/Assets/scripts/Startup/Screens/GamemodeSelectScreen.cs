@@ -8,7 +8,7 @@ namespace Game.UI.Startup
     {
         public void MultiplayerSelect()
         {
-            gameUI.InstantiateScreen(1);
+            gameUI.InstantiateScreen(2);
             gameUI.RemoveScreen(this.gameObject);
         }
 

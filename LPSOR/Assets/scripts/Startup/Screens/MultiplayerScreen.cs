@@ -16,7 +16,6 @@ namespace Game.UI.Startup
 
         [Header("Textbox entries")]
         public UnityEngine.UI.InputField ipBox;
-        public UnityEngine.UI.InputField portBox;
         public UnityEngine.UI.InputField unameBox;
         
         private bool disabled = false;
@@ -24,10 +23,6 @@ namespace Game.UI.Startup
         private string IP
         {
             get{return ipBox.text;}
-        }
-        private string PORT
-        {
-            get{return portBox.text;}
         }
         private string uName
         {
@@ -67,7 +62,7 @@ namespace Game.UI.Startup
         }
         public bool IsValid() // Checks if the fields below are correctt
         {
-            return (uName.Length > 4 && IP.Length > 4 && PORT.Length > 0 && !disabled);
+            return (uName.Length > 4 && IP.Length > 0 && !disabled);
         }
         public void ConnectButtonVisibility()
         {
@@ -78,7 +73,7 @@ namespace Game.UI.Startup
 
         public void ConnectButton(){
             UIHandler uiHandler = (UIHandler)gameUI;
-            uiHandler.ConnectToServer(new ServerInformation(IP,PORT,uName));
+            uiHandler.ConnectToServer(new ServerInformation(IP,uName));
         }
 
         public override void ToggleInput(bool enabled){
