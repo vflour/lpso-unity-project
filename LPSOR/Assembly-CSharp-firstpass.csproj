@@ -2,8 +2,9 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Tools/RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.sh</CscToolExe>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,6 +40,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -56,47 +59,72 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Plugins\AnimationHierarchyEditor.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\CircleObject.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\GPUInstancing.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\GameObjectExtensions.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\GroupLayer.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\Layer.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\Log.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\ObjectLayer.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\PolygonObject.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\PolylineObject.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\RectangleObject.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\SpriteDepthInMap.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\TileLayer.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
-     <Compile Include="Assets\Plugins\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
-     <None Include="Assets\Plugins\Tiled2Unity\Imported\testroom.tiled2unity.xml" />
-     <None Include="Assets\Plugins\Tiled2Unity\License.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Tiled2Unity.export.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDefault-Instanced.shader" />
      <None Include="Assets\Plugins\SpriteOutline\Shaders\SpriteOutline.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDepth.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\Tiled2Unity.cginc" />
-     <None Include="Assets\Plugins\Tiled2Unity\Materials\_ReadMe.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDiffuseDepth-Instanced.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDepthColorKey.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDiffuseDepth.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Meshes\_ReadMe.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDepthColorKey-Instanced.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Textures\_ReadMe.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDefault.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Imported\test_map.tiled2unity.xml" />
-     <None Include="Assets\Plugins\Tiled2Unity\Imported\_ReadMe.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaColorKey-Instanced.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaDepth-Instanced.shader" />
-     <None Include="Assets\Plugins\Tiled2Unity\Prefabs\_ReadMe.txt" />
-     <None Include="Assets\Plugins\Tiled2Unity\Shaders\shaColorKey.shader" />
- <Reference Include="UnityEngine">
- <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-hlapi.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VectorGraphics">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.003">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.CollabProxy.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-weaver.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VectorGraphics.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEngineBridge.003">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -272,8 +300,11 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor">
- <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+ <Reference Include="SocketIOClient">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/SocketIOClient.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -629,74 +660,6 @@
  <Reference Include="Boo.Lang">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-hlapi.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VectorGraphics">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.003">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-weaver.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.XR.LegacyInputHelpers">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VectorGraphics.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.SpatialTracking">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.003">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.XR.LegacyInputHelpers">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-hlapi.Runtime">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

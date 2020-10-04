@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Game.UI.PetSelect;
+using Newtonsoft.Json;
 using Game.UI;
+using Newtonsoft.Json.Linq;
 
 namespace Game.PetSelect
 {
@@ -22,14 +24,20 @@ namespace Game.PetSelect
 
             handlers.Add(petSelect as IHandler);
             handlers.Add(characterHandler as IHandler);
-
-            stringRequests.Add("characterSaves",gameData.characterDataArray);
+            
             stringRequests.Add("playerData",gameData.playerData);
         }
 
         protected override void DeclareRecievers()
         {
             base.DeclareRecievers();
+            Recieve("requestCharacters", (obj) => RequestCharacters());
+            Recieve("recieveCharacters", (obj) =>
+            {
+                if (!processNetworkSignal(obj)) return;
+                RecieveCharacters((JObject) obj);
+            } );
+            
             Recieve("playAsCharacter",(obj)=>   PlayAsCharacter((int)obj));
             Recieve("createCharacter",(obj)=>   CreateCharacter((int)obj));
             
@@ -40,6 +48,17 @@ namespace Game.PetSelect
             Recieve("setSlotGroup",(obj)=>      SetSlotGroup((Slot[])obj));
             
         }
+
+        public void RequestCharacters()
+        {
+            this.networkClient.RequestCharacterData();
+        }
+        public void RecieveCharacters(JObject data)
+        {
+            CharacterData[] characterData = ((JArray) data["characterData"]).ToObject<CharacterData[]>();
+            petSelect.SetCharacterData(characterData);
+        }
+        
         public void PlayAsCharacter(int saveIndex)
         {
             gameData.currentCharacter = saveIndex;

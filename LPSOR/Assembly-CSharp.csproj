@@ -2,8 +2,9 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Tools/RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.sh</CscToolExe>
+    <_TargetFrameworkDirectories>non_empty_path_generated_by_unity.rider.package</_TargetFrameworkDirectories>
+    <_FullFrameworkReferenceAssemblyPaths>non_empty_path_generated_by_unity.rider.package</_FullFrameworkReferenceAssemblyPaths>
+    <DisableHandlePackageFileConflicts>true</DisableHandlePackageFileConflicts>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -38,6 +40,7 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -90,13 +93,11 @@
      <Compile Include="Assets\scripts\Old\GlobalSort.cs" />
      <Compile Include="Assets\scripts\Old\InteractItem.cs" />
      <Compile Include="Assets\scripts\Old\Inventory.cs" />
-     <Compile Include="Assets\scripts\Old\Load.cs" />
      <Compile Include="Assets\scripts\Old\LoadIntoMap.cs" />
      <Compile Include="Assets\scripts\Old\Node.cs" />
      <Compile Include="Assets\scripts\Old\OpenBars.cs" />
      <Compile Include="Assets\scripts\Old\Save_T.cs" />
      <Compile Include="Assets\scripts\Old\SetUIsize.cs" />
-     <Compile Include="Assets\scripts\Old\Start_Buttons.cs" />
      <Compile Include="Assets\scripts\Old\TileMap.cs" />
      <Compile Include="Assets\scripts\Old\TileTypes.cs" />
      <Compile Include="Assets\scripts\Old\move.cs" />
@@ -116,86 +117,6 @@
      <Compile Include="Assets\scripts\PetSelect\PSUIHandler.cs" />
      <Compile Include="Assets\scripts\PetSelect\PetSelectHandler.cs" />
      <Compile Include="Assets\scripts\PetSelect\PetSelectScreen.cs" />
-     <Compile Include="Assets\scripts\SocketIO\JSONObject\JSONObject.cs" />
-     <Compile Include="Assets\scripts\SocketIO\JSONObject\JSONTemplates.cs" />
-     <Compile Include="Assets\scripts\SocketIO\JSONObject\VectorTemplates.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\Ack.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\Decoder.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\Encoder.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\EnginePacketType.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\Packet.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\Parser.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\SocketIOComponent.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\SocketIOEvent.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\SocketIOException.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\SocketIO\SocketPacketType.cs" />
-     <Compile Include="Assets\scripts\SocketIO\Scripts\Test\TestSocketIO.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\AssemblyInfo.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\ByteOrder.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\CloseEventArgs.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\CloseStatusCode.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\CompressionMethod.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\ErrorEventArgs.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Ext.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Fin.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\HandshakeBase.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\HandshakeRequest.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\HandshakeResponse.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\LogData.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\LogLevel.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Logger.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Mask.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\MessageEventArgs.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\AuthenticationBase.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\AuthenticationChallenge.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\AuthenticationResponse.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\AuthenticationSchemes.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\Chunk.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\ChunkStream.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\ChunkedRequestStream.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\Cookie.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\CookieCollection.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\CookieException.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\EndPointListener.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\EndPointManager.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpBasicIdentity.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpConnection.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpDigestIdentity.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpHeaderInfo.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpHeaderType.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpListener.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpListenerContext.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpListenerException.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpListenerPrefixCollection.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpListenerRequest.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpListenerResponse.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpStatusCode.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpStreamAsyncResult.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpUtility.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\HttpVersion.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\InputChunkState.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\InputState.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\LineState.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\ListenerAsyncResult.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\ListenerPrefix.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\NetworkCredential.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\QueryStringCollection.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\ReadBufferState.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\RequestStream.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\ResponseStream.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\Security\SslStream.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\WebHeaderCollection.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\WebSockets\HttpListenerWebSocketContext.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\WebSockets\TcpListenerWebSocketContext.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Net\WebSockets\WebSocketContext.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Opcode.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\PayloadData.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\Rsv.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\WebSocket.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\WebSocketException.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\WebSocketFrame.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\WebSocketState.cs" />
-     <Compile Include="Assets\scripts\SocketIO\WebsocketSharp\WebSocketStream.cs" />
      <Compile Include="Assets\scripts\Startup\Screens\GamemodeSelectScreen.cs" />
      <Compile Include="Assets\scripts\Startup\Screens\MultiplayerScreen.cs" />
      <Compile Include="Assets\scripts\Startup\Screens\RoomSelectButton.cs" />
@@ -205,11 +126,73 @@
      <Compile Include="Assets\scripts\Startup\ServerInformation.cs" />
      <Compile Include="Assets\scripts\Startup\SystemHandler.cs" />
      <Compile Include="Assets\scripts\Startup\UIHandler.cs" />
+     <Compile Include="Assets\scripts\TestObject.cs" />
      <None Include="Assets\scripts\PetGen\PetVector.shader" />
-     <None Include="Assets\scripts\SocketIO\JSONObject\readme.txt" />
-     <None Include="Assets\scripts\SocketIO\Readme.txt" />
- <Reference Include="UnityEngine">
- <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-hlapi.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VSCode.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VectorGraphics">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.003">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.CollabProxy.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-weaver.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Rider.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VectorGraphics.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Tilemap.Editor">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEngineBridge.003">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.TextMeshPro">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -385,8 +368,11 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor">
- <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+ <Reference Include="SocketIOClient">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/SocketIOClient.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -741,72 +727,6 @@
  </Reference>
  <Reference Include="Boo.Lang">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-hlapi.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VSCode.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VectorGraphics">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.003">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-weaver.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.XR.LegacyInputHelpers">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Rider.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.VectorGraphics.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.SpatialTracking">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.003">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
- </Reference>
- <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.XR.LegacyInputHelpers">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.multiplayer-hlapi.Runtime">
- <HintPath>/home/vflour/Documents/Unity Projects/LPSOR/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

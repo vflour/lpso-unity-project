@@ -11,18 +11,25 @@ namespace Game.Networking
     {
         public static void SaveServerData(List<ServerInformation>  serverInfo) // Serializes server info into a binary file
         {
-            string dataPath = Application.persistentDataPath+"/serverInformation.sav";
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream fs = new FileStream(dataPath,FileMode.Create);
-            bf.Serialize(fs,serverInfo.ToArray());
-            fs.Close();
+            try
+            {
+                string dataPath = Application.persistentDataPath+"/serverInformation.sav";
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream fs = new FileStream(dataPath,FileMode.Create);
+                bf.Serialize(fs,serverInfo.ToArray());
+                fs.Close();
+            } 
+            catch( System.Exception ex )
+            {
+                Debug.LogException(ex);
+            }
         }
 
         public static List<ServerInformation> LoadServerData() // deserializes the serverInformation binary if there is one
         {
             List<ServerInformation> data = new List<ServerInformation>();
-
             string dataPath = Application.persistentDataPath+"/serverInformation.sav";
+
             if(File.Exists(dataPath))
             {
                 ServerInformation[] serverArray; // array for the server info

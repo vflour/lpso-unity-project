@@ -22,9 +22,15 @@ namespace Game.PetSelect
         public GameSystem system{get;   set;}
         public void Activate()
         {
-            SetCharacterData();
+            RequestCharacterData();
+
+        }
+
+        public void SetCharacterData(CharacterData[] characterData)
+        {
+            this.characterData = characterData;
             SetSlots();
-            LoadSlotGroup(1);
+            LoadSlotGroup(1);          
         }
 #endregion
 
@@ -40,9 +46,9 @@ namespace Game.PetSelect
         private int bronze; // bronze tickets + silver tickets
         private int silver;
 #endregion
-        private void SetCharacterData() // requests the characterdata from the system and sets it
+        private void RequestCharacterData() // requests the characterdata from the system and sets it
         {
-            characterData = (CharacterData[])system.Request("characterSaves");
+            system.Emit("requestCharacters",null);
         }
         private void SetSlots()
         {

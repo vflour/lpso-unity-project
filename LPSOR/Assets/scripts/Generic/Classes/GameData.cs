@@ -7,7 +7,6 @@ namespace Game
     public class GameData : MonoBehaviour
     {   
         public PlayerData playerData;
-        public CharacterData[] characterDataArray;
         public int currentCharacter; // stores the current character, but also create a pet ticket data
         public Room roomData;
         public ServerInformation serverInformation;
@@ -18,10 +17,9 @@ namespace Game
         {
             DontDestroyOnLoad(this.gameObject);
         }
-        public void LoadGameData(PlayerData player, CharacterData[] characterArray )
+        public void LoadGameData(PlayerData player)
         {
             playerData = player;
-            characterDataArray = characterArray;
         }
 
     }

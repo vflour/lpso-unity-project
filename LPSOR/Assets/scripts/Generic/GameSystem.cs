@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.UI;
 using Game.Networking;
+using Newtonsoft.Json.Linq;
 
 namespace Game
 {
@@ -57,7 +59,33 @@ namespace Game
 
 #region Handler Adapter functions
         protected delegate void EmitDelegate<T>(T item);
-        protected Dictionary<string,EmitDelegate<object>> stringEmits = new Dictionary<string,EmitDelegate<object>>();
+        protected Dictionary<string,Action<object>> stringEmits = new Dictionary<string,Action<object>>();
+        protected Dictionary<string, object> stringObjects = new Dictionary<string, object>();
+        protected bool queueAvailable = false;
+        protected Dictionary<string, bool> emitQueue = new Dictionary<string, bool>();
+        
+        // Calls the Emits in the main thread
+        public void Update()
+        {
+            if (!queueAvailable) return;
+            queueAvailable = false;
+
+            // create temporary keyvalue pairs
+            List<KeyValuePair<string, bool>> temp = new List<KeyValuePair<string, bool>>();
+            foreach (KeyValuePair<string, bool> entry in emitQueue) temp.Add(entry);
+            
+            // set the actualkeyvalue pairs 
+            foreach (KeyValuePair<string, bool> entry in temp)
+            {
+                if (entry.Value)
+                {
+                    emitQueue[entry.Key] = false;
+                    Action<object> recieveDel = stringEmits[entry.Key];
+                    recieveDel(stringObjects[entry.Key]);
+                }
+            }
+            
+        }
 
         // Emit handles the sending > recieving portion of the system. Fires a delegate stored in the stringEmits dictionary
         public void Emit(string emitType, object item)
@@ -67,14 +95,18 @@ namespace Game
                 Debug.Log(emitType+" emit does not exist");
                 return;
             };
-            EmitDelegate<object> recieveDel = stringEmits[emitType];
-            recieveDel(item);
+            stringObjects[emitType] = item;
+            emitQueue[emitType] = true;
+            queueAvailable = true;
         }
 
         //recieve is initialized in gamesystem's subclasses
         protected void Recieve(string emitType, EmitDelegate<object> del)
         {
-            stringEmits.Add(emitType,del);
+            Action<object> action = new Action<object>(del);
+            stringEmits.Add(emitType,action);
+            stringObjects.Add(emitType, null);;
+            emitQueue.Add(emitType, false);
         }
 
         // Stores all the objects that can be attained via request
@@ -124,7 +156,7 @@ namespace Game
 #region Network signal checks
         protected bool processNetworkSignal(object obj) // checks if the object is a JSON and if theres no error codes
         {
-            int returnCode = (int)((JSONObject)obj)["returnCode"].f;
+            int returnCode = (int)((JObject)obj)["returnCode"];
             if(!CheckErrorCode(returnCode)) return false;
 
             return true; // returns true if everything is OK
