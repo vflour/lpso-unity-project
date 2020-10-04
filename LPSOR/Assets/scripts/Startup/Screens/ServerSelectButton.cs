@@ -26,9 +26,16 @@ namespace Game.UI.Startup
 
         [Header("Classes")]
         public UIHandler uiHandler;
+        public MultiplayerScreen mpScreen;
         public void SelectServer()
         {
             uiHandler.ConnectToServer(serverInformation);
+        }
+
+        public void RemoveServer()
+        {
+            mpScreen.RemoveServer(serverInformation);
+            GameObject.Destroy(this);
         }
     
     }

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using Game.UI.Startup;
 using UnityEngine;
-using SocketIO;
 using Game.Networking;
+using Newtonsoft.Json.Linq;
 
 namespace Game.Startup
 {
@@ -37,14 +37,16 @@ namespace Game.Startup
             Recieve("authenSuccess",(obj)=>
             {
                 if (!processNetworkSignal(obj)) return;
-                authenticateUser((JSONObject)obj);
+                authenticateUser((JObject)obj);
             });
 
             Recieve("registerSuccess",(obj)=>
             {
                 if (!processNetworkSignal(obj)) return;
-                registerUser((JSONObject)obj);
+                registerUser((JObject)obj);
             });
+            
+            Recieve("removeServer", (obj) =>RemoveServer((ServerInformation)obj));
 
         }
 #endregion
@@ -80,20 +82,27 @@ namespace Game.Startup
             ServerDataPersistence.SaveServerData(serverList);
         }
 
-        //gets all the rooms sent from the server and adds it to the request dictionary
-        private void SetRoomList(JSONObject data)
+        private void RemoveServer(ServerInformation serverInformation)
         {
-            List<JSONObject> array = data["rooms"].list;
+            List<ServerInformation> serverList = Request("serverInformation") as List<ServerInformation>;
+            serverList.Remove(serverInformation);
+            ServerDataPersistence.SaveServerData(serverList);
+        }
+
+        //gets all the rooms sent from the server and adds it to the request dictionary
+        private void SetRoomList(JObject data)
+        {
+            JArray array = (JArray)data["rooms"];
             stringRequests.Add("roomInformation",TransformJSONintoRoom(array));
         }
 
         // cycles through each JSONObject in the list and turns it into a Room object
-        private List<Room> TransformJSONintoRoom(List<JSONObject> JSONlist)
+        private List<Room> TransformJSONintoRoom(JArray JSONlist)
         {
             List<Room> rooms = new List<Room>();
-            foreach(JSONObject jsonobject in JSONlist)
+            foreach(JToken jsonObject in JSONlist)
             {
-                Room room = new Room(jsonobject["name"].str,(int)jsonobject["population"].f,(int)jsonobject["buddies"].f,(int)jsonobject["maxPopulation"].f);
+                Room room = new Room((string)jsonObject["name"],(int)jsonObject["population"],0,(int)jsonObject["maxPopulation"]);
                 rooms.Add(room);
             }
             return rooms;
@@ -101,7 +110,7 @@ namespace Game.Startup
 #endregion
 
 #region Network signal adapters
-        private void authenticateUser(JSONObject data) 
+        private void authenticateUser(JObject data) 
         {
             SetRoomList(data); // sets the room lists
      
@@ -116,15 +125,18 @@ namespace Game.Startup
 
         }
 
-        private void registerUser(JSONObject data)
+        private void registerUser(JObject data)
         {
+            
             // adds a new server to the list and saves it
             AddNewServer(networkClient.CurrentServer);
 
             // tells the startup UIHandler to show the keyID
-            UIHandler startupUI = (UIHandler)gameUI; 
-            startupUI.ShowKey(data["keyId"].str);
-
+            UIHandler startupUI = (UIHandler)gameUI;
+            
+            string keyId = (string)data["keyId"];
+            startupUI.ShowKey(keyId);
+            
             authenticateUser(data);
         }
 #endregion

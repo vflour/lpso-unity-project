@@ -44,6 +44,11 @@ namespace Game.UI.Startup
             return system.Request("roomInformation") as List<Room>;
         }
 
+        public void RemoveServer(ServerInformation server)
+        {
+            system.Emit("removeServer", server);
+        }
+
         // method used to display the userKey to the player
         public void ShowKey(string userKey){
             MessageBoxTypes messageBoxType = MessageBoxTypes.Default;

@@ -1,13 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+
 using UnityEngine;
-using SocketIO;
 using UnityEngine.Networking;
+
+using Newtonsoft.Json.Linq;
+using SocketIOClient;
 
 namespace Game.Networking
 {
-    public class NetworkClient : SocketIOComponent, IHandler
+    public class NetworkClient : MonoBehaviour, IHandler
     {
+            private SocketIO socket; // The websocket
             private ServerInformation _currentServer; // Stored server data
             public ServerInformation CurrentServer
             {
@@ -32,7 +38,6 @@ namespace Game.Networking
 
             public virtual void Awake() // NetworkClient can't be destroyed from scene to scene
             {
-                base.Awake();
                 DontDestroyOnLoad(this.gameObject); 
             }
 
@@ -51,8 +56,9 @@ namespace Game.Networking
 #region Server connection  
             public void ConnectToIP()
             {
+                //StartCoroutine(SearchForIP());
                  // if there is no established connection, then connect to the ip
-                if(!IsConnected || socket.IsConnected) StartCoroutine(SearchForIP());
+                if(!ConnectionRecieved) StartCoroutine(SearchForIP());
                 // connect as a user if there is a connection to the server (re-authenticate)
                 else ConnectAsUser();
             }
@@ -62,15 +68,23 @@ namespace Game.Networking
             {
                 // sends an HTTP GET request to the server
                 // note to self: this isn't really secure. MTM attacks could happen
-                string uri = "https://"+CurrentServer.IP;
+                string uri = CurrentServer.IP;
                 UnityWebRequest www = UnityWebRequest.Get(uri);
                 yield return www.SendWebRequest();
             
                 if(www.isNetworkError || www.isHttpError) system.ServerDisconnect(); // tells system theres no connection
                 else // connect via websocket if theres a response
-                {          
-                    this.url = "ws://"+CurrentServer.IP+"/socket.io/?EIO=4&transport=websocket";// sets the url based on port and ip
-                    Connect();
+                {
+                    /*IO.Options options = new IO.Options();
+                    options.ReconnectionDelay = 500;
+                    options.Reconnection = true;
+                    options.Timeout = 50000;*/
+                    SocketIOOptions options = new SocketIOOptions();
+                    options.Reconnection = true;
+                    options.ReconnectionDelay = 500;
+                    
+                    socket = new SocketIO(uri,options);
+                    socket.ConnectAsync();
                     SocketEvents();
                 } 
             }
@@ -78,26 +92,37 @@ namespace Game.Networking
             // request authentication from server
             public void ConnectAsUser()
             {
-                PlayerKey authenKey = new PlayerKey(CurrentServer.userName,CurrentServer.keyId); 
-                Emit("userConnect", new JSONObject(JsonUtility.ToJson(authenKey))); // sends authenKey (keyid and username) for authentication
+                string authenKey = "{"+$"\"userName\":\"{CurrentServer.userName}\",\"keyId\":\"{CurrentServer.keyId}\""+"}";
+                
+                socket.EmitAsync("userConnect", authenKey); // sends authenKey (keyid and username) for authentication
+                
+            }
+
+            public void RequestCharacterData()
+            {
+                socket.EmitAsync("requestCharacterData");
             }
             
 #endregion  
 
-#region Server connection  
+#region Socket events  
         
-        private void SocketEvents(){
-                On("disconnect",(E)=> ResetConnection()); // fires when the player is disconnected from the server
-                On("open",(E)=> OpenConnection(E.data)); // fires when the socket is opened
-                On("authenSuccess",(E)=>authenticateUser(E.data)); // fires when player is authenticated
-        }
-        private void OpenConnection(JSONObject data)
+        private void SocketEvents()
         {
-            if(ConnectionRecieved) return; // adds connection recieved so it doesnt open twice
+            socket.OnConnected += (sender, e) => OpenConnection();// fires when the socket is opened
+            socket.OnDisconnected += (sender, e) => ResetConnection();// fires when the player is disconnected from the server
+            
+            // authen
+            socket.On("authenSuccess", data =>  authenticateUser(data.GetValue<JToken>()) ); // fires when player is authenticated*
+            
+            // character requests
+            socket.On("allCharacterData",data=> recieveCharacterData(data.GetValue<JToken>()) );
+        }
+        private void OpenConnection()
+        {
             ConnectionRecieved = true;
-
             // tells system to proceed
-            system.Emit("openConnection",data);
+            system.Emit("openConnection",null);
         }
 
         // resets the connection and boots to login screen
@@ -107,15 +132,20 @@ namespace Game.Networking
             system.ServerDisconnect("startupScene");
         }    
 
-        private void authenticateUser(JSONObject data)
+        private void authenticateUser(JToken data)
         {
             if (CurrentServer.keyId == "") // the server hasn't saved a keyid, thus the player is being registered
             {
-                _currentServer.keyId = data["keyId"].str;
+                _currentServer.keyId = (string)data["keyId"];
                 system.Emit("registerSuccess",data);
             }
             // there is a keyId, thus the player is being authenticated
             else system.Emit("authenSuccess",data);          
+        }
+
+        private void recieveCharacterData(JToken data)
+        {
+            system.Emit("recieveCharacters", data);
         }
 #endregion  
     }

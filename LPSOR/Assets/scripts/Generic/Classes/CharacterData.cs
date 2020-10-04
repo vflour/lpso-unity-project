@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 public class CharacterData 
@@ -43,22 +44,22 @@ public class CharacterData
 [System.Serializable]
 public class PlayerData
 {
-    public PlayerData(JSONObject data)
+    public PlayerData(JToken data)
     {
-        this.userName = data["userName"].str;
-        this.kibble = (int)data["kibble"].n;
-        this.friends = JSONtoIntArray(data["friends"].list);
-        this.inventory = JSONtoIntArray(data["inventory"].list);;   
-        this.bronze = (int)data["bronze"].n;
-        this.silver = (int)data["silver"].n;  
+        this.userName = (string)data["userName"];
+        this.kibble = (int)data["kibble"];
+        this.friends = JSONtoIntArray((JArray)data["friends"]);
+        this.inventory = JSONtoIntArray((JArray)data["inventory"]);;   
+        this.bronze = (int)data["bronze"];
+        this.silver = (int)data["silver"];  
     }
 
-    private int[] JSONtoIntArray(List<JSONObject> list)
+    private int[] JSONtoIntArray(JArray list)
     {
         int[] array = new int[list.Count];
         for(int i = 0; i < list.Count; i++)
         {
-            array[i] = (int)list[i].n;
+            array[i] = (int)list[i];
         }
         return array;
     }

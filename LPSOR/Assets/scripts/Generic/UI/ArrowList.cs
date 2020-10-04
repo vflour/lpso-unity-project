@@ -19,6 +19,7 @@ namespace Game.UI
 
         public virtual void Initialize(List<GameObject> elements)
         {
+            Clear();
             this.elements = elements;
             SetPage(0); // setting default page to 0
             
@@ -35,6 +36,14 @@ namespace Game.UI
                 SetPageButtonsSize();
             }
         }
+
+        private void Clear()
+        {
+            foreach(ArrowListButton button in arrowListButtons) 
+                GameObject.Destroy(button.gameObject);
+            arrowListButtons = new List<ArrowListButton>();
+        }
+        
         public ArrowListButton AddButton(GameObject prefab, int value, int buttonType)
         {
             GameObject button = Instantiate(prefab,transform);

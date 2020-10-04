@@ -39,7 +39,7 @@ namespace Game
 
 #endregion
 
- #region Active UI element storage
+#region Active UI element storage
         private List<GameObject> loadedScreens = new List<GameObject>(); // All instantiated screens + backgrounds that are active
         private List<GameObject> loadedBackgrounds = new List<GameObject>();
         private MessageBox currentMsgBox; // Active message box. There can only be one

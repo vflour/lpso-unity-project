@@ -19,7 +19,8 @@ namespace Game.UI.Startup
         public UnityEngine.UI.InputField unameBox;
         
         private bool disabled = false;
-
+        private List<ServerInformation> serverSaves;
+        private List<GameObject> serverButtons = new List<GameObject>();
         private string IP
         {
             get{return ipBox.text;}
@@ -37,23 +38,33 @@ namespace Game.UI.Startup
 
         public void LoadServers()
         {
+            ClearServerButtons();
             UIHandler uiHandler = (UIHandler)gameUI;
-            List<ServerInformation> serverSaves = uiHandler.GetServerInformationSaves();
-            List<GameObject> serverButtons = new List<GameObject>();
+            serverSaves = uiHandler.GetServerInformationSaves();
+            
 
             for (int i = 0; i < serverSaves.Count ; i++)
             {
                 GameObject button = Instantiate(joinServerButtonPrefab,serverButtonContainer);
-
                 ServerSelectButton buttonComponent = button.GetComponent<ServerSelectButton>();
                 buttonComponent.serverInformation = serverSaves[i];
                 buttonComponent.uiHandler = uiHandler;
+                buttonComponent.mpScreen = this;
                 buttons.Add(button.GetComponent<UnityEngine.UI.Button>());
                 serverButtons.Add(button);
             }
             InitializeServerPageButtons(serverButtons);
         }
 
+        // lazy  way of clearing server buttons,
+        public void ClearServerButtons()
+        {
+            foreach (GameObject button in serverButtons) GameObject.Destroy(button);
+
+            serverButtons = new List<GameObject>();
+            buttons = new List<UnityEngine.UI.Button>();
+
+        }
         public void InitializeServerPageButtons(List<GameObject> serverButtons)
         {
             arrowList.Initialize(serverButtons);
@@ -71,14 +82,17 @@ namespace Game.UI.Startup
             else connectButton.interactable = false;
         }
 
-        public void ConnectButton(){
-            UIHandler uiHandler = (UIHandler)gameUI;
-            uiHandler.ConnectToServer(new ServerInformation(IP,uName));
-        }
-
         public override void ToggleInput(bool enabled){
             base.ToggleInput(enabled);
             disabled = !enabled; // disabled is set so that the inputs dont reactivate the button
+        }
+
+        public void RemoveServer(ServerInformation serverInformation)
+        {
+            UIHandler uiHandler = (UIHandler)gameUI;
+            serverSaves.Remove(serverInformation);
+            uiHandler.RemoveServer(new ServerInformation(IP,uName));
+            LoadServers();
         }
 
     }
