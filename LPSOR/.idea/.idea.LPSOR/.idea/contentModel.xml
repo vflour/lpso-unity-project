@@ -16,11 +16,17 @@
             </e>
           </e>
         </e>
-        <e p="scripts" t="Include">
+        <e p="Scripts" t="Include">
           <e p="CreateAPet" t="Include">
             <e p="CrAPHandler.cs" t="Include" />
+            <e p="CrAPScreen.cs" t="Include" />
+            <e p="CrAPSect1Screen.cs" t="Include" />
+            <e p="CrAPSect2Screen.cs" t="Include" />
+            <e p="CrAPSect3Screen.cs" t="Include" />
             <e p="CrAPSystem.cs" t="Include" />
             <e p="CrAPUI.cs" t="Include" />
+            <e p="PaletteModifierButton.cs" t="Include" />
+            <e p="PartModifierButton.cs" t="Include" />
           </e>
           <e p="Generic" t="Include">
             <e p="CharacterHandler.cs" t="Include" />
@@ -39,6 +45,9 @@
             <e p="UI" t="Include">
               <e p="ArrowList.cs" t="Include" />
               <e p="ArrowListButton.cs" t="Include" />
+              <e p="ArrowListIncrButton.cs" t="Include" />
+              <e p="ArrowListPSButton.cs" t="Include" />
+              <e p="ArrowListPage.cs" t="Include" />
               <e p="LoadingScreen.cs" t="Include" />
               <e p="MessageBox.cs" t="Include" />
               <e p="MessageBoxPrefabs.cs" t="Include" />

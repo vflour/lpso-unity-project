@@ -300,11 +300,11 @@
  <Reference Include="UnityEngine.XRModule">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
  </Reference>
- <Reference Include="SocketIOClient">
- <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/SocketIOClient.dll</HintPath>
- </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="SocketIOClient">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/SocketIOClient.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

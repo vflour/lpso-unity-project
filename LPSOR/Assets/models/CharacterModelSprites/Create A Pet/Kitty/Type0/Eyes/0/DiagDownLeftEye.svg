@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="LeftEyeDiagDown.svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 6.9906879 21.418032"
+   height="21.418032mm"
+   width="6.9906878mm">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect2126"
+       is_visible="true"
+       offset_points="1,0.13229166"
+       sort_points="true"
+       interpolator_type="CubicBezierJohan"
+       interpolator_beta="0.2"
+       start_linecap_type="zerowidth"
+       linejoin_type="extrp_arc"
+       miter_limit="4"
+       end_linecap_type="zerowidth" />
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path5352"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="63.658152"
+     inkscape:cy="13.522587"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="false"
+     inkscape:snap-others="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-28.524117,-79.749558)">
+    <g
+       id="g2142"
+       transform="matrix(1.0097617,0,0,1.0097617,-0.05653305,-0.69543783)">
+      <path
+         sodipodi:nodetypes="cscsccc"
+         inkscape:connector-curvature="0"
+         id="path1874"
+         d="m 28.325041,81.965272 c -0.03683,1.186252 -0.03292,4.840359 0.08196,8.557284 0.07155,2.315179 -0.02924,4.85963 0.293887,6.214172 0.721051,-4.066836 0.07258,-8.373916 0.07258,-12.581369 0,-0.173029 0.04903,-2.390904 0.17152,-3.770246 -0.319238,0.539901 -0.461258,1.006083 -0.619943,1.580159 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.09816188;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccscccc"
+         inkscape:connector-curvature="0"
+         id="path1868"
+         d="m 29.728208,79.996997 c -0.282552,0.198097 -0.47499,0.273926 -0.78322,0.388116 -0.316863,0.80764 -0.45627,5.049941 -0.436,9.01605 0.01939,3.793646 0.191903,7.335565 0.191903,7.335565 0.118545,0.191028 0.228302,0.437721 0.544771,1.007374 -0.11363,-0.459934 -0.290895,-9.468787 -0.0331,-11.800267 z"
+         style="fill:#676767;fill-opacity:1;stroke:none;stroke-width:0.09816188;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccssccscc"
+         inkscape:connector-curvature="0"
+         id="path1852"
+         d="m 30.113417,99.107017 c -0.348732,-0.419254 -0.400032,-0.429354 -0.867755,-1.362915 -0.213476,-1.576368 -0.449166,-4.967863 -0.477643,-8.347561 -0.01767,-2.097408 0.04446,-4.190272 0.24123,-5.841941 0.140536,-1.179641 0.282127,-2.460702 0.783119,-3.275688 0.801807,-1.191095 1.011347,-0.275444 1.011347,-0.275444 0,0 -1.042093,3.920928 -1.075502,9.296958 -0.03341,5.376028 0.385209,9.806591 0.385209,9.806591 z"
+         style="fill:#bfbfbf;fill-opacity:1;stroke:none;stroke-width:0.09816188;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cscccsc"
+         inkscape:connector-curvature="0"
+         id="path1844"
+         d="m 30.803713,80.003468 c -1.153157,2.705113 -1.186683,6.671368 -1.15028,10.718235 0.02698,2.999928 0.139417,6.035138 0.459985,8.385313 0.338409,0.397678 1.078989,1.138574 1.743186,1.677514 1.104831,0.19194 1.701203,0.0629 2.024215,-0.15083 1.149866,-1.484186 1.853738,-7.138514 0.901298,-12.297539 -0.575198,-3.115646 -1.96532,-5.673552 -3.978404,-8.332693 z"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.09816188;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         ry="2.6726952"
+         rx="1.2361217"
+         cy="87.62664"
+         cx="31.665916"
+         id="path1876"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.09330532;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+      <ellipse
+         ry="1.1525998"
+         rx="0.40090427"
+         cy="98.567993"
+         cx="30.76388"
+         id="path1878"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.08660254;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal" />
+    </g>
+  </g>
+</svg>

@@ -58,13 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\AnimationBuilder.cs" />
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\CustomEditors.cs" />
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\PrefabBuilder.cs" />
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\S2USettings.cs" />
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\ScmlImportOptions.cs" />
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\ScmlPostProcessor.cs" />
-     <Compile Include="Assets\scripts\PetGen\Spriter2UnityDX\Editor\ScmlSupport.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\AnimationBuilder.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\CustomEditors.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\PrefabBuilder.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\S2USettings.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\ScmlImportOptions.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\ScmlPostProcessor.cs" />
+     <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\ScmlSupport.cs" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
@@ -326,11 +326,11 @@
  <Reference Include="UnityEditor.LinuxStandalone.Extensions">
  <HintPath>/home/vflour/UnityVersions/Unity-2019.4.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll</HintPath>
  </Reference>
- <Reference Include="SocketIOClient">
- <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/SocketIOClient.dll</HintPath>
- </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="SocketIOClient">
+ <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Assets/Plugins/SocketIOClient.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
  <HintPath>/home/vflour/Documents/LPSOgit/LPSOR/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
