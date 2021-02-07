@@ -236,7 +236,7 @@ namespace Game.CrAP
         {
             characterData.palette[i] = v;
             Color[] colorPalette = characterHandler.GetPalette(characterData.species, characterData.palette);
-            characterHandler.SetPalette(CurrentPet.index, colorPalette);
+            characterHandler.SetPalette(characterHandler.GetIndex(CurrentPet), colorPalette);
         }
 
         public void CoatColorSelect(int index) // Sets the coat color according to the palette index

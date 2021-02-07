@@ -28,10 +28,17 @@
             <e p="PaletteModifierButton.cs" t="Include" />
             <e p="PartModifierButton.cs" t="Include" />
           </e>
+          <e p="Editor" t="Include">
+            <e p="LPSOMapImporter" t="Include">
+              <e p="JSONMapAsset.cs" t="Include" />
+              <e p="JSONMapOptions.cs" t="Include" />
+            </e>
+          </e>
           <e p="Generic" t="Include">
             <e p="CharacterHandler.cs" t="Include" />
             <e p="Classes" t="Include">
               <e p="Character.cs" t="Include" />
+              <e p="CharacterAnimEvents.cs" t="Include" />
               <e p="CharacterData.cs" t="Include" />
               <e p="GameData.cs" t="Include" />
               <e p="Player.cs" t="Include" />
@@ -63,6 +70,11 @@
             <e p="Consumable.cs" t="Include" />
             <e p="Hat.cs" t="Include" />
             <e p="Item.cs" t="Include" />
+          </e>
+          <e p="Map" t="Include">
+            <e p="MapData.cs" t="Include" />
+            <e p="MapHandler.cs" t="Include" />
+            <e p="TileNode.cs" t="Include" />
           </e>
           <e p="Networking" t="Include">
             <e p="ErrorCodes.cs" t="Include" />

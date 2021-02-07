@@ -38,7 +38,6 @@ namespace Game
             loadedCharacters.Add(character);
             // sets the character fields
             character.characterHandler = this;
-            character.index = loadedCharacters.Count-1;
 
             return character;
         }
@@ -54,7 +53,7 @@ namespace Game
         }
         public void AnimateCharacter(int character, string animationName)
         {
-            loadedCharacters[character].TriggerAnimation(animationName);
+            loadedCharacters[character].PlayAnimation(animationName);
         }
 
         public void AddClothes(int character, int slot)
@@ -71,6 +70,10 @@ namespace Game
             return petGen.GetPalette(species,paletteData);
 
         }
+        public int GetIndex(Character character)
+        {
+            return loadedCharacters.IndexOf(character);
+        }      
         public void SetPalette(int character, Color[] palette)
         {
             GameObject characterObject = loadedCharacters[character].gameObject;

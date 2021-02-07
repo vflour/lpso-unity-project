@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\CreateAPet\PartModifierButton.cs" />
      <Compile Include="Assets\Scripts\Generic\CharacterHandler.cs" />
      <Compile Include="Assets\Scripts\Generic\Classes\Character.cs" />
+     <Compile Include="Assets\Scripts\Generic\Classes\CharacterAnimEvents.cs" />
      <Compile Include="Assets\Scripts\Generic\Classes\CharacterData.cs" />
      <Compile Include="Assets\Scripts\Generic\Classes\GameData.cs" />
      <Compile Include="Assets\Scripts\Generic\Classes\Player.cs" />
@@ -93,6 +94,9 @@
      <Compile Include="Assets\Scripts\Items\Consumable.cs" />
      <Compile Include="Assets\Scripts\Items\Hat.cs" />
      <Compile Include="Assets\Scripts\Items\Item.cs" />
+     <Compile Include="Assets\Scripts\Map\MapData.cs" />
+     <Compile Include="Assets\Scripts\Map\MapHandler.cs" />
+     <Compile Include="Assets\Scripts\Map\TileNode.cs" />
      <Compile Include="Assets\Scripts\Networking\ErrorCodes.cs" />
      <Compile Include="Assets\Scripts\Networking\NetworkClient.cs" />
      <Compile Include="Assets\Scripts\Networking\NetworkJSONClass.cs" />

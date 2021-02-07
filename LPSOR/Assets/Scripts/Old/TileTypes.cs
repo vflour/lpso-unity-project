@@ -27,7 +27,7 @@ public class PadSlots
 
 }
 
-public class MapData
+public class OldMapData
 {
     public int NonCollidable;
     public int Collidable;

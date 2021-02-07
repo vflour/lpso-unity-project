@@ -242,11 +242,11 @@ public class TileMap : MonoBehaviour {
         }
     }
 
-    MapData jsonmap() // loads json map from Resources
+    OldMapData jsonmap() // loads json map from Resources
     {
         TextAsset jsonfile = Resources.Load<TextAsset>(map_file);
         string jsonstring = jsonfile.text;
-        MapData mapData = JsonUtility.FromJson<MapData>(jsonstring);
+        OldMapData mapData = JsonUtility.FromJson<OldMapData>(jsonstring);
         return mapData;
     }
 
@@ -258,7 +258,7 @@ public class TileMap : MonoBehaviour {
     }
 
     void MapSet(){ // Sets Map data  in tiles according to JSON map
-        MapData mapData = jsonmap();
+        OldMapData mapData = jsonmap();
         MapSizeX = mapData.SizeX;
         MapSizeY = mapData.SizeY;
         int globalindex = 0;

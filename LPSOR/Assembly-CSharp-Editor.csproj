@@ -58,6 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Editor\LPSOMapImporter\JSONMapAsset.cs" />
+     <Compile Include="Assets\Scripts\Editor\LPSOMapImporter\JSONMapOptions.cs" />
      <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\AnimationBuilder.cs" />
      <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\CustomEditors.cs" />
      <Compile Include="Assets\Scripts\PetGen\Spriter2UnityDX\Editor\PrefabBuilder.cs" />
