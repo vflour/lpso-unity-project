@@ -12,8 +12,8 @@ ScriptedImporter:
   texturedSpriteMeshType: 0
   svgPixelsPerUnit: 100
   gradientResolution: 64
-  alignment: 2
-  customPivot: {x: 0.5, y: 1}
+  alignment: 1
+  customPivot: {x: 0, y: 1}
   generatePhysicsShape: 0
   viewportOptions: 0
   preserveViewport: 0
@@ -41,15 +41,15 @@ ScriptedImporter:
     SpriteRect:
       name: LLowerLegSprite
       originalName: 
-      pivot: {x: 0.5, y: 1}
-      alignment: 2
+      pivot: {x: 0, y: 1}
+      alignment: 1
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 37
+        width: 15
+        height: 19
       spriteID: e4625a2b5a527644b8ad6699c3637c4a
       internalID: 0
     PhysicsOutlines: []

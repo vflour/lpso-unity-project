@@ -6,12 +6,19 @@ namespace Game
 {
     public class GameData : MonoBehaviour
     {   
+        // Character and player data
         public PlayerData playerData;
-        public int currentCharacter; // stores the current character, but also create a pet ticket data
+        public CharacterData sessionData;
+        public int currentTicket;
+        public int spawnLocation = -1;
+
+        // Map + server information
         public Room roomData;
+        public string map;
         public ServerInformation serverInformation;
-        public string world;
         
+        // In-game data
+        public List<GameEvent> events = new List<GameEvent>();
         
         private void Awake()
         {
@@ -20,6 +27,12 @@ namespace Game
         public void LoadGameData(PlayerData player)
         {
             playerData = player;
+        }
+        
+        // Disables self by destroying the game object
+        public void Disable()
+        {
+            Destroy(this.gameObject);
         }
 
     }

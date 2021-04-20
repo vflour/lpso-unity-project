@@ -22,7 +22,7 @@ public class PetSpriteGenerator
         GameObject CharacterObject = GameObject.Instantiate(Subtype.BodyPrefab);
 
         // sets the actual color palette based on palette data
-        Color[] Palette = GetPalette(Species, PaletteData); 
+        PaletteColor[] Palette = GetPalette(Species, PaletteData); 
 
         // Cycle through every Part in PartTypes
         for (int Index = 0; Index < PartTypes.Length; Index++)
@@ -48,11 +48,11 @@ public class PetSpriteGenerator
         return CharacterObject;
     }
 
-    public Color[] GetPalette(int species, int[] paletteData)
+    public PaletteColor[] GetPalette(int species, int[] paletteData)
     {
         //paletteData corresponds to the palette index, aka pD[0] = coat index, pD[1] eyes index, pD[2] = patch index
         PaletteStorage paletteStorage = petDatabase.GetPaletteArray(species);
-        Color[] colorArray = new Color[3];
+        PaletteColor[] colorArray = new PaletteColor[3];
         
         colorArray[0] = paletteStorage.coatPalettes[paletteData[0]];
         colorArray[1] = paletteStorage.patchPalettes[paletteData[1]];
@@ -60,16 +60,16 @@ public class PetSpriteGenerator
         
         return colorArray;
     }
-    public void SetPalette(GameObject characterObject, Color[] palette)
+    public void SetPalette(GameObject characterObject, PaletteColor[] palette)
     {
-        foreach(VectorPaletteModifier PaletteMod in characterObject.GetComponentsInChildren<VectorPaletteModifier>()) // Looks for the palette modifier
+        foreach(VectorPaletteModifier paletteMod in characterObject.GetComponentsInChildren<VectorPaletteModifier>()) // Looks for the palette modifier
         {
-            PaletteMod.Palette = palette;
+            paletteMod.Palette = palette;
         }
     }
  
 
-    public Transform FindParentByName(Transform P,string Name)
+    public static Transform FindParentByName(Transform P,string Name)
     {
         Transform Object = P;
         foreach(Transform Child in P.GetComponentsInChildren<Transform>())

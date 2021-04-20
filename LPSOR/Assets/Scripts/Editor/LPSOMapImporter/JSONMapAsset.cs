@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 using Game;
+using Object = UnityEngine.Object;
 
 namespace LPSOMapImporter
 {
@@ -66,6 +68,13 @@ namespace LPSOMapImporter
 			// get both height and width
 			int height = jsonObject["height"].ToObject<int>();
 			int width = jsonObject["width"].ToObject<int>();
+
+			int sectionwidth = jsonObject["sectionwidth"].ToObject<int>();
+			int sectionheight = jsonObject["sectionheight"].ToObject<int>();
+
+			float tileWidth = jsonObject["tilewidth"].ToObject<float>();
+			float tileHeight = jsonObject["tileheight"].ToObject<float>();
+			
 			//find the CollisionMap layer
 			JToken collisionLayer = jsonObject;
 			
@@ -99,10 +108,11 @@ namespace LPSOMapImporter
 				}	
 			}
 			// store data for the spawn coordinates
-			Vector2Int spawnCoordinates = new Vector2Int(0,0);
+			List<Vector2Int> spawnCoordinates = new List<Vector2Int>();
 			// create the collision map
-			bool[,] collisionMap = new bool[width,height];
+			bool[] collisionMap = new bool[width*height];
 			JToken[] layerData = collisionLayer["data"].ToArray();
+			
 			for(int i = 0; i < layerData.Length; i++)
 			{
 				// store the collision tile
@@ -110,21 +120,48 @@ namespace LPSOMapImporter
 				bool collidable = currentId - firstGid != noCollideId;
 				int currentX = i % width;
 				int currentY = i / height;
-				collisionMap[currentX, currentY] = collidable;
+				collisionMap[i] = collidable;
 				
 				// check if its a spawn coord
 				if(currentId - firstGid == spawnId)
-					spawnCoordinates = new Vector2Int(currentX,currentY);
+					spawnCoordinates.Add(new Vector2Int(currentX,currentY));
 			}
 			
 			// create the scritableobject
 			MapData map = ScriptableObject.CreateInstance<MapData>();
 			map.size = new Vector2Int(width,height);
-			map.defaultSpawn = spawnCoordinates;
+			map.spawnPoints = spawnCoordinates.ToArray();
 			map.collisionMap = collisionMap;
-
+			map.tileSize = new Vector2(tileWidth / 100, tileHeight / 100);
+			CreateMapPrefab(Path.GetDirectoryName(path),sectionwidth,sectionheight);
 			string assetPath = path.Replace(".lpsm",".asset");
 			AssetDatabase.CreateAsset(map,assetPath);
+			GameObject.Destroy(map);
+		}
+
+		private static void CreateMapPrefab(string path, int width, int height)
+		{
+			Regex rx = new Regex("(\\d)+");
+			GameObject prefab = new GameObject();
+			string[] assets = AssetDatabase.FindAssets("t:sprite",new[]{path+"/Background"});
+			foreach (string asset in assets)
+			{
+				string assetPath = AssetDatabase.GUIDToAssetPath(asset);
+				string assetName = Path.GetFileNameWithoutExtension(assetPath);
+				Sprite spriteAsset = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+				int order = int.Parse(rx.Match(assetName).Value);
+				int column = (order-1) % 10;
+				int row = (order-1) / 10;
+				GameObject sprite = new GameObject();
+				SpriteRenderer spriteRenderer = sprite.AddComponent<SpriteRenderer>();
+				spriteRenderer.sprite = spriteAsset;
+				sprite.transform.localPosition = new Vector3(column*width/100.0f-width/100.0f*5,-row*height/100.0f);
+				sprite.transform.SetParent(prefab.transform);
+				sprite.name = assetName;
+			}
+
+			prefab.name = "Background";
+			PrefabUtility.SaveAsPrefabAssetAndConnect(prefab, path + "/AssembledMap.prefab",InteractionMode.UserAction);
 		}
 
 		private static JObject Deserialize(string path)

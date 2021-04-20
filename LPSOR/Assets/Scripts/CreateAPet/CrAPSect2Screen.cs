@@ -17,7 +17,7 @@ namespace Game.UI.CRaP
         // Gets the pet database from System
         public PetDatabase PetDB
         {
-            get { return gameUI.RequestFromSystem<PetDatabase>("petDB"); }
+            get { return gameUI.system.GetHandler<CrAPHandler>().petDatabase; }
         }
         // Continue Button
         public void NextSection()
@@ -45,19 +45,18 @@ namespace Game.UI.CRaP
         private int _currentSubSpecies = 0;
         public int CurrentSubSpecies
         {
-            get { return _currentSubSpecies; }
+            get => _currentSubSpecies;
             set
             {
                 _currentSubSpecies = (int) Mathf.Repeat(value, SubSpeciesCount);
                 speciesField.text = ((PetDatabase.SpeciesNames)CurrentSpecies).ToString();
-
-                gameUI.EmitToSystem("setCurrentSubSpecies",_currentSubSpecies);
+                gameUI.system.GetHandler<CrAPHandler>().SubSpecies = _currentSubSpecies;
             }
         }
         // get currently stored species from system
         public int CurrentSpecies
         {
-            get { return gameUI.RequestFromSystem<int>("currentSpecies"); }
+            get => gameUI.system.GetHandler<CrAPHandler>().Species;
         }
         
         // Button functions

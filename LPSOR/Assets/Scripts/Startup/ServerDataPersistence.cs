@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Game.Networking
 {
-    public class ServerDataPersistence : MonoBehaviour
+    public class ServerDataPersistence
     {
         public static void SaveServerData(List<ServerInformation>  serverInfo) // Serializes server info into a binary file
         {

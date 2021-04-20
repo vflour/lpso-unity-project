@@ -25,13 +25,12 @@ namespace Game.UI.Startup
         public Text UNameField;
 
         [Header("Classes")]
-        public UIHandler uiHandler;
+        public GameUI gameUI;
         public MultiplayerScreen mpScreen;
         public void SelectServer()
         {
-            uiHandler.ConnectToServer(serverInformation);
+            mpScreen.serverInformation = serverInformation;
         }
-
         public void RemoveServer()
         {
             mpScreen.RemoveServer(serverInformation);

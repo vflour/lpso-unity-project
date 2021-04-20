@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,15 +34,15 @@ namespace Game.UI
             LoadingVisual();
         }
 
-        public void FinishLoading()
+        public IEnumerator FinishLoading(Action callback)
         {         
-            StartCoroutine(TweenLoadingBar(1.00f));
+            yield return StartCoroutine(TweenLoadingBar(1.00f));
+            callback();
         }
 
         public void LoadingVisual()
         {
             StartCoroutine(TweenLoadingBar(0.25f));
-
         }
 
         public IEnumerator TweenLoadingBar(float percentage)
@@ -52,18 +53,13 @@ namespace Game.UI
             float quantity = percentage-load;
 
             // loops through the number of times you have to reach to arrive at the percentage
-            for(float interval = 0; interval <= quantity; interval+=0.01f)
+            for(float interval = 0; interval <= quantity; interval+=0.02f)
             {
                 loadingBar.value = load+interval;
-                yield return new WaitForSeconds(1.00f/60.00f);
+                yield return new WaitForSeconds(1.00f/30.00f);
             }
             // sets the load value
             load = percentage;
-
-            // destroys the gameobject if loading is completed
-            if(load == 1.00f)
-                gameUI.FinishLoading();
-            
             isLoading = false;
         }
 

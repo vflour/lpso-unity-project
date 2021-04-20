@@ -2,24 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemDatabase : MonoBehaviour
+namespace Game.Inventory
 {
-    public Dictionary<string, Item> ItemBase;
-
-    // 00 = Consumable
-    // 11 = HeadItem
-    // 20 = GlassesItem
-
-    // etc for now
-    public void InitDatabase()
+    [CreateAssetMenu(fileName = "ItemDatabase", menuName = "Databases/Item", order = 1)]
+    public class ItemDatabase : ScriptableObject
     {
-     ItemBase = new Dictionary<string, Item>()
-        {
-            { "000001",Resources.Load<Item>("Items/Cupcake")},
-            { "110001",Resources.Load<Item>("Items/RedBow")}
-        };
+        public Item[] data;
     }
-
-
-
 }

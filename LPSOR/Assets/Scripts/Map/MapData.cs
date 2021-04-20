@@ -6,9 +6,11 @@ namespace Game
 {
     public class MapData : ScriptableObject
     {
-        public bool[,] collisionMap;
+        public bool[] collisionMap;
         public Vector2Int size;
         public Vector2 tileSize;
-        public Vector2Int defaultSpawn;
+        public Vector2Int[] spawnPoints;
+        public float yOffset;
+        public string mapName;
     }
 }

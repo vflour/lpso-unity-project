@@ -9,8 +9,8 @@ public class VectorPaletteModifier : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     
     public int ColorIndex = 3;
-    private Color[] palette = new Color[3];
-    public Color[] Palette
+    private PaletteColor[] palette = new PaletteColor[3];
+    public PaletteColor[] Palette
     {
         set
         {
@@ -28,8 +28,9 @@ public class VectorPaletteModifier : MonoBehaviour
     {
         
         sprite.material.SetFloat("_ColorIndex", ColorIndex);
+        sprite.material.SetFloat("_Saturation", palette[ColorIndex].saturationMultiplier);
         if (ColorIndex > 2) return;
-        sprite.material.color = palette[ColorIndex];
+        sprite.material.color = palette[ColorIndex].color;
     }
 
 }

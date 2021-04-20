@@ -23,7 +23,7 @@ public class LoadIntoMap : MonoBehaviour
     public GameObject character;
 
     public List<List<InventorySlot_s>> InventoryData;
-    public InventoryScript inventoryscript;
+    //public InventoryScreen inventoryscript;
     private player_move pm;
 
     void Start()
@@ -31,7 +31,7 @@ public class LoadIntoMap : MonoBehaviour
         StartCoroutine(loading_gui());// loading screen as coroutine
         character = characterLoad();
         SetPlayerCharScript();
-        inventoryscript.Summon(InventoryData, character.transform);
+        //inventoryscript.Summon(InventoryData, character.transform);
         tilescr.playerchar = character;
         tilescr.PlayerMove = pm;
         tilescr.StartMap();

@@ -10,34 +10,33 @@ namespace Game.UI.PetSelect
         // increment the slot group
         public void IncrementPetSelect(int increment)
         {
-            system.Emit("incrementPS",increment);
+            system.GetHandler<PetSelectHandler>().IncrementSlotGroup(increment);
         }
         public void SetPetSelect(int index)
         {
-            system.Emit("setPS",index);
+            system.GetHandler<PetSelectHandler>().SetSlotGroup(index);
         }
         // set the total slot count
         public void SetCharacterCount(int count)
         {
-            PetSelectScreen screen = firstScreen.GetComponent<PetSelectScreen>();
+            PetSelectScreen screen = GetScreen("PetSelect").GetComponent<PetSelectScreen>();
             screen.characterCount = count;
         }
         // get the slot count 
         public void SetSlot(int slot)
         {
-            PetSelectScreen screen = firstScreen.GetComponent<PetSelectScreen>();
+            PetSelectScreen screen = GetScreen("PetSelect").GetComponent<PetSelectScreen>();
             screen.CurrentSlot = slot; 
         }
         public void SetSlotGroup(Slot[] group)
         {
-
-            PetSelectScreen screen = firstScreen.GetComponent<PetSelectScreen>();
+            PetSelectScreen screen = GetScreen("PetSelect").GetComponent<PetSelectScreen>();
             screen.Slots = group; 
         }
         // Getting data from server
         public CharacterData GetSave(int saveIndex)
         {
-            CharacterData[] saves = (CharacterData[])system.Request("characterSaves");
+            CharacterData[] saves = (CharacterData[])system.Request("characterData");
             return saves[saveIndex];
         }
 

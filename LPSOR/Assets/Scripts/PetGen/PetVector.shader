@@ -6,7 +6,9 @@
 		
 		_ColorIndex("Color Index",Float) = 3 // 0,1,2 => Coat,Patch,Eyecolor
 		// if bigger than 2 then its non applicable and exits
-
+		
+		_Saturation("Saturation Multiplier",Float) = 2 // saturation is multiplied
+	
 		_Color("Tint", Color) = (1,1,1,1)
 
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
@@ -47,7 +49,8 @@
 				#include "UnitySprites.cginc"
 				
 				float _ColorIndex;
-
+				float _Saturation;
+			
 				v2f VectorVert(appdata_t IN) // The original VectorVertex portion of the shader. 
 				{
 					
@@ -116,7 +119,7 @@
 					// increase saturation
 					int minIndex = GetMin(color);
 					int maxIndex = GetMax(color);
-					float satMultiplier = (1-xcolor.r)*2;
+					float satMultiplier = (1-xcolor.r)*_Saturation;
 
 					/* Not getting into the math, but it basically calculates how you modify the color if you want to
 						increase the saturation. It finds the delta, adds the multiplier, then sets a new minColor based on delta

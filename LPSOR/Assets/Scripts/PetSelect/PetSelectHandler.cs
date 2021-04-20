@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Game.UI.PetSelect;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Game.PetSelect
@@ -24,8 +27,7 @@ namespace Game.PetSelect
         public GameSystem system{get;   set;}
         public void Activate()
         {
-            RequestCharacterData();
-
+            
         }
         private bool _display;
         public bool Display
@@ -34,15 +36,28 @@ namespace Game.PetSelect
             set
             {
                 _display = value;
-                // set the slot visibility
-                SetSlotsVisible(_display);
+                if (_display)
+                {
+                    RequestCharacterData();
+                    SetSlotsVisible(_display);
+                }
             }
         }
  #endregion
 
 #region Private fields
         private List<Slot[]> slots = new List<Slot[]>(); // all organized slots
-        private CharacterData[] characterData; // all characters that the player has
+        private CharacterData[] _characterData; // all characters that the player has
+
+        public CharacterData[] characterData
+        {
+            get { return _characterData;}
+            set{
+                _characterData = value;
+                SetSlots();
+                LoadSlotGroup(0);
+            }
+        }
         private List<GameObject> loadedSlots = new List<GameObject>();
         private List<GameObject> loadedPlatforms = new List<GameObject>();
 
@@ -50,16 +65,15 @@ namespace Game.PetSelect
         private int bronze; // bronze tickets + silver tickets
         private int silver;
 #endregion
-        public void SetCharacterData(CharacterData[] characterData)
-        {
-            this.characterData = characterData;
-            SetSlots();
-            LoadSlotGroup(0);  
-            SetSlotsVisible(false);
-        }
         private void RequestCharacterData() // requests the characterdata from the system and sets it
         {
-            system.Emit("requestCharacters",null);
+            system.ServerDataRequest("getAllCharacters", data =>
+            {
+                characterData = JsonConvert.DeserializeObject<List<CharacterData>>(data.ToString()).ToArray();
+                system.Store("characterData", characterData);
+                PSUIHandler uiHandler = (PSUIHandler)system.GetHandler<GameUI>();
+                uiHandler.SetCharacterCount(characterData.Length);
+            });
         }
         private void SetSlots()
         {
@@ -108,20 +122,20 @@ namespace Game.PetSelect
         {
             if (i >= slots[currentSlotGroup].Length) return;
             Slot slot = slots[currentSlotGroup][i];
-
-            system.Emit("setCurrentSlot",i);
+            
+            system.GetHandler<GameUI>().GetScreen("PetSelect").GetComponent<PetSelectScreen>().CurrentSlot = i;
             DisplaySlot(i);
         }
 
         private void DisplaySlot(int i)
         {
             RemoveDisplay();
-
-            currentSlotDisplay = GameObject.Instantiate(loadedSlots[i],displaySpace);
-            currentPlatDisplay = GameObject.Instantiate(displayPlatformPrefabs[i],displaySpace);
-
-            currentPlatDisplay.transform.localPosition = new Vector3(0,0,0);
-            currentSlotDisplay.transform.localPosition = new Vector3(0,0.2f,0);
+            
+            currentSlotDisplay = LoadSlotModel("_display",slots[currentSlotGroup][i]);
+            currentPlatDisplay = GameObject.Instantiate(displayPlatformPrefabs[(int)slots[currentSlotGroup][i].platformType],displaySpace);
+            
+            SetSlotPosition(currentSlotDisplay, displaySpace, 0.1f);
+            SetSlotPosition(currentPlatDisplay, displaySpace, 0);
 
             currentSlotDisplay.transform.localScale = new Vector3(0.5f,0.5f,0.5f); 
         }
@@ -130,7 +144,10 @@ namespace Game.PetSelect
         {
             if(currentSlotDisplay)
             {
-                GameObject.Destroy(currentSlotDisplay);
+                if (characterHandler.HasCharacter(currentSlotDisplay.name))
+                    characterHandler.RemoveCharacter(currentSlotDisplay.name);
+                else
+                    GameObject.Destroy(currentSlotDisplay);
                 GameObject.Destroy(currentPlatDisplay);
             }
         }
@@ -139,7 +156,7 @@ namespace Game.PetSelect
         private void LoadSlotGroup(int groupIndex)
         {
             // tells system to set the new slot group
-            system.Emit("setSlotGroup",slots[groupIndex]);
+            system.GetHandler<PSUIHandler>().SetSlotGroup(slots[groupIndex]);
             
             RemoveSlotGroup();
             currentSlotGroup = groupIndex;
@@ -152,24 +169,11 @@ namespace Game.PetSelect
                 {
                     Slot slot = slots[groupIndex][i];
                     platformType = (int) slot.platformType;
-                    switch(slot.type)
-                    {
-                        // instantiates the sprite based on the type
-                        case SlotType.Pet:
-                            GameObject sprite = characterHandler.AddCharacter(characterData[slot.saveIndex]).gameObject;
-                            loadedSlots.Add(sprite);
-                            break;
-                        case SlotType.BronzeTicket:
-                            sprite = GameObject.Instantiate(ticketPrefabs[0]);
-                            loadedSlots.Add(sprite);
-                            break;
-                        case SlotType.SilverTicket:
-                            sprite = GameObject.Instantiate(ticketPrefabs[1]);
-                            loadedSlots.Add(sprite);
-                            break;
-                    }  
+                    GameObject slotModel = LoadSlotModel("_slot",slot);
+                    loadedSlots.Add(slotModel);
                     // parents the slot
-                    SetSlotPosition(loadedSlots[i], slotSpaces[i], 0.2f);
+                    float slotOffset = slot.type == SlotType.Pet ? 0.1f : 0.2f;
+                    SetSlotPosition(loadedSlots[i], slotSpaces[i], slotOffset);
                 }
                 // instantiates and parents the platform
                 GameObject platform = GameObject.Instantiate(platformPrefabs[platformType]);
@@ -181,6 +185,26 @@ namespace Game.PetSelect
             }
 
             SelectSlot(0);
+        }
+
+        private GameObject LoadSlotModel(string name, Slot slot)
+        {
+            GameObject sprite;
+            switch(slot.type)
+            {
+                // instantiates the sprite based on the type
+                case SlotType.BronzeTicket:
+                    sprite = GameObject.Instantiate(ticketPrefabs[0]);
+                    break;
+                case SlotType.SilverTicket:
+                    sprite = GameObject.Instantiate(ticketPrefabs[1]);
+                    break;
+                default:
+                    sprite = characterHandler.AddCharacter(characterData[slot.saveIndex]._id+name,characterData[slot.saveIndex]).gameObject;
+                    break;
+            }
+
+            return sprite;
         }
 
         // wipes the slot gameobjects completely

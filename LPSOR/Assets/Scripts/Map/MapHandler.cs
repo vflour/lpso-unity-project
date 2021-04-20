@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Game.Map
 {
@@ -19,6 +21,7 @@ namespace Game.Map
         public void Activate()
         {
             GenerateGraph();
+            InitializeObjects();
         }
         private bool _display;
         public bool Display { get; set; }
@@ -30,64 +33,93 @@ namespace Game.Map
         public void GenerateGraph()
         {
             tileNodes = new TileNode[mapData.size.x,mapData.size.y];
-            for (int x = 0; x < mapData.size.x; x++)
-                for (int y = 0; y < mapData.size.y; y++)
+            for (int i = 0; i < mapData.collisionMap.Length; i++)
+            {
+                if (mapData.collisionMap[i])
                 {
-                    if (mapData.collisionMap[x, y]) // check if map is collidable 
-                    {
-                        Vector3 position = new Vector3(mapData.tileSize.x*-x,mapData.tileSize.y*-y); // tiles are generated from a down->left order
-                        // instantiate the actual tile
-                        GameObject tileObject = Instantiate(tilePrefab, position, Quaternion.identity, mapContainer);
-                        // create new tile object
-                        TileNode tile = tileObject.AddComponent<TileNode>();
-                        tile.x = x;
-                        tile.y = y;
-                        // generate the tile's neighbors
-                        GenerateNeighbors(x, y, tile.neighbors);
-                        tileNodes[x, y] = tile;
-                    }
+                    int x = i % mapData.size.x;
+                    int y = i / mapData.size.y;
+                    float sX = mapContainer.lossyScale.x;
+                    float sY = mapContainer.lossyScale.y;
+                    Vector3 transX = new Vector3(mapData.tileSize.x/2, -mapData.tileSize.y/2) * x*sX; // translation for each x coordinate
+                    Vector3 transY = new Vector3(-mapData.tileSize.x / 2, -mapData.tileSize.y / 2) * y*sY;
+                    Vector3 position = transX + transY + new Vector3(0, mapData.yOffset,0); // tiles are generated from a down->left order
+                    // instantiate the actual tile
+                    GameObject tileObject = Instantiate(tilePrefab, position, Quaternion.identity, mapContainer);
+                    tileObject.transform.localScale = new Vector3(mapData.tileSize.x, mapData.tileSize.y, 1);
+                    tileObject.name = $"Tile: {x}, {y}, {i}";
+
+                    // create new tile object
+                    TileNode tile = tileObject.GetComponent<TileNode>();
+                    tile.x = x;
+                    tile.y = y;
+                    tileNodes[x, y] = tile;  
                 }
+            }
             
+            // Generate neighbors for each tile once they're all instantiated
+            for (int x = 0; x < tileNodes.GetLength(0); x++)
+                for (int y = 0; y < tileNodes.GetLength(1); y++)
+                    if(tileNodes[x,y]!=null)
+                        GenerateNeighbors(x,y,tileNodes[x,y].neighbors);
         }
         // Generates the neighbors for each node
         public void GenerateNeighbors(int x, int y, List<TileNode> neighbors)
         {
             // all 8 possible directions in the grid
             int[,] directions = {{-1, 1}, {0, 1}, {1, 1}, {-1, 0}, {1, 0}, {-1, -1}, {0, -1}, {1, -1}};
-            for (int i = 0; i < directions.Length; i++)
+            for (int i = 0; i < directions.GetLength(0); i++)
             {
                 // get the coordinates for a possible neighter
-                int neighborX = x + directions[i, 0];
+                int neighborX = x + directions[i,0];
                 int neighborY = y + directions[i,1];
+                int neighborIndex = neighborY * mapData.size.y + neighborX;
                 if (neighborX >= 0 && neighborX < mapData.size.x && // if the coordinates exist within range
                     neighborY >= 0 && neighborY < mapData.size.y)
-                    if (mapData.collisionMap[neighborX, neighborY]) // check if neighbor is collidable 
+                    if (mapData.collisionMap[neighborIndex]) // check if neighbor is collidable 
                         neighbors.Add(tileNodes[neighborX,neighborY]);
             }
         }
         #endregion
         #region Map Navigation
-        public void MoveToTile(Character character, Vector2Int tile)
+
+        // Checks if a coordinate exists. If not, sets it to the nearest spawn point.
+        public Vector2Int CheckCoordinates(Vector2Int coordinates)
+        {
+            if(tileNodes[coordinates.x, coordinates.y] == null)
+                coordinates = mapData.spawnPoints[0];
+            return coordinates;
+        }
+        public Vector3 GetTileCoordinates(Vector2Int coordinates)
+        {
+            // Get last saved coordinates
+            TileNode tile = tileNodes[coordinates.x, coordinates.y];
+            return tile.transform.position+tileOffset;
+        }
+        public void MoveToTile(Character character, Vector2Int tile, Action callback)
         {
             TileNode start = tileNodes[character.tilePosition.x, character.tilePosition.y];
+            tile = CheckCoordinates(tile); // Check coordinates in case it's invalid
             TileNode goal = tileNodes[tile.x, tile.y];
             List<TileNode> path = FindPath(start, goal);
-            // whether the character should run or walk
-            // tbd: study how this works
-            bool walking = path.Count>5;
+
+            // character runs when the tile count is > 3
+            bool walking = path.Count<=3;
             // move the physical character
-            StartCoroutine(NavigatePath(character, path));
-            
+            StartCoroutine(character.MoveToTile(path,tileOffset,callback));
         }
 
+        public TileNode GetTile(Vector2Int tileCoords)
+        {
+            return tileNodes[tileCoords.x, tileCoords.y];
+        }
         private IEnumerator NavigatePath(Character character, List<TileNode> path)
         {
             foreach (TileNode node in path)
             {
-                character.MoveTo(node.gameObject.transform.position + tileOffset);
+                character.MoveTo(node.transform.position + tileOffset);
                 yield return new WaitUntil(() => character.gameObject.transform.position == character.targetPosition);
             }
-
             character.characterState = CharacterState.Idle;
         }
         
@@ -117,7 +149,7 @@ namespace Game.Map
                 // exit if the goal is the same as current
                 if(current==goal)
                     return StructurePath(current,storedNodes);
-
+                
                 //remove the current node from openSet
                 openSet.Remove(current);
                 closedSet.Add(current);
@@ -153,7 +185,8 @@ namespace Game.Map
         // Finds the GScore of a node. If it doesn't exist, defaults to the maximum int value.
         private static int GetGScore(TileNode n,  Dictionary<TileNode,int> gScore) {
             int score = int.MaxValue;
-            gScore.TryGetValue(n, out score);
+            if (gScore.ContainsKey(n)) // TryGetValue is being mean, so I've put it in timeout.
+                score = gScore[n];
             return score;    
         }
         // Basically creates a list by referencing the daisy-chain of nodes connected to the goal
@@ -173,6 +206,31 @@ namespace Game.Map
         }
         #endregion
         #region Map Object Handling
+        [Header("Prop Data Properties")] 
+        public Transform backgroundObjectContainer;
+        private Dictionary<int, Prop> props = new Dictionary<int, Prop>();
+        public Material propOutline;
+        public Material propNormal;
+        public void InitializeObjects()
+        {
+            // set sprite order of all background objects
+            foreach (SortingGroup child in backgroundObjectContainer.GetComponentsInChildren<SortingGroup>())
+                child.sortingOrder = (int) -child.transform.position.y*10;
+            // add props if applicable
+            foreach (Prop prop in backgroundObjectContainer.GetComponentsInChildren<Prop>())
+            {
+                prop.mapHandler = this;
+                props.Add(prop.id, prop);
+            }
+        }
+
+        public void InteractObject(Player player, int id)
+        {
+            if (!props[id].isOccupied)
+            {
+                props[id].Interact(player);
+            }
+        }
         #endregion
     }
 }

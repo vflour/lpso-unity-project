@@ -44,7 +44,7 @@ namespace Game.UI.PetSelect
 
         public void ContinueButton()
         {
-            Slot slot = slots[currentSlot];
+            Slot slot = slots[CurrentSlot];
             switch(slot.type)
             {
                 case SlotType.Pet:

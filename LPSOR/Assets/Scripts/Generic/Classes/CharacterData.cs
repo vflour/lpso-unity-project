@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 using UnityEngine;
+using Game.Inventory;
 
+[System.Serializable]
 public class CharacterData 
 {
     public CharacterData()
@@ -13,7 +14,7 @@ public class CharacterData
         this.parts = new int[] { 0, 0, 0, 0, 0, 0 };
     }
     // userdata + character info
-    public string charId;
+    public string _id;
     public string userName;
     public string name;
     public int ticket;
@@ -33,41 +34,23 @@ public class CharacterData
     public int[] parts;
 
     // Classes that just basically dictate misc. affairs
-
     public int gender; // 0 = F, 1 = M
+    public ItemData[] wearing = new ItemData[8];
     public string adoptionDate;
     public int[] favFood;
     public int[] needs;
-
+    public Vector2Int lastLocation;
+    
     public int tile;
 }
+
 
 [System.Serializable]
 public class PlayerData
 {
-    public PlayerData(JToken data)
-    {
-        this.userName = (string)data["userName"];
-        this.kibble = (int)data["kibble"];
-        this.friends = JSONtoIntArray((JArray)data["friends"]);
-        this.inventory = JSONtoIntArray((JArray)data["inventory"]);;   
-        this.bronze = (int)data["bronze"];
-        this.silver = (int)data["silver"];  
-    }
-
-    private int[] JSONtoIntArray(JArray list)
-    {
-        int[] array = new int[list.Count];
-        for(int i = 0; i < list.Count; i++)
-        {
-            array[i] = (int)list[i];
-        }
-        return array;
-    }
-
     public string userName;
-    public int[] friends;
-    public int[] inventory;
+    public List<string> friends;
+    public List<ItemData> inventory;
     
     public int kibble;
     public int bronze;

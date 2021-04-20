@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IUseable
+namespace Game.Inventory
 {
-    void Use(Transform player);
+    public interface IUseable
+    {
+        void Use(ItemButton itemButton);
+    }
 }
 
-public interface IWearable
-{
-    void ChangeSlot(InventoryScript inventoryRef);
-}
 

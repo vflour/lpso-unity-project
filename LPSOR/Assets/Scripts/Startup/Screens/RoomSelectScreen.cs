@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,21 +22,22 @@ namespace Game.UI.Startup
 
         private void LoadRooms()
         {
-            UIHandler uiHandler = (UIHandler)gameUI;
-            List<Room> rooms = uiHandler.GetRooms();
-            List<GameObject> roomButtons = new List<GameObject>();
-
-            for (int i = 0; i < rooms.Count ; i++)
+           gameUI.system.ServerDataRequest("getRooms", data =>
             {
-                GameObject button = Instantiate(roomButtonPrefab,roomButtonContainer);
-                RoomSelectButton roomSelect = button.GetComponent<RoomSelectButton>();
-                roomSelect.roomInformation = rooms[i];
-                roomSelect.uiHandler = uiHandler;
-                
-                roomButtons.Add(button);
 
-            }
-            InitializeRoomPageButtons(roomButtons);
+                List<Room> rooms = data.ToObject<List<Room>>();
+                List<GameObject> roomButtons = new List<GameObject>();
+
+                foreach(Room room in rooms)
+                {
+                    GameObject button = Instantiate(roomButtonPrefab,roomButtonContainer);
+                    RoomSelectButton roomSelect = button.GetComponent<RoomSelectButton>();
+                    roomSelect.roomInformation = room;
+                    roomSelect.gameUI = gameUI;
+                    roomButtons.Add(button);
+                }
+                InitializeRoomPageButtons(roomButtons);
+            });
         }
 
         public void InitializeRoomPageButtons(List<GameObject> roomButtons)

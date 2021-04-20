@@ -2,7 +2,6 @@
 using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 
 namespace Game.CrAP
@@ -12,8 +11,8 @@ namespace Game.CrAP
     public class CrAPHandler : MonoBehaviour, IHandler
     {   
 [Header("Species count")]
-        public int speciesCount = 1;
-
+        public int speciesCount = 2;
+       
         // Create a pet section property
         private CrAPSection _crapSection;
         public CrAPSection crapSection 
@@ -39,12 +38,13 @@ namespace Game.CrAP
 
 #region Private fields
         private CharacterHandler characterHandler;
-        private PetDatabase petDatabase;
-
+        public PetDatabase petDatabase;
+        
         // loaded instances of the character
         private CharacterData characterData;
-        private Character CurrentPet;
-        private List<Character> LoadedCrAPs = new List<Character>();
+        private Character currentPet;
+        private List<Character> loadedPets = new List<Character>();
+        private Dictionary<Character, GameObject> pedestals= new Dictionary<Character, GameObject>();
 
         private int selectedPet;
         private int maxPets;
@@ -60,10 +60,9 @@ namespace Game.CrAP
         // Initialization
         public void Activate()
         {
-            characterHandler = GameObject.Find("CharacterHandler").GetComponent<CharacterHandler>();
+            characterHandler = system.GetHandler<CharacterHandler>();
             petDatabase = characterHandler.petDatabase;
             crapSection = CrAPSection.Species;
-            system.Emit("setPetDatabase", petDatabase);
         }
         
         private bool _display;
@@ -87,7 +86,7 @@ namespace Game.CrAP
             // generate all species in list and put them on display
             for(int species = 0; species < speciesCount; species++) 
             {
-                AddPet(blankPalette,species,0,blankParts);
+                AddPet(blankPalette,species,0,blankParts,0);
             }
             selectedPet = 0;
             FocusOnPet();
@@ -104,7 +103,7 @@ namespace Game.CrAP
             ClearAll();
             for(int subSpecies = 0; subSpecies < subSpeciesCount; subSpecies++) 
             {
-                AddPet(blankPalette,species,subSpecies,blankParts);
+                AddPet(blankPalette,species,subSpecies,blankParts, 1);
             }
             selectedPet = 0;
             FocusOnPet();
@@ -118,8 +117,11 @@ namespace Game.CrAP
 #endregion
 
 #region Loading and Instantiating sprites
-
-        public Character AddPet(int [] Palette, int SpeciesInt, int SubSpecies, int[] PartTypes)
+        
+        public GameObject petPlatform;
+        public GameObject subSpeciesPlatform;
+        
+        public Character AddPet(int [] Palette, int SpeciesInt, int SubSpecies, int[] PartTypes, byte pedestalType)
         {
             // create character class
             CharacterData character = new CharacterData();
@@ -128,59 +130,86 @@ namespace Game.CrAP
             character.speciesSubtype =  SubSpecies;
             character.parts = PartTypes;
 
-            // Generates the sprite
-            Character Pet = characterHandler.AddCharacter(character);
-            LoadedCrAPs.Add(Pet); // Adds the model to the list
-            return Pet;
+            // Generates the sprite and platform
+            GameObject pedestal = pedestalType == 0 ? Instantiate(petPlatform,transform) : Instantiate(subSpeciesPlatform,transform) ;
+            
+            Character pet = characterHandler.AddCharacter($"Species{SpeciesInt}Sub{SubSpecies}",character);
+            pet.transform.parent = pedestal.transform;
+            pet.transform.localScale = new Vector3(1, 1, 1);
+            pet.transform.localPosition = Vector3.zero;
+            pedestals.Add(pet, pedestal);
+            loadedPets.Add(pet); // Adds the model to the list
+            return pet;
         }
 
         // destroys all instances of characters
         public void ClearAll()
         {
-            foreach(Character obj in LoadedCrAPs)
-                GameObject.Destroy(obj.gameObject);
-            
-            if(CurrentPet) GameObject.Destroy(CurrentPet.gameObject);
+            foreach(Character character in loadedPets)
+                if (characterHandler.HasCharacter(character.name))
+                {
+                    character.Remove();
+                    Destroy(pedestals[character]);
+                }
 
-            LoadedCrAPs = new List<Character>(); // Resets the LoadedCrAPs table to a blank list
-            characterData = new CharacterData(); // wipes the characterData slot
+            if (currentPet && characterHandler.HasCharacter(currentPet.name))
+            {
+                currentPet.Remove();
+                Destroy(pedestals[currentPet]);
+            }
+            loadedPets = new List<Character>(); // Resets the LoadedCrAPs table to a blank list
+            
         }
 
         // Focus on the new selectedpet
         public void FocusOnPet()
         {
-            
-            // Sets the next pet. If the current pet is the last pet, then the next pet is equal to 0
-            int NextPet = selectedPet + 1 >= LoadedCrAPs.Count ? 0 : selectedPet + 1;
-            // Sets the previous pet. If current pet is 0, then the previous pet is the last pet to be presented.
-            int PreviousPet = selectedPet - 1 < 0 ? LoadedCrAPs.Count - 1 : selectedPet - 1;
+            int nextPet = (int)Mathf.Repeat(selectedPet + 1, loadedPets.Count);
+            int previousPet = (int)Mathf.Repeat(selectedPet - 1, loadedPets.Count);
 
-            // Sets everyone to invisible
-            foreach(Character Pet in LoadedCrAPs)
+            foreach(Character pet in loadedPets)
             {
-                Pet.gameObject.SetActive(false);
+                pet.gameObject.SetActive(false);
             }
-
+            currentPet = loadedPets[selectedPet];
             // set to active
-            LoadedCrAPs[PreviousPet].gameObject.SetActive(true);
-            LoadedCrAPs[NextPet].gameObject.SetActive(true);
-            LoadedCrAPs[selectedPet].gameObject.SetActive(true);
+            loadedPets[previousPet].gameObject.SetActive(true);
+            loadedPets[nextPet].gameObject.SetActive(true);
+            loadedPets[selectedPet].gameObject.SetActive(true);
+        }
 
-            // Set position
-            LoadedCrAPs[PreviousPet].transform.position = new Vector3();
-            LoadedCrAPs[NextPet].transform.position = new Vector3();
-            LoadedCrAPs[selectedPet].transform.position = new Vector3();
-
-            // Set size
-            LoadedCrAPs[PreviousPet].transform.localScale = new Vector3(1,1,1);
-            LoadedCrAPs[NextPet].transform.localScale = new Vector3(1,1,1);
-            LoadedCrAPs[selectedPet].transform.localScale = new Vector3(2,2,2);
+        // Shift Pedestals into place
+        public IEnumerator ShiftPedestals(int increment)
+        {
+            // Sets the next pet. If the current pet is the last pet, then the next pet is equal to 0
+            int nextPet = (int)Mathf.Repeat(selectedPet + 1, loadedPets.Count);
+            // Sets the previous pet. If current pet is 0, then the previous pet is the last pet to be presented.
+            int previousPet = (int)Mathf.Repeat(selectedPet - 1, loadedPets.Count);
+            // Pet that loads out of the scene. Usually 2 steps ahead in the increment direction
+            int vanishingPet = (int)Mathf.Repeat(selectedPet + Mathf.Sign(increment)*2 , loadedPets.Count);
+            loadedPets[vanishingPet].gameObject.SetActive(true); // temp vanishing pet visible
             
-            CurrentPet = LoadedCrAPs[selectedPet];
+            // Animate the pedestals
+            string direction = increment > 0 ? "Left" : "Right";
+            MovePedestals(loadedPets[vanishingPet], direction, 1);
+            MovePedestals(loadedPets[previousPet], direction, -Mathf.Sign(increment));
+            MovePedestals(loadedPets[selectedPet], direction, -Mathf.Sign(increment));
+            MovePedestals(loadedPets[nextPet], direction, Mathf.Sign(increment));
+            
+            yield return new WaitForSeconds(0.5f);
+            loadedPets[vanishingPet].gameObject.SetActive(false); // phase out the vanishing pet
+        }
+
+        public void MovePedestals(Character character, string direction, float reverse)
+        {
+            Animator animator = pedestals[character].GetComponent<Animator>();
+            animator.SetFloat("ShiftDirection",reverse);
+            animator.SetTrigger(direction);
         }
 #endregion
 
 #region Selecting Pets
+
         public void ChangeSelection(int i)
         {
             selectedPet = i;
@@ -192,6 +221,7 @@ namespace Game.CrAP
             selectedPet+=i;
             SetSelection();
             FocusOnPet();
+            StartCoroutine(ShiftPedestals(i));
         }
         public void SetSelection()
         {
@@ -209,16 +239,16 @@ namespace Game.CrAP
 
         public void SelectPet() // Selects the pet and sends them to the Modifcation section
         {
-            CurrentPet = LoadedCrAPs[selectedPet];
+            currentPet = loadedPets[selectedPet];
 
-            for(int i = 0; i < LoadedCrAPs.Count; i++)
+            for(int i = 0; i < loadedPets.Count; i++)
             {
                 if (i != selectedPet) // Destroys all pets except the selected one
                 {
-                    Destroy(LoadedCrAPs[i].gameObject);
+                    Destroy(loadedPets[i].gameObject);
                 }
             }
-            LoadedCrAPs = new List<Character>(); // Resets the LoadedCrAPs table to a blank list
+            loadedPets = new List<Character>(); // Resets the LoadedCrAPs table to a blank list
         }
 #endregion
 
@@ -229,14 +259,14 @@ namespace Game.CrAP
             characterData.parts[Part] = PartType; // Sets a new part type
 
             // Generates a new sprite
-            CurrentPet = AddPet(characterData.palette,characterData.species,characterData.speciesSubtype,characterData.parts); 
+            currentPet = AddPet(characterData.palette,characterData.species,characterData.speciesSubtype,characterData.parts, 0); 
         }
 
         public void SetPalette(int i, int v)
         {
             characterData.palette[i] = v;
-            Color[] colorPalette = characterHandler.GetPalette(characterData.species, characterData.palette);
-            characterHandler.SetPalette(characterHandler.GetIndex(CurrentPet), colorPalette);
+            PaletteColor[] colorPalette = characterHandler.GetPalette(characterData.species, characterData.palette);
+            characterHandler.SetPalette(currentPet.name, colorPalette);
         }
 
         public void CoatColorSelect(int index) // Sets the coat color according to the palette index
@@ -253,29 +283,35 @@ namespace Game.CrAP
         {
             SetPalette(2, index);
         }
-#endregion
+        #endregion
 
-#region Setting Data values
-        public void SetSpecies(int species)
+        #region Setting Data values
+        public int Species
         {
-            characterData.species = species;
+            get => characterData.species;
+            set => characterData.species = value;
         }
-        public void SetSubSpecies(int subSpecies)
+        public int SubSpecies
         {
-            characterData.speciesSubtype = subSpecies;
+            get => characterData.speciesSubtype;
+            set => characterData.speciesSubtype = value;
         }
-        public void SetGender(int gender)
+
+        public int Gender
         {
-            characterData.gender = gender;
+            get => characterData.gender;
+            set => characterData.gender = value;
         }
-        public void SetName(string name)
+        public string Name
         {
-            characterData.name = name;
+            get => characterData.name;
+            set => characterData.name = value;
         }
         public void SaveCharacterData()
         {
-            characterData.ticket = system.Request<int>("currentTicket");
-            system.Emit("setPetData",characterData);
+            characterData.ticket = system.gameData.currentTicket;
+            system.gameData.sessionData = characterData;
+            system.ServerDataSend("newCharacter",JsonUtility.ToJson(characterData));
         }
 #endregion
 

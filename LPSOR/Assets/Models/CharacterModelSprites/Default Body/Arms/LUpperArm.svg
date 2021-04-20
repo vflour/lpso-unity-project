@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="55.8px"
-   width="24.6px"
+   height="27.9"
+   width="12.3"
    version="1.1"
    id="svg8"
    sodipodi:docname="LUpperArm.svg"
@@ -40,28 +40,24 @@
      id="namedview10"
      showgrid="false"
      inkscape:zoom="11.962523"
-     inkscape:cx="23.17027"
-     inkscape:cy="30.484888"
+     inkscape:cx="2.4248434"
+     inkscape:cy="16.484889"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="g6" />
   <g
-     transform="matrix(4.0, 0.0, 0.0, 4.0, 12.4, 27.8)"
+     transform="matrix(2,0,0,2,6.2,13.9)"
      id="g6">
     <path
-       d="M-1.65 -6.3 Q0.7 -6.85 1.25 -4.15 L1.65 1.3 1.8 6.45 Q0.7 7.0 -0.05 7.0 -1.7 6.95 -2.5 5.8 -3.1 4.95 -3.1 3.95 L-2.3 -4.9 Q-2.2 -5.7 -1.65 -6.3"
-       fill="#eba5dd"
-       fill-rule="evenodd"
-       stroke="none"
+       d="m -1.65,-6.3 q 2.35,-0.55 2.9,2.15 L 1.65,1.3 1.8,6.45 Q 0.7,7 -0.05,7 -1.7,6.95 -2.5,5.8 -3.1,4.95 -3.1,3.95 l 0.8,-8.85 q 0.1,-0.8 0.65,-1.4"
        id="path2"
-       style="fill:#bfbfbf;fill-opacity:1" />
+       style="fill:#bfbfbf;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
     <path
-       d="M-1.65 -6.3 Q-0.9 -6.95 0.0 -6.95 2.05 -6.9 2.25 -4.95 L3.05 4.1 Q2.9 5.65 1.8 6.45 L1.65 1.3 1.25 -4.15 Q0.7 -6.85 -1.65 -6.3"
-       fill="#de6dc8"
-       fill-rule="evenodd"
-       stroke="none"
+       d="M -1.65,-6.3 Q -0.9,-6.95 0,-6.95 q 2.05,0.05 2.25,2 L 3.05,4.1 Q 2.9,5.65 1.8,6.45 L 1.65,1.3 1.25,-4.15 Q 0.7,-6.85 -1.65,-6.3"
        id="path4"
-       style="fill:#919191;fill-opacity:1" />
+       style="fill:#919191;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

@@ -8,8 +8,8 @@ namespace Game.UI.Startup
     {
         public void MultiplayerSelect()
         {
-            gameUI.InstantiateScreen(2);
-            gameUI.RemoveScreen(this.gameObject);
+            gameUI.InstantiateScreen("Multiplayer");
+            gameUI.RemoveScreen("ModeSelect");
         }
 
     }

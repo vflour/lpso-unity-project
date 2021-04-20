@@ -6,15 +6,15 @@ using UnityEngine;
 public class PaletteStorage : ScriptableObject
 {
     [Header("Coat Palettes")]
-    public Color[] coatPalettes;
+    public PaletteColor[] coatPalettes;
 
     [Header("Patch Palettes")]
-    public Color[] patchPalettes;
+    public PaletteColor[] patchPalettes;
     
     [Header("Eyecolor Palettes")]
-    public Color[] eyePalettes;
+    public PaletteColor[] eyePalettes;
     
-    public Color[] getTypePalette(int typeIndex)
+    public PaletteColor[] getTypePalette(int typeIndex)
     {
         switch (typeIndex)
         {
@@ -26,4 +26,11 @@ public class PaletteStorage : ScriptableObject
                 return eyePalettes;
         }
     }
+}
+
+[System.Serializable]
+public class PaletteColor
+{
+    public Color color;
+    public float saturationMultiplier = 1;
 }

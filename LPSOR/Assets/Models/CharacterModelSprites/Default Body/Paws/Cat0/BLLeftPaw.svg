@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="3.3779881mm"
+   height="2.4681005mm"
+   viewBox="0 0 3.3779881 2.4681005"
+   version="1.1"
+   id="svg1560"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="BLLeftPaw.svg">
+  <defs
+     id="defs1554" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.627417"
+     inkscape:cx="7.1910554"
+     inkscape:cy="6.6193955"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="956"
+     inkscape:window-height="1007"
+     inkscape:window-x="960"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata1557">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-1.3576409,-2.9848477)">
+    <g
+       style="display:inline;opacity:1;image-rendering:auto"
+       inkscape:label="RightArm3"
+       id="RightArm3-3"
+       transform="matrix(0.54090316,0,0,0.54090316,3.1001636,4.086511)">
+      <g
+         id="use1102-5"
+         style="display:inline;opacity:1"
+         transform="rotate(11.850825,-0.30867734,-0.59833629)" />
+      <g
+         style="display:inline;opacity:1"
+         transform="matrix(-0.96103969,-0.12849379,-0.12849379,0.96103969,-0.10873829,0.06913819)"
+         id="g1660"
+         inkscape:label="LeftArm3">
+        <g
+           id="g1658">
+          <path
+             style="fill:#767676;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             inkscape:connector-curvature="0"
+             id="path1656"
+             d="M -1.2,2.3 -2.25,1.55 C -3.05,0.71666667 -3.3,-0.4 -3,-1.8 -1.1814247,0.56947255 1.2539382,1.2371836 3.3,-1.75 3.4666667,-0.31666667 3.1166667,0.81666667 2.25,1.65 L 1.6,2.15 C 1.4157884,2.228663 1.4375397,2.196992 1.25,2.3 l -1.3,0.25 -0.7,-0.1 C -0.9021738,2.4064812 -1.0501536,2.3504939 -1.2,2.3"
+             sodipodi:nodetypes="cccccccccc" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

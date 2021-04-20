@@ -7,8 +7,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="82.8px"
-   width="68.0px"
+   height="41.400002"
+   width="34.005756"
    version="1.1"
    id="svg8"
    sodipodi:docname="BodyFront.svg"
@@ -40,28 +40,24 @@
      id="namedview10"
      showgrid="false"
      inkscape:zoom="11.400966"
-     inkscape:cx="28.102015"
-     inkscape:cy="26.59682"
+     inkscape:cx="8.1979702"
+     inkscape:cy="24.610306"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g6" />
+     inkscape:current-layer="svg8" />
   <g
-     transform="matrix(4.0, 0.0, 0.0, 4.0, 34.0, 63.6)"
+     transform="matrix(2,0,0,2,16.975758,31.8)"
      id="g6">
     <path
-       d="M7.8 -6.25 L8.5 -2.4 Q8.65 0.4 7.3 1.9 4.1 3.5 0.05 3.5 -4.35 3.5 -7.3 1.9 -8.7 0.35 -8.45 -2.5 L-7.7 -6.25 Q0.35 -4.95 7.8 -6.25"
-       fill="#eba5dd"
-       fill-rule="evenodd"
-       stroke="none"
+       d="M 7.8,-6.25 8.5,-2.4 Q 8.65,0.4 7.3,1.9 4.1,3.5 0.05,3.5 -4.35,3.5 -7.3,1.9 -8.7,0.35 -8.45,-2.5 l 0.75,-3.75 q 8.05,1.3 15.5,0"
        id="path2"
-       style="fill:#bfbfbf;fill-opacity:1" />
+       style="fill:#bfbfbf;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
     <path
-       d="M7.3 1.9 Q6.05 3.3 3.9 4.1 2.0 4.8 0.05 4.8 L-3.45 4.35 Q-6.05 3.6 -7.3 1.9 -4.35 3.5 0.05 3.5 4.1 3.5 7.3 1.9 M-7.7 -6.25 L-6.7 -9.35 Q-5.1 -13.7 -3.7 -15.1 -3.3 -15.45 -2.1 -15.7 L0.1 -15.9 Q2.85 -15.9 3.75 -15.1 5.15 -13.7 6.75 -9.35 L7.8 -6.25 Q0.35 -4.95 -7.7 -6.25"
-       fill="#de6dc8"
-       fill-rule="evenodd"
-       stroke="none"
+       d="M 7.3,1.9 Q 6.05,3.3 3.9,4.1 2,4.8 0.05,4.8 L -3.45,4.35 Q -6.05,3.6 -7.3,1.9 -4.35,3.5 0.05,3.5 4.1,3.5 7.3,1.9 m -15,-8.15 1,-3.1 q 1.6,-4.35 3,-5.75 0.4,-0.35 1.6,-0.6 l 2.2,-0.2 q 2.75,0 3.65,0.8 1.4,1.4 3,5.75 l 1.05,3.1 q -7.45,1.3 -15.5,0"
        id="path4"
-       style="fill:#919191;fill-opacity:1" />
+       style="fill:#919191;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

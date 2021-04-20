@@ -5,32 +5,82 @@ using UnityEngine;
 using Game.UI;
 using Game.Networking;
 using Newtonsoft.Json.Linq;
+using UnityEditor;
 
 namespace Game
 {
     public class GameSystem : MonoBehaviour
     {    
-#region Initialization
+        #region Initialization
         // generic list of all the handlers
         protected List<IHandler> handlers = new List<IHandler>();
-
+        public MonoBehaviour[] additionalHandlers;
+        
         // required handlers, in order of priority
         protected GameUI gameUI; // handles all ui 
         protected NetworkClient networkClient; // handles all the networking portion
 
         // Gamedata class
-        protected GameData gameData;
+        protected GameData _gameData;
 
+        public GameData gameData
+        {
+            get { return _gameData; }
+        }
+        
         // initialize all handlers on awake
         protected virtual void Awake()
         {   
+            #if UNITY_EDITOR
+                CreateTemporaryHandlers();
+            #endif
             DeclareRecievers();
             gameUI = GameObject.Find("UIHandler").GetComponent<GameUI>();
             networkClient = GameObject.Find("NetworkClient").GetComponent<NetworkClient>();
+            _gameData = GameObject.Find("GameData").GetComponent<GameData>();
+            MouseHandler mouseHandler = GameObject.Find("MouseHandler").GetComponent<MouseHandler>();
+            
+            handlers.Add(gameUI);
+            handlers.Add(networkClient);
+            handlers.Add(mouseHandler);
+            
+            foreach (MonoBehaviour handler in additionalHandlers)
+                if (handler is IHandler)
+                {
+                    handlers.Add(handler as IHandler);
+                }
+                    
+        }
+        
+        // Mainly intended for debugging. Adds the handlers, but do remember that they will not function normally.
+        public void CreateTemporaryHandlers()
+        {
+            GameObject networkClient = GameObject.Find("NetworkClient");
+            GameObject gameData = GameObject.Find("GameData");
 
-            handlers.Add(gameUI as IHandler);
-            handlers.Add(networkClient as IHandler);
-            gameData = GameObject.Find("GameData").GetComponent<GameData>();  
+            if (gameData == null)
+            {
+                gameData = new GameObject();
+                gameData.AddComponent<GameData>();
+                gameData.name = "GameData";
+            }
+
+            if (networkClient == null)
+            {
+                networkClient = new GameObject();
+                networkClient.AddComponent<NetworkClient>();
+                networkClient.name = "NetworkClient";
+            }
+        }
+        public T GetHandler<T>() where T: class, IHandler
+        {
+            IHandler foundHandler = null;
+            foreach(IHandler handler in handlers)
+                if (handler is T)
+                    foundHandler = handler;
+            if(foundHandler==null)
+                throw new NullReferenceException("Could not find handler of type "+typeof(T));
+            return foundHandler as T;
         }
 
         // start all the handlers
@@ -41,28 +91,22 @@ namespace Game
                 handler.system = this;
                 handler.Activate();
             }
+            GetHandler<GameUI>().FinishLoading();
         }
         
         // tell handlers to elements visually after loading
-        protected virtual void DisplayScene()
+        public virtual void DisplayScene()
         {
             foreach(IHandler handler in handlers)
                 handler.Display = true;
-            
         }       
         
         // declare base recievers
         protected virtual void DeclareRecievers() 
         {
-            Recieve("loadScene",(obj)=>
-            {
-                LoadScene((int)obj);
-            });
-            Recieve("startupScene",(obj)=>
-            {
-                LoadScene(0);
-            });
-            Recieve("displayScene",(obj)=>DisplayScene());
+            Recieve("loadScene",(obj)=> LoadScene((int)obj));
+            Recieve("startupScene",(obj)=> LoadScene(0));
+            Recieve("errorCode", (obj) => ErrorCode((int)obj,true));
         }
 #endregion
 
@@ -84,7 +128,6 @@ namespace Game
             enqueuedDel(param);
 
             queueAvailable = true;
-
         }
 
         // Emit handles the sending > recieving portion of the system. Fires a delegate stored in the stringEmits dictionary
@@ -138,13 +181,33 @@ namespace Game
                 Debug.LogError(emitType+" request does not exist: "+e.Message);
                 return null;
             }
-            
         }
-#endregion
+        public void Store(string emitType, object storage)
+        {
+            if (stringRequests.ContainsKey(emitType))
+                stringRequests[emitType] = storage;
+            else
+                stringRequests.Add(emitType, storage);
+        }
+        
+        // Methods for server data requests
+        public void ServerDataSend(string request, string data)
+        {
+            networkClient.SendData(request, data);
+        }
+        public void ServerDataRequest(string request, NetworkClient.SocketRequestDelegate requestDelegate)
+        {
+            networkClient.RequestData(request, requestDelegate);
+        }
+
+        public void ServerDataEvent(string eventName, NetworkClient.SocketRequestDelegate requestDelegate)
+        {
+            networkClient.AddEvent(eventName,requestDelegate);
+        }
+        
+        #endregion
 
 #region System methods
-        // honestly i just left these in here 
-
         // load a scene based on a scene index
         protected void LoadScene(int scene)
         {
@@ -155,37 +218,31 @@ namespace Game
         // protocol for whenever the network disconnects 
         public void ServerDisconnect()
         {
-            gameUI.ToggleScreenInput(false); // disables input
-            gameUI.NewErrorMessage(3); // sends errorcode to ui  
-            gameUI.SetMessageEnableScreen(true); // sets emit code
+            ErrorCode(3);
         }
-        // variant for setting an emit code when clicking on ok
-        public void ServerDisconnect(string emitCode)
+        public void ServerDisconnect(bool reset)
+        {
+            ErrorCode(3,reset);
+        }
+        private void ResetGame()
+        {
+            networkClient.Disable();
+            _gameData.Disable();
+            LoadScene(0);
+        }
+        public void ErrorCode(int errorCode)
         {
             gameUI.ToggleScreenInput(false);
-            gameUI.NewErrorMessage(3); // sends errorcode to ui 
-            gameUI.SetMessageReturnEmit(emitCode); // sets emit code
+            gameUI.NewErrorMessage(errorCode);
+            gameUI.SetMessageEnableScreen(true); // enable screen input on click
+        }
+        public void ErrorCode(int errorCode, bool reset)
+        {
+            ErrorCode(errorCode);
+            if (reset)
+                gameUI.CallDelegateOnMessageClose( ()=> ResetGame()); // sets emit code
         }
 #endregion
 
-#region Network signal checks
-        protected bool processNetworkSignal(object obj) // checks if the object is a JSON and if theres no error codes
-        {
-            int returnCode = (int)((JObject)obj)["returnCode"];
-            if(!CheckErrorCode(returnCode)) return false;
-
-            return true; // returns true if everything is OK
-        }
-        protected bool CheckErrorCode(int code)
-        {
-            if(code == 0) return true; // lets the code pass, because code 0 = success
-            else
-            { // sends errorcode to ui 
-                gameUI.NewErrorMessage(code); 
-                gameUI.SetMessageEnableScreen(true); // enable screen input on click
-                return false; 
-            }
-        }
- #endregion       
     }
 }

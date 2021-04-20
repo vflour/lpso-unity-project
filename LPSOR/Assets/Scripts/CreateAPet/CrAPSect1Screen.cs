@@ -18,7 +18,7 @@ namespace Game.UI.CRaP
         // Gets the pet database from System
         public PetDatabase PetDB
         {
-            get { return gameUI.RequestFromSystem<PetDatabase>("petDB"); }
+            get { return gameUI.system.GetHandler<CrAPHandler>().petDatabase; }
         }
         // Continue Button
         public void NextSection()
@@ -54,16 +54,18 @@ namespace Game.UI.CRaP
                 speciesField.text = ((PetDatabase.SpeciesNames)_currentSpecies).ToString();
                 subSpeciesField.text = $"Choice 1 of {SubSpeciesCount}";
                 
-                gameUI.EmitToSystem("setCurrentSpecies",_currentSpecies);
+                
             }
         }
         // Button functions
         public void NextSpecies()
         {
+            gameUI.system.GetHandler<CrAPHandler>().IncrementSelection(1);
             CurrentSpecies++;
         }
         public void PreviousSpecies()
         {
+            gameUI.system.GetHandler<CrAPHandler>().IncrementSelection(-1);
             CurrentSpecies--;
         }
 #endregion

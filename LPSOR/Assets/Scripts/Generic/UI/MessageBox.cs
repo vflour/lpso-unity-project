@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Action = System.Action;
 
 namespace Game.UI
 {
@@ -13,7 +14,7 @@ namespace Game.UI
 
 [Header("Confirmation variables")]
         public bool EnableScreenOnClick;
-        public string returnEmit = "";
+        public Action callbackAction;
         
 [Header("Handler")]
         public GameUI gameUI;
@@ -27,7 +28,7 @@ namespace Game.UI
         public void ConfirmButton() // sends signal to the ui handler when pressed
         {
             if (EnableScreenOnClick) gameUI.ToggleScreenInput(true);
-            if (returnEmit!="") gameUI.EmitToSystem(returnEmit);            
+            callbackAction?.Invoke();            
             gameUI.RemoveMessageBox();
         }
 

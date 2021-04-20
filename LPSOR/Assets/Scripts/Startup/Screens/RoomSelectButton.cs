@@ -29,10 +29,12 @@ namespace Game.UI.Startup
         public Image populationSprite;
 
         [Header("Classes")]
-        public UIHandler uiHandler;
+        public GameUI gameUI;
         public void SelectServer()
         {
-            uiHandler.JoinRoom(roomInformation);
+            gameUI.ToggleScreenInput(false); 
+            gameUI.system.gameData.roomData = roomInfo;
+            gameUI.system.Emit("loadScene", 1);
         }
     
     }

@@ -12,8 +12,8 @@ ScriptedImporter:
   texturedSpriteMeshType: 0
   svgPixelsPerUnit: 100
   gradientResolution: 64
-  alignment: 2
-  customPivot: {x: 0.5, y: 1}
+  alignment: 1
+  customPivot: {x: 0, y: 1}
   generatePhysicsShape: 0
   viewportOptions: 0
   preserveViewport: 0
@@ -41,15 +41,15 @@ ScriptedImporter:
     SpriteRect:
       name: LUpperArmSprite
       originalName: 
-      pivot: {x: 0.5, y: 1}
-      alignment: 2
+      pivot: {x: 0, y: 1}
+      alignment: 1
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 25
-        height: 56
+        width: 12
+        height: 28
       spriteID: 87b99a7fc865fea48a2b65a46d13272a
       internalID: 0
     PhysicsOutlines: []

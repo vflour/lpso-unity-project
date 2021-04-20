@@ -2,56 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : ScriptableObject
+namespace Game.Inventory
 {
-    [SerializeField]
-    private Sprite icon;
-
-    [SerializeField]
-    private int stacksize;
-
-    [SerializeField]
-    private SlotScript slot;
-
-    [SerializeField]
-    private bool wearable;
-
-
-    // public Component ItemType;
-
-    public string Name;
-    public string description;
-    public bool Wearing = false;
-
-    public Sprite Icon
+    using UI;
+    public abstract class Item : ScriptableObject
     {
-        get { return icon; }
-    }
+        private int _id;
+    
+        [SerializeField]
+        private Sprite _icon;
 
-   public int StackSize
-    {
-        get { return stacksize; }
-    }
+        [SerializeField]
+        private int _stackSize;
+    
+        public string Name;
+        public string description;
+        public ItemType itemType;
 
-    public bool Wearable
-    {
-        get { return wearable; }
-    }
-
-
-    protected SlotScript Slot
-    {
-        get
+        public int id
         {
-            return slot;
+            get => _id;
+            set => _id = value;
         }
-        set
+
+        public Sprite icon
         {
-            slot = value;
+            get => _icon;
+        }
+        public int stackSize
+        {
+            get => _stackSize;
+        }
+        public virtual void RaycastDrag(RaycastHit2D hit, ItemButton itemButton)
+        {
+        
         }
     }
-
-
+    public enum ItemType{Clothes,Food,Toys,Furniture}
 }
+
 
 

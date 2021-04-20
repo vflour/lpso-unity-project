@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,15 +21,20 @@ namespace Game
 
         [Header("Transform Spaces")]
         [SerializeField]
-        protected Transform uiSpace;
+        public Transform uiSpace;
         [SerializeField]
-        protected Transform backgroundSpace;
+        public Transform backgroundSpace;
         
         [Header("Message Boxes")]
         [SerializeField]
         protected PrefabDatabase messageBoxPrefabs;
- #endregion
-#region Handler fields
+        
+        [Header("Announcement Boxes")]
+        public PrefabDatabase announceBoxPrefabs;
+        public IconDatabase announceBoxIcons;
+        
+        #endregion
+        #region Handler fields
         private GameSystem _system; // basic reference to system
         public GameSystem system
         {
@@ -41,58 +47,60 @@ namespace Game
             get { return _display;}
             set { _display = value; }
         }
-#endregion
-#region Initialization
-        protected GameObject firstScreen;
+        #endregion
+        #region Initialization
+        // Activate instantiates the loading screen
         public virtual void Activate()
         {
-            InstantiateBackground(0);
-            GameObject loadScreen = InstantiateScreen(0); // sets the loading screen
-            loadScreen.GetComponent<LoadingScreen>().FinishLoading();
-            FirstScreen();
+            LayerBackground("Overlap");
+            InstantiateBackground("Loading");
+            InstantiateScreen("Loading"); // sets the loading screen
+            SetScreenVisibility("Loading",true);
         } 
-        public virtual void FirstScreen()
+        // FinishLoading removes the loading screen and instantiates the first screen
+        public void FinishLoading() // NOTE TO SELF: think of a better way to store screen ids. maybe a dictionary?
         {
-            firstScreen = InstantiateScreen(1);
-            SetScreenVisibility(1,false);
-            InstantiateBackground(1);
+            StartCoroutine(GetScreen("Loading").GetComponent<LoadingScreen>().FinishLoading(() => LoadingScreenFinished()));
         }
-        public void FinishLoading()
+        protected virtual void LoadingScreenFinished()
         {
-            EmitToSystem("displayScene");
-            SetScreenVisibility(1,true);
-            RemoveBackground(0);
-            RemoveScreen(0);
+            InstantiateScreen(screenPrefabs.firstItem);
+            if(backgroundPrefabs.firstItem!="%NA%") //Some scenes do not have backgrounds
+                InstantiateBackground(backgroundPrefabs.firstItem);
+            RemoveBackground("Loading");
+            RemoveScreen("Loading");
+            LayerBackground("Background");
+            system.DisplayScene();
         }
-#endregion
-#region UI-To-System handling
-    // Method that emits a string to system without an object
-    public void EmitToSystem(string emit) 
-    {
-        EmitToSystem(emit,null);
-    }
-    //  Method that emits a string to system
-    public void EmitToSystem(string emit, object obj) 
-    {
-        system.Emit(emit,obj);
-    }
-    //Method request any object from the system
-    public object RequestFromSystem(string emit) 
-    {
-        return system.Request(emit);
-    }
-    //Generic method variant for system requests
-    public T RequestFromSystem<T>(string emit) 
-    {
-        return (T)system.Request(emit);
-    } 
-    #endregion
+        #endregion
+        #region UI-To-System handling
+        // Method that emits a string to system without an object
+        public void EmitToSystem(string emit) 
+        {
+            EmitToSystem(emit,null);
+        }
+        //  Method that emits a string to system
+        public void EmitToSystem(string emit, object obj) 
+        {
+            system.Emit(emit,obj);
+        }
+        //Method request any object from the system
+        public object RequestFromSystem(string emit) 
+        {
+            return system.Request(emit);
+        }
+        //Generic method variant for system requests
+        public T RequestFromSystem<T>(string emit) 
+        {
+            return (T)system.Request(emit);
+        } 
+        #endregion
 #region Message box handling
-        protected void NewMessageBox(MessageBoxTypes messageBoxType, string title, string contents)
+        public void NewMessageBox(MessageBoxTypes messageBoxType, string title, string contents)
         {
             if(currentMsgBox) RemoveMessageBox(); // remove if there already is one
 
-            GameObject objectBox = Instantiate(messageBoxPrefabs.DB[(int)messageBoxType],uiSpace);
+            GameObject objectBox = Instantiate(messageBoxPrefabs.Data[messageBoxType.ToString()],uiSpace);
 
             // get the messagebox component and set default fields
             currentMsgBox = objectBox.GetComponent<MessageBox>();
@@ -112,122 +120,134 @@ namespace Game
         public void NewErrorMessage(int code) 
         {
             string message = ErrorCodes.CodeStrings[code];
-
+            Debug.Log(message);
             MessageBoxTypes messageBoxType = MessageBoxTypes.Default;
             NewMessageBox(messageBoxType, "Oops!",message);
         }
 
         // Sets specific values for the current message box
-
-        // Emit string for emitting to the system
-        public void SetMessageReturnEmit(string returnEmit)
-        {
-            currentMsgBox.returnEmit = returnEmit;
-        }
+        
         // Enables screen input when clicked
         public void SetMessageEnableScreen(bool value)
         {
             currentMsgBox.EnableScreenOnClick = value;
         }
+        // Call delegate if there is one
+        public void CallDelegateOnMessageClose(Action callbackAction)
+        {
+            currentMsgBox.callbackAction = callbackAction;
+        }
+#endregion
+
+#region Announcement Box handling
+        public AnnounceBox NewAnnounceBox(AnnounceBoxType type, AnnounceBoxIcon icon, string message)
+        {
+            AnnounceBox announceBox = InstantiateScreen("AnnounceBox",announceBoxPrefabs.Data[type.ToString()]).GetComponent<AnnounceBox>();
+            announceBox.icon.sprite = announceBoxIcons.Data[icon.ToString()];
+            announceBox.message.text = message;
+            return announceBox;
+        }
+
+
 #endregion
 #region Active UI element storage
-    private List<GameObject> loadedScreens = new List<GameObject>(); // All instantiated screens + backgrounds that are active
-    private List<GameObject> loadedBackgrounds = new List<GameObject>();
+    private Dictionary<string,GameObject> loadedScreens = new Dictionary<string,GameObject>(); // All instantiated screens + backgrounds that are active
+    private Dictionary<string,GameObject> loadedBackgrounds = new Dictionary<string,GameObject>();
     private MessageBox currentMsgBox; // Active message box. There can only be one
 #endregion
 #region Screen and Background object handling
 
         // Instantiates a screen object into the game using an int index
-        public GameObject InstantiateScreen(int screenIndex)
+        public GameObject InstantiateScreen(string screenId)
         {
-            GameObject screen = GameObject.Instantiate(screenPrefabs.DB[screenIndex],uiSpace);
+            GameObject screen = GameObject.Instantiate(screenPrefabs.Data[screenId],uiSpace);
+            screen.name = screenId;
             screen.GetComponent<GameScreen>().gameUI = this;
-            loadedScreens.Add(screen);
-            SetToLast(screen);
+            loadedScreens.Add(screenId,screen);
+            return screen;
+        }
+        public GameObject InstantiateScreen(string screenId, GameObject screenPrefab)
+        {
+            GameObject screen = GameObject.Instantiate(screenPrefab,uiSpace);
+            screen.name = screenPrefab.name;
+            screen.GetComponent<GameScreen>().gameUI = this;
+            loadedScreens.Add(screenPrefab.name,screen);
             return screen;
         }
 
         // Instantiates a background object into the game using an int index
-        public int InstantiateBackground(int bgIndex) 
+        public GameObject InstantiateBackground(string bgId) 
         {
-            GameObject background = GameObject.Instantiate(backgroundPrefabs.DB[bgIndex],backgroundSpace);
-            loadedBackgrounds.Add(background);
-            SetToLast(background);
-            return loadedBackgrounds.Count-1;
+            GameObject background = GameObject.Instantiate(backgroundPrefabs.Data[bgId],backgroundSpace);
+            loadedBackgrounds.Add(bgId,background);
+            //SetToLast(bgId);
+            return background;
         }
 
-        public int GetScreenIndex(GameObject screen)
+        public void LayerBackground(string layerName)
         {
-            return loadedScreens.IndexOf(screen);
+            backgroundSpace.GetComponent<Canvas>().sortingLayerName = layerName;
+        }
+
+        public GameObject GetScreen(string screenId)
+        {
+            return loadedScreens[screenId];
         }
 
         // removal methods
         
         // Completely removes the screen from the game
-        public void RemoveScreen(GameObject screen)
-        {
-            loadedScreens.Remove(screen);
-            Destroy(screen);
-        }
 
-        public void RemoveScreen(int screen)
+        public void RemoveScreen(string screenId)
         {
-            Destroy(loadedScreens[screen]);
-            loadedScreens.RemoveAt(screen);
+            Destroy(loadedScreens[screenId]);
+            loadedScreens.Remove(screenId);
         }
 
         // Removes ALL screens
         public void RemoveAllScreens()
         {
-            foreach(GameObject screen in loadedScreens)
-            {
+            foreach(GameObject screen in loadedScreens.Values)
                 Destroy(screen);
-            }
-            loadedScreens = new List<GameObject>();
+            
+            loadedScreens = new Dictionary<string, GameObject>();
         }
         // Completely removes the background from the game
-       public void RemoveBackground(GameObject screen) // removes using a gameobject
+        public void RemoveBackground(string bgId) // removes using the list index
         {
-            loadedBackgrounds.Remove(screen);
-            GameObject.Destroy(screen);
-        }
-
-        public void RemoveBackground(int screen) // removes using the list index
-        {
-            GameObject.Destroy(loadedBackgrounds[screen]);
-            loadedBackgrounds.RemoveAt(screen);
+            GameObject.Destroy(loadedBackgrounds[bgId]);
+            loadedBackgrounds.Remove(bgId);
         }
         
-
+        
         // aesthetic methods
 
-        // brings the element to the front of the screen
-        public void BringToFront(GameObject element)
+        // brings the screen to the front
+        public void BringToFront(string screenId)
         {
-            element.transform.SetAsLastSibling();
+            loadedScreens[screenId].transform.SetAsLastSibling();
         }
         
-        //brings the element to the back of the screen
-        public void SetToLast(GameObject element)
+        //pushes the screen to be the back
+        public void SetToLast(string screenId)
         {
-            element.transform.SetAsFirstSibling();
+            loadedScreens[screenId].transform.SetAsFirstSibling();
         }
-
-
+        
+        
         // sets the visibility to true or false
-        public void SetScreenVisibility(int index,bool value)
+        public void SetScreenVisibility(string screenId,bool value)
         {
-            loadedScreens[index].SetActive(value);
+            loadedScreens[screenId].SetActive(value);
         }
 
 
         // disables or enables all button inputs in the screen
         public void ToggleScreenInput(bool value) 
         {
-            foreach(GameObject screen in loadedScreens)
-            {
+            foreach(GameObject screen in loadedScreens.Values)
                 screen.GetComponent<GameScreen>().ToggleInput(value);
-            }
+            
         }
 
 #endregion
