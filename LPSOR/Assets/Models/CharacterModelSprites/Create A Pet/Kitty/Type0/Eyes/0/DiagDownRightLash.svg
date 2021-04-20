@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="RightLashDiagDown.svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 25.820655 23.066401"
+   height="23.066401mm"
+   width="25.820654mm">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect2126"
+       is_visible="true"
+       offset_points="1,0.13229166"
+       sort_points="true"
+       interpolator_type="CubicBezierJohan"
+       interpolator_beta="0.2"
+       start_linecap_type="zerowidth"
+       linejoin_type="extrp_arc"
+       miter_limit="4"
+       end_linecap_type="zerowidth" />
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path5352"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="-3.5240998"
+     inkscape:cy="61.902469"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1007"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="false"
+     inkscape:snap-others="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-46.299421,-90.901699)">
+    <path
+       style="fill:#3a3a3a;fill-opacity:1;stroke:none;stroke-width:0.28000313px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 72.120075,100.15877 c -0.178965,-0.15647 -2.64704,-1.422931 -3.778219,-0.873144 -0.990946,0.48163 -0.681105,2.586274 -0.606728,3.343664 0.900981,-0.22437 0.995149,-0.41792 1.519116,-0.27937 0.936963,0.24773 1.369004,1.00263 1.008837,0.76562 -0.308715,-0.20314 -1.915177,0.0908 -2.700154,0.83603 -0.244777,2.92868 -2.02235,7.86778 -3.61201,10.01653 0.160791,-0.5279 2.821287,-6.6899 2.785326,-10.12859 -0.0354,-3.38528 -1.067996,-6.982705 -1.786454,-7.393835 -4.001748,-2.289963 -10.816485,-3.01045 -14.306425,-1.519468 -2.790317,1.308346 -4.239043,3.918758 -4.239043,9.198533 -1.459705,-18.283563 12.730737,-8.092455 16.698516,-13.223041 0.312686,1.365209 -0.05562,1.206719 -0.449019,2.107202 4.083166,1.076852 8.131541,4.004362 9.466257,7.149929 z"
+       id="path1643"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cscssccsscccccc" />
+  </g>
+</svg>
