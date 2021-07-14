@@ -16,4 +16,3 @@ If you need me to make any changes at the code, please do tell! I've been learni
 3. Contact information
 
 My discord is vflour#0847 if you need to talk to me.
-If that's unreachable, this project has a discord you can join (5WS9gTv). You can try to DM me from there :)
