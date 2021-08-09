@@ -21,7 +21,6 @@ namespace Game.Map
         private GameObject friendsScreen;
         
         private Animator animator;
-
         private GameObject activeScreen;
         // pda opens on home screen
         // buttons open mail, friends, adventures and ???
@@ -29,16 +28,20 @@ namespace Game.Map
         #region Home Screen / Start
 
         [Header("Home Screen")] 
-        public GameObject eventBoxPrefab;
-        public GameEventDictionary gameEventData;
         public GameObject[] emptyEventBoxes;
-
-        private List<GameEventBox> eventBoxes;
+        public GameEventDictionary gameEventData;
+        public GameObject eventBoxPrefab;
+        
+        private List<GameEventBox> eventBoxes = new List<GameEventBox>();
         private string eventFilter;
         
         private void Start()
         {
+            // get animator
             animator = GetComponent<Animator>();
+            // set the friends list
+            GenerateFriends();
+            // open home screen
             HomeScreen();
         }
 
@@ -86,12 +89,15 @@ namespace Game.Map
 
         public void Exit()
         {
-            
+            gameUI.RemoveScreen("PDA");
         }
 
         public void SetActiveScreen(GameObject activeScreen)
-        { 
-            this.activeScreen.SetActive(false);
+        {
+            if (this.activeScreen!=null)
+            {
+                this.activeScreen.SetActive(false);
+            }
             this.activeScreen = activeScreen;
             activeScreen.SetActive(true);
         }
@@ -124,8 +130,8 @@ namespace Game.Map
         #endregion
 
         #region Friends list
-        [Header("Friends list")]
-        public List<RelationshipData> friendList;
+        [Header("Friends List")]
+        private List<RelationshipData> friendList;
         public GameObject friendButtonPrefab;
         public IconDatabase friendButtonIcons;
         
@@ -146,6 +152,14 @@ namespace Game.Map
             GenerateFriendsList();
         }
 
+        private void GenerateFriends()
+        {
+            friendList = new List<RelationshipData>();
+            foreach (string friendUser in gameUI.system.gameData.playerData.friends)
+            {
+                friendList.Add(new RelationshipData(){isOnline = true,type = RelationshipType.Friend,userName = friendUser});
+            }
+        }
         private void GenerateFriendsList()
         {
             
@@ -173,8 +187,8 @@ namespace Game.Map
         private void CreateFriendButton(RelationshipData friend)
         {
             FriendButton friendButton = Instantiate(friendButtonPrefab, friendButtonContainer).GetComponent<FriendButton>();
-            friendButton.data = friend;
             friendButton.pdaScreen = this;
+            friendButton.data = friend;
             friendButtons.Add(friend.userName, friendButton);
         }
 

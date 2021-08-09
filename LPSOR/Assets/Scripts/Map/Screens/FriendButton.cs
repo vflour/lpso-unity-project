@@ -12,10 +12,10 @@ namespace Game.Map
             get => _data;
             set
             {
-                userName.text = data.userName;
-                status.text = data.isOnline ? "Online" : "Offline";
-                status.color = data.isOnline ? Color.red : Color.green;
-                icon.sprite = pdaScreen.friendButtonIcons.Data[data.type.ToString()];
+                userName.text = value.userName;
+                status.text = value.isOnline ? "Online" : "Offline";
+                status.color = value.isOnline ? new Color(0,0.6f,0) : Color.red;
+                icon.sprite = pdaScreen.friendButtonIcons.Data[value.type.ToString()];
                 _data = value;
             }
         }

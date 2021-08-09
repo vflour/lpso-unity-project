@@ -101,7 +101,7 @@ namespace Game
 
         public void RemoveDialog()
         {
-            if (currentDialogBox != null)
+            if (system.GetHandler<GameUI>().HasScreen("DialogBox"))
             {
                 system.GetHandler<GameUI>().RemoveScreen("DialogBox");
                 currentDialogBox = null;

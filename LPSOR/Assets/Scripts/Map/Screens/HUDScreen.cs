@@ -8,8 +8,42 @@ namespace Game.Map
     {
         private void Start()
         {
-            GameObject inventory = gameUI.InstantiateScreen("Inventory");
             gameUI.system.GetHandler<MouseHandler>().SetDialogPrompts(transform);
         }
+
+        #region Right Bar Menu
+        [Header("Right Bar")] 
+        public GameObject rightBar;
+        
+        public void RightBarButton()
+        {
+            rightBar.SetActive(!rightBar.activeSelf);
+        }
+
+        public void InventoryButton()
+        {
+            if (!gameUI.HasScreen("Inventory"))
+            {
+                gameUI.InstantiateScreen("Inventory");
+            }
+            else
+            {
+                gameUI.RemoveScreen("Inventory");
+            }
+        }
+
+        public void PDAButton()
+        {
+            if (!gameUI.HasScreen("PDA"))
+            {
+                gameUI.InstantiateScreen("PDA");
+            }
+            else
+            {
+                gameUI.RemoveScreen("PDA");
+            }
+        }
+
+        #endregion
     }
 }

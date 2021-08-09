@@ -169,9 +169,9 @@ namespace Game
         public GameObject InstantiateScreen(string screenId, GameObject screenPrefab)
         {
             GameObject screen = GameObject.Instantiate(screenPrefab,uiSpace);
-            screen.name = screenPrefab.name;
+            screen.name = screenId;
             screen.GetComponent<GameScreen>().gameUI = this;
-            loadedScreens.Add(screenPrefab.name,screen);
+            loadedScreens.Add(screenId,screen);
             return screen;
         }
 
@@ -193,11 +193,17 @@ namespace Game
         {
             return loadedScreens[screenId];
         }
+        
+        // checks if a screen is there
+        public bool HasScreen(string screenId)
+        {
+            return loadedScreens.ContainsKey(screenId);
+        }
 
         // removal methods
         
         // Completely removes the screen from the game
-
+        
         public void RemoveScreen(string screenId)
         {
             Destroy(loadedScreens[screenId]);
