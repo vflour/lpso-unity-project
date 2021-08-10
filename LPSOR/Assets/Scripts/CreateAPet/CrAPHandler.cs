@@ -316,6 +316,7 @@ namespace Game.CrAP
                 string charId = (string) data;
                 system.gameData.sessionData._id = charId;
                 characterData._id = charId;
+                system.gameData.sessionData.userName = system.gameData.playerData.userName;
             });
         }
 #endregion
