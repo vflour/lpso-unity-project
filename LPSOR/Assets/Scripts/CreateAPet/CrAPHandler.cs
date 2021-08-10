@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json.Linq;
 
 namespace Game.CrAP
 {
@@ -311,7 +312,11 @@ namespace Game.CrAP
         {
             characterData.ticket = system.gameData.currentTicket;
             system.gameData.sessionData = characterData;
-            system.ServerDataSend("newCharacter",JsonUtility.ToJson(characterData));
+            system.ServerDataSendReturn("newCharacter", JsonUtility.ToJson(characterData), data => {
+                string charId = (string) data;
+                system.gameData.sessionData._id = charId;
+                characterData._id = charId;
+            });
         }
 #endregion
 
