@@ -23,13 +23,13 @@ namespace Game.UI
             this.acceptCallback = acceptCallback;
         }
 
-        public void AcceptButton()
+        public virtual void AcceptButton()
         {
             acceptCallback();
             Remove();
         }
         
-        public void DenyButton()
+        public virtual void DenyButton()
         {
             denyCallback();
             Remove();

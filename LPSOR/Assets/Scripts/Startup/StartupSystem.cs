@@ -58,7 +58,9 @@ namespace Game.Startup
         private void AuthenticateUser(JObject data) 
         {
             // modifies gamedata values
-            gameData.serverInformation = networkClient.CurrentServer; 
+            gameData.serverInformation = networkClient.CurrentServer;
+            if (gameData.serverInformation.friendRelationships == null)
+                gameData.serverInformation.friendRelationships = new List<RelationshipData>();
             gameData.playerData = data["playerData"].ToObject<PlayerData>();
             
             //removes the current screen (multiplayerScreen) and instantiates the room select screen

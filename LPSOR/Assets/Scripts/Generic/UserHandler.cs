@@ -40,6 +40,7 @@ namespace Game.Map
             playerHandler.OnPlayerPropInteracted();
             playerHandler.OnPlayerRemoving();
             playerHandler.OnPlayerDressed();
+            playerHandler.OnPlayerFriended();
             
             // Tell the server to join the room's map
             string mapName = system.GetHandler<MapHandler>().mapData.mapName;

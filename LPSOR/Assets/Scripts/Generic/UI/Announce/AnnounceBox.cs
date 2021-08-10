@@ -7,6 +7,7 @@ namespace Game.UI
 {
     public class AnnounceBox : GameScreen
     {
+        public Text title;
         public Text message;
         public Image icon;
         
@@ -30,11 +31,11 @@ namespace Game.UI
             animator.SetTrigger("Exit");
             yield return new WaitForSeconds(1);
         }
-        protected virtual void Remove()
+        public virtual void Remove()
         {
             gameUI.RemoveScreen(name);
         }
     }
-    public enum AnnounceBoxType{Normal, Choice}
-    public enum AnnounceBoxIcon{Buddy, Map, Adventure}
+    public enum AnnounceBoxType{FriendRequest,NewFriend,Discovery,Mail};
+    public enum AnnounceBoxIcon{Buddy, BuddyAdded, Map, Adventure}
 }

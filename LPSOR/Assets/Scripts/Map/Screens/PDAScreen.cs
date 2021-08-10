@@ -10,6 +10,8 @@ namespace Game.Map
     using UI;
     public class PDAScreen : GameScreen
     {
+        public GameObject darkener; // used to darken the screen
+        
         [Header("Sub-Screen Presets")] 
         [SerializeField]
         private GameObject homeScreen;
@@ -39,10 +41,13 @@ namespace Game.Map
         {
             // get animator
             animator = GetComponent<Animator>();
-            // set the friends list
-            GenerateFriends();
             // open home screen
             HomeScreen();
+        }
+
+        private void Darken(bool value)
+        {
+            darkener.SetActive(value);
         }
 
         public void HomeScreen()
@@ -130,11 +135,18 @@ namespace Game.Map
         #endregion
 
         #region Friends list
-        [Header("Friends List")]
         private List<RelationshipData> friendList;
+        [Header("Friends List")]
+        // prefabs and icons for the friends list
         public GameObject friendButtonPrefab;
         public IconDatabase friendButtonIcons;
+        // friend finder 
+        public FriendFinder friendFinder;
+        //friend requests
+        public FriendRequestMenu friendRequests;
+        public Button requestButton;
         
+        // containers for the filter
         public Transform friendButtonContainer;
         public Dropdown filterDropdown;
         public InputField filterNameInput;
@@ -144,25 +156,65 @@ namespace Game.Map
         private Dictionary<string, FriendButton> friendButtons = new Dictionary<string, FriendButton>();
         private FriendButtonMenu friendButtonMenu;
         
-        
         public void FriendsScreen()
         {
             SetActiveScreen(friendsScreen);
             friendFilterType = RelationshipType.Friend;
-            GenerateFriendsList();
+            GenerateFriends();
+            GenerateRequests();
         }
 
+        public void FriendFinder(bool open)
+        {
+            Darken(open);
+            friendFinder.gameObject.SetActive(open);
+        }
+
+        public void FriendRequestScreen(bool open)
+        {
+            friendRequests.gameObject.SetActive(open); 
+        }
+        
         private void GenerateFriends()
         {
-            friendList = new List<RelationshipData>();
-            foreach (string friendUser in gameUI.system.gameData.playerData.friends)
+            gameUI.system.ServerDataRequest("getFriends", (data) =>
             {
-                friendList.Add(new RelationshipData(){isOnline = true,type = RelationshipType.Friend,userName = friendUser});
+                friendList = data.ToObject<List<RelationshipData>>();
+                SetRelationships();
+                GenerateFriendsList();
+            });
+        }
+
+        private void GenerateRequests()
+        {
+            gameUI.system.ServerDataRequest("getFriendRequests", data =>
+            {
+                List<string> requests = data.ToObject<List<string>>();
+                friendRequests.requests = requests;
+                requestButton.interactable = requests.Count > 0;
+                //set text for button
+                string plural = requests.Count == 1 ? "" : "s";
+                requestButton.gameObject.transform.GetComponentInChildren<Text>().text = $"{requests.Count} request{plural}";
+            });
+        }
+
+        private void SetRelationships()
+        {
+            ServerInformation serverInfo = gameUI.system.gameData.serverInformation;
+            
+            foreach (RelationshipData relationship in serverInfo.friendRelationships)
+            {
+                RelationshipData inFriendsList = friendList.Find((data) => data.userName == relationship.userName);
+                if (inFriendsList != null)
+                    inFriendsList.type = relationship.type;
+                else 
+                    friendList.Add(relationship);
             }
         }
+        
         private void GenerateFriendsList()
         {
-            
+            ClearFriendsList();
             foreach (RelationshipData friend in friendList)
             {
                 bool validType = friend.type == friendFilterType || (friend.type != RelationshipType.Ignored &&

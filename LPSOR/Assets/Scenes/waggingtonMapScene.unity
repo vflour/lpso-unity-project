@@ -3651,7 +3651,7 @@ MonoBehaviour:
   uiSpace: {fileID: 1827601417}
   backgroundSpace: {fileID: 1827601418}
   messageBoxPrefabs: {fileID: 11400000, guid: abeccec3f6df7d6e591216193c46337b, type: 2}
-  announceBoxPrefabs: {fileID: 0}
+  announceBoxPrefabs: {fileID: 11400000, guid: 83a9dd9c435639aedbc1b2bc097309fb, type: 2}
   announceBoxIcons: {fileID: 0}
 --- !u!1001 &8869555811386182213
 PrefabInstance:

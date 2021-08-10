@@ -155,6 +155,7 @@ namespace Game.Networking
         #region Emit and On event recievers
         // Receiving and Waiting for server requests
         private Dictionary<string, Action<SocketIOEvent>> socketRequestData = new Dictionary<string, Action<SocketIOEvent>>();
+        private List<string> requestsToRemove = new List<string>();
         public delegate void SocketRequestDelegate(JToken data);
 
         // Emit data to the server
@@ -186,6 +187,7 @@ namespace Game.Networking
         public void RemoveEvent(string eventName)
         {
             socket.Off(eventName,socketRequestData[eventName]); // ARE YOU SERIOUS
+            socketRequestData.Remove(eventName);
         }
 
         // Emit and wait for data (callback emit) from the server
@@ -197,14 +199,20 @@ namespace Game.Networking
         {
             AddEvent(eventName, setResult);
             SendData(eventName, sendData);
+            requestsToRemove.Add(eventName);
         }
         
-
         // Method that sets the socket request data once the .On event has been triggered
         private bool ReceiveData(string eventName, JArray arrayData)
         {
             JObject data = (JObject)arrayData[0];
             bool success = ProcessResponse(data);
+            
+            if (requestsToRemove.Contains(eventName))
+            {
+                requestsToRemove.Remove(eventName);
+                RemoveEvent(eventName);
+            }
             return success;
         }
         Queue<SocketRequestDelegate> requestQueue = new Queue<SocketRequestDelegate>();
@@ -213,23 +221,12 @@ namespace Game.Networking
         private bool ReceiveData(string eventName, JArray arrayData, SocketRequestDelegate requestDelegate)
         {
             JObject data = (JObject)arrayData[0];
-            bool success = ProcessResponse(data);
+            bool success = ReceiveData(eventName, arrayData);
             if (success)
                 requestDelegate(data["data"]);
             
             return success;
         }
-/*
-        public void Update()
-        {
-            if (requestIdQueue.Count > 0)
-            {
-                string id = requestIdQueue.Dequeue();
-                requestQueue.Dequeue()(socketRequestData[id]["data"]);
-                socketRequestData.Remove(id);
-            }
-        }
-        */
         #endregion
 
         #region Request response handler

@@ -150,7 +150,7 @@ namespace Game.UI.Startup
         {
             StartupSystem startupSystem = (StartupSystem) gameUI.system;
             serverSaves.Remove(serverInformation);
-            startupSystem.RemoveServer(new ServerInformation(IP,uName));
+            startupSystem.RemoveServer(new ServerInformation(IP,uName,new List<RelationshipData>()));
             LoadServers();
         }
         #endregion

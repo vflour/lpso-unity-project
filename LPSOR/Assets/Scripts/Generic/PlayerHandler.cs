@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Networking;
+using Game.UI;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
@@ -150,6 +151,29 @@ namespace Game.Map
             
             int itemId = (int) data["item"];
             player.UndressCharacter(itemId);
+            
+        }
+        
+        // When the player sends a friend request to the localplayer
+        public void OnPlayerFriended()
+        {
+            system.ServerDataEvent("receiveFrRequest",FriendRequested);
+            system.ServerDataEvent("acceptFrRequest",FriendAdded);
+        }
+        public void FriendRequested(JToken data)
+        {
+            if (!ValidPlayer(data)) // exit if not valid username
+                return;
+            string userName = (string) data["userName"];
+            FriendRequestBox requestBox = system.GetHandler<GameUI>().NewAnnounceBox(AnnounceBoxType.FriendRequest) as FriendRequestBox;
+            requestBox.userName = userName;
+        }
+
+        public void FriendAdded(JToken data)
+        {
+            string userName = (string) data["userName"];
+            NewFriendBox friendBox = system.GetHandler<GameUI>().NewAnnounceBox(AnnounceBoxType.NewFriend) as NewFriendBox;
+            friendBox.userName = userName;
         }
         #endregion
         // Adds a new player to the list by loading in their data
@@ -164,7 +188,6 @@ namespace Game.Map
             
             // Load the character
             player.SpawnCharacter(characterData);
-            
             
             players.Add(playerData.userName,player);
             return player;

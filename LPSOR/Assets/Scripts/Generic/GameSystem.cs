@@ -157,6 +157,7 @@ namespace Game
         protected Dictionary<string,object> stringRequests = new Dictionary<string,object>();
 
         // basic request method for stuff like Rooms, ServerInformation, etc..
+        
         public T Request<T>(string emitType)
         {
             try
@@ -197,7 +198,11 @@ namespace Game
         }
         public void ServerDataRequest(string request, NetworkClient.SocketRequestDelegate requestDelegate)
         {
-            networkClient.RequestData(request, requestDelegate);
+            ServerDataRequest(request, requestDelegate, "");
+        }
+        public void ServerDataRequest(string request, NetworkClient.SocketRequestDelegate requestDelegate,string data)
+        {
+            networkClient.RequestData(request, data, requestDelegate);
         }
 
         public void ServerDataEvent(string eventName, NetworkClient.SocketRequestDelegate requestDelegate)

@@ -140,11 +140,9 @@ namespace Game
 #endregion
 
 #region Announcement Box handling
-        public AnnounceBox NewAnnounceBox(AnnounceBoxType type, AnnounceBoxIcon icon, string message)
+        public AnnounceBox NewAnnounceBox(AnnounceBoxType type)
         {
             AnnounceBox announceBox = InstantiateScreen("AnnounceBox",announceBoxPrefabs.Data[type.ToString()]).GetComponent<AnnounceBox>();
-            announceBox.icon.sprite = announceBoxIcons.Data[icon.ToString()];
-            announceBox.message.text = message;
             return announceBox;
         }
 
