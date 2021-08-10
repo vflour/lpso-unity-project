@@ -38,13 +38,15 @@ namespace Game
             Character character = charObject.AddComponent<Character>();
             character.characterHandler = this;
             character.data = characterData;
-            character.name = characterId;
             
             // Dress the character
-            foreach (ItemData wearing in characterData.wearing)
-                if(wearing!=null)
-                    character.AddClothes(wearing.id);
-            
+            if (characterData.wearing != null) // Check if character has clothes first
+            {
+                foreach (ItemData wearing in characterData.wearing)
+                    if(wearing!=null)
+                        character.AddClothes(wearing.id);
+            }
+
             loadedCharacters.Add(characterId,character);
             return character;
         }
