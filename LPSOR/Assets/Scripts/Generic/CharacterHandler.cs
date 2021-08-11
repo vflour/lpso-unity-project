@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 namespace Game
@@ -41,11 +42,26 @@ namespace Game
             character.name = characterId;
             
             // Dress the character
-            foreach (ItemData wearing in characterData.wearing)
-                if(wearing!=null)
-                    character.AddClothes(wearing.id);
-            
-            loadedCharacters.Add(characterId,character);
+            if (characterData.wearing != null) // Check if character has clothes first
+            {
+                foreach (ItemData wearing in characterData.wearing)
+                    if(wearing!=null)
+                        character.AddClothes(wearing.id);
+            }
+
+            // Check if character has already been loaded
+            if (loadedCharacters.Count != 0)
+            {
+
+                if (!loadedCharacters.ContainsKey(characterId))
+                {
+                    loadedCharacters.Add(characterId,character);
+                }
+
+            }else{
+                loadedCharacters.Add(characterId,character);
+            }
+
             return character;
         }
         public void RemoveCharacter(string characterName)

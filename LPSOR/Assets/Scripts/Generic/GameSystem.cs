@@ -205,6 +205,11 @@ namespace Game
             networkClient.RequestData(request, data, requestDelegate);
         }
 
+        public void ServerDataSendReturn(string request, string sendData, NetworkClient.SocketRequestDelegate requestDelegate)
+        {
+            networkClient.RequestData(request, sendData, requestDelegate);
+        }
+
         public void ServerDataEvent(string eventName, NetworkClient.SocketRequestDelegate requestDelegate)
         {
             networkClient.AddEvent(eventName,requestDelegate);
