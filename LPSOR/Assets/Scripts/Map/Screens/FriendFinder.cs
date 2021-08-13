@@ -19,7 +19,7 @@ namespace Game.Map
         }
         public void FindFriend()
         {
-            pda.gameUI.system.ServerDataRequest("sendFrRequest", data =>
+            pda.gameUI.system.ServerDataRequest("sendFrRequest",input.text, data =>
             {
                 bool valid = data.ToObject<bool>();
                 if (valid)
@@ -32,7 +32,7 @@ namespace Game.Map
                     title.color = Color.red;
                 }
                 
-            },input.text);
+            });
         }
 
     }

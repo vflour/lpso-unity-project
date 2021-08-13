@@ -34,13 +34,7 @@ namespace Game.Map
             localPlayer = playerHandler.LoadPlayer(gameData.playerData,gameData.sessionData);
 
             // Enable playerHandler events
-            playerHandler.OnPlayerAdded();
-            playerHandler.OnPlayerMoveTile();
-            playerHandler.OnPlayerChatted();
-            playerHandler.OnPlayerPropInteracted();
-            playerHandler.OnPlayerRemoving();
-            playerHandler.OnPlayerDressed();
-            playerHandler.OnPlayerFriended();
+            playerHandler.PlayerEvents();
             
             // Tell the server to join the room's map
             string mapName = system.GetHandler<MapHandler>().mapData.mapName;

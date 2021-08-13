@@ -312,7 +312,7 @@ namespace Game.CrAP
         {
             characterData.ticket = system.gameData.currentTicket;
             system.gameData.sessionData = characterData;
-            system.ServerDataSendReturn("newCharacter", JsonUtility.ToJson(characterData), data => {
+            system.ServerDataRequest("newCharacter", JsonUtility.ToJson(characterData), data => {
                 string charId = (string) data;
                 system.gameData.sessionData._id = charId;
                 characterData._id = charId;

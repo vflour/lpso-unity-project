@@ -1,0 +1,419 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db9f787570704754aa18823f03092b05, type: 3}
+  m_Name: SpeechPath
+  m_EditorClassIdentifier: 
+  contains:
+    data: 
+    contains:
+    - data: Answers
+      contains:
+      - data: Yes!
+        contains: []
+      - data: No.
+        contains: []
+      - data: Maybe.
+        contains: []
+      - data: OK
+        contains: []
+      - data: No way.
+        contains: []
+      - data: Of course.
+        contains: []
+      - data: I don't know.
+        contains: []
+      - data: Alright!
+        contains: []
+      - data: I would love to!
+        contains: []
+      - data: Why not?
+        contains: []
+    - data: Games
+      contains:
+      - data: Let's play Find Four!
+        contains: []
+      - data: I won!
+        contains: []
+      - data: Good match!
+        contains: []
+      - data: Let's play again!
+        contains: []
+      - data: GG
+        contains: []
+      - data: I almost had it!
+        contains: []
+      - data: My favourite game is [...]
+        contains:
+        - data: Splashing Daisies
+          contains: []
+        - data: Match 'N Munch
+          contains: []
+        - data: Sky High Ball Bounce
+          contains: []
+        - data: Bop and Balloons
+          contains: []
+        - data: Low tide treasures
+          contains: []
+        - data: Fruitista Fetch
+          contains: []
+        - data: Scenic Safari
+          contains: []
+        - data: Party Dasher
+          contains: []
+        - data: Fashionation
+          contains: []
+        - data: Whale Surfing
+          contains: []
+        - data: Harmony's Dance Challange
+          contains: []
+        - data: Sparklynn's Gem Swap
+          contains: []
+        - data: Pets on Parade
+          contains: []
+      - data: I want to play [...]
+        contains:
+        - data: Splashing Daisies
+          contains: []
+        - data: Match 'N Munch
+          contains: []
+        - data: Sky High Ball Bounce
+          contains: []
+        - data: Bop and Balloons
+          contains: []
+        - data: Low tide treasures
+          contains: []
+        - data: Fruitista Fetch
+          contains: []
+        - data: Scenic Safari
+          contains: []
+        - data: Party Dasher
+          contains: []
+        - data: Fashionation
+          contains: []
+        - data: Whale Surfing
+          contains: []
+        - data: Harmony's Dance Challange
+          contains: []
+        - data: Sparklynn's Gem Swap
+          contains: []
+        - data: Pets on Parade
+          contains: []
+    - data: Goodbyes
+      contains:
+      - data: Bye!
+        contains: []
+      - data: Goodbye!
+        contains: []
+      - data: See you later alligator!
+        contains: []
+      - data: In awhile, crocodile!
+        contains: []
+      - data: See you soon!
+        contains: []
+      - data: Take care!
+        contains: []
+      - data: Stay safe.
+        contains: []
+      - data: Later!
+        contains: []
+      - data: Sayonara!
+        contains: []
+      - data: Goodnight!
+        contains: []
+    - data: Hellos
+      contains:
+      - data: Hello
+        contains: []
+      - data: Hi
+        contains: []
+      - data: Hey!
+        contains: []
+      - data: Good morning
+        contains: []
+      - data: Good afternoon
+        contains: []
+    - data: Questions
+      contains:
+      - data: How are you?
+        contains: []
+      - data: What's up?
+        contains: []
+      - data: Want to be friends?
+        contains: []
+      - data: Are you okay?
+        contains: []
+      - data: Do you need help?
+        contains: []
+      - data: Where is [...]?
+        contains:
+        - data: Welcome Waggin' Store
+          contains: []
+        - data: Diva Furnishings
+          contains: []
+        - data: Glam Garbs
+          contains: []
+        - data: Good Thyme Market
+          contains: []
+        - data: Groovy Groomin'
+          contains: []
+        - data: Kittywood Boutique
+          contains: []
+        - data: Kittywood Info Kiosk
+          contains: []
+        - data: PET SHOP TV
+          contains: []
+        - data: The Golden Birdcage
+          contains: []
+        - data: Wooly Couture
+          contains: []
+        - data: Stick and Stones Craft Store
+          contains: []
+        - data: Cozy Care Center
+          contains: []
+        - data: Waggington Info Kiosk
+          contains: []
+        - data: Humble Pie Shop
+          contains: []
+      - data: Where can you get [...]?
+        contains:
+        - data: clothes
+          contains: []
+        - data: toys
+          contains: []
+        - data: food
+          contains: []
+        - data: furniture
+          contains: []
+      - data: How are you feeling?
+        contains: []
+      - data: What's your favourite [...]?
+        contains:
+        - data: food
+          contains: []
+        - data: game
+          contains: []
+        - data: music
+          contains: []
+        - data: place to stay at
+          contains: []
+        - data: holiday
+          contains: []
+      - data: What are you doing?
+        contains: []
+      - data: Where are you?
+        contains: []
+      - data: Want to hang out?
+        contains: []
+    - data: Shouts
+      contains:
+      - data: Follow me!
+        contains: []
+      - data: Stop!
+        contains: []
+      - data: You're doing great!
+        contains: []
+      - data: Keep going!
+        contains: []
+      - data: Check your inbox!
+        contains: []
+      - data: Check your friend requests!
+        contains: []
+      - data: Let's [...]!
+        contains:
+        - data: play Find Four
+          contains: []
+        - data: play Leap Frog
+          contains: []
+        - data: play Catch Me If You Can
+          contains: []
+        - data: start a Dance Party
+          contains: []
+        - data: Tag Along together
+          contains: []
+      - data: Congratulations!
+        contains: []
+      - data: Wow!
+        contains: []
+      - data: Let's go!
+        contains: []
+      - data: Help me!
+        contains: []
+      - data: You're a great buddy!
+        contains: []
+      - data: You're a great best friend!
+        contains: []
+    - data: Statements
+      contains:
+      - data: Go to [...]
+        contains:
+        - data: Welcome Waggin' Store
+          contains: []
+        - data: Diva Furnishings
+          contains: []
+        - data: Glam Garbs
+          contains: []
+        - data: Good Thyme Market
+          contains: []
+        - data: Groovy Groomin'
+          contains: []
+        - data: Kittywood Boutique
+          contains: []
+        - data: Kittywood Info Kiosk
+          contains: []
+        - data: PET SHOP TV
+          contains: []
+        - data: The Golden Birdcage
+          contains: []
+        - data: Wooly Couture
+          contains: []
+        - data: Stick and Stones Craft Store
+          contains: []
+        - data: Cozy Care Center
+          contains: []
+        - data: Waggington Info Kiosk
+          contains: []
+        - data: Humble Pie Shop
+          contains: []
+      - data: I can't do that.
+        contains: []
+      - data: I got the [...] recently.
+        contains:
+        - data: pet I wanted
+          contains: []
+        - data: clothing I wanted
+          contains: []
+        - data: furniture I wanted
+          contains: []
+        - data: toy I wanted
+          contains: []
+        - data: best high score
+          contains: []
+        - data: Welcome Meadow pet
+          contains: []
+        - data: Backyard Pets pet
+          contains: []
+        - data: Purrfect Pets Play Room pet
+          contains: []
+        - data: Pet Playdate pet
+          contains: []
+        - data: Wet Pets Lagoon pet
+          contains: []
+        - data: Something Special About Me pet
+          contains: []
+        - data: Feeling Silly pet
+          contains: []
+        - data: Big Dreams pet
+          contains: []
+        - data: Great Outdoors pet
+          contains: []
+      - data: I have to ask you to leave.
+        contains: []
+      - data: I just added you as a buddy.
+        contains: []
+      - data: I like the [...]
+        contains:
+        - data: kitty
+          contains: []
+        - data: dog
+          contains: []
+        - data: bunny
+          contains: []
+        - data: hamster
+          contains: []
+        - data: butterfly
+          contains: []
+        - data: monkey
+          contains: []
+        - data: cow
+          contains: []
+        - data: panda
+          contains: []
+        - data: bear
+          contains: []
+        - data: flamingo
+          contains: []
+        - data: mouse
+          contains: []
+        - data: ladybug
+          contains: []
+        - data: squirrel
+          contains: []
+      - data: I like your [...]
+        contains:
+        - data: bracelet
+          contains: []
+        - data: necklace
+          contains: []
+        - data: shirt
+          contains: []
+        - data: glasses
+          contains: []
+        - data: gloves
+          contains: []
+        - data: hat
+          contains: []
+        - data: pants
+          contains: []
+        - data: shoes
+          contains: []
+        - data: pet
+          contains: []
+        - data: house
+          contains: []
+      - data: I love [...]
+        contains:
+        - data: playing games
+          contains: []
+        - data: making pets
+          contains: []
+        - data: unlocking pets
+          contains: []
+        - data: completing quests
+          contains: []
+        - data: finding treasures
+          contains: []
+        - data: caring for my pet
+          contains: []
+      - data: Do what's right for you.
+        contains: []
+      - data: I need help.
+        contains: []
+      - data: You should report them
+        contains: []
+      - data: Please stop.
+        contains: []
+    - data: Emoticons
+      contains:
+      - data: :)
+        contains: []
+      - data: :(
+        contains: []
+      - data: :I
+        contains: []
+      - data: :D
+        contains: []
+      - data: xD
+        contains: []
+      - data: 'D:'
+        contains: []
+      - data: o_o
+        contains: []
+      - data: T_T
+        contains: []
+      - data: :[
+        contains: []
+      - data: :]
+        contains: []
+      - data: ;)
+        contains: []
+      - data: :o
+        contains: []

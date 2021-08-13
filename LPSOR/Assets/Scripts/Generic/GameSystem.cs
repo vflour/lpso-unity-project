@@ -198,16 +198,11 @@ namespace Game
         }
         public void ServerDataRequest(string request, NetworkClient.SocketRequestDelegate requestDelegate)
         {
-            ServerDataRequest(request, requestDelegate, "");
+            ServerDataRequest(request, null, requestDelegate);
         }
-        public void ServerDataRequest(string request, NetworkClient.SocketRequestDelegate requestDelegate,string data)
+        public void ServerDataRequest(string request, string data, NetworkClient.SocketRequestDelegate requestDelegate)
         {
             networkClient.RequestData(request, data, requestDelegate);
-        }
-
-        public void ServerDataSendReturn(string request, string sendData, NetworkClient.SocketRequestDelegate requestDelegate)
-        {
-            networkClient.RequestData(request, sendData, requestDelegate);
         }
 
         public void ServerDataEvent(string eventName, NetworkClient.SocketRequestDelegate requestDelegate)

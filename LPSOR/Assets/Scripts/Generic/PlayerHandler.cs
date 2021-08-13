@@ -24,9 +24,19 @@ namespace Game.Map
         }
         #endregion
         #region Player Events
-        public void OnPlayerAdded()
+
+        public void PlayerEvents()
         {
             system.ServerDataEvent("spawnPlayer", PlayerAdded);
+            system.ServerDataEvent("removePlayer", PlayerRemoving);
+            system.ServerDataEvent("moveTile", PlayerMoveTile);
+            system.ServerDataEvent("chat",PlayerChatted);
+            system.ServerDataEvent("propInteract", PlayerPropInteracted);
+            system.ServerDataEvent("dress", PlayerDressed);
+            system.ServerDataEvent("undress", PlayerUndressed);
+            system.ServerDataEvent("receiveFrRequest",FriendRequested);
+            system.ServerDataEvent("acceptFrRequest",FriendAdded);
+            
         }
 
         public bool ValidPlayer(JToken data)
@@ -58,10 +68,6 @@ namespace Game.Map
         }
         
         // Remove the player on disconnect
-        public void OnPlayerRemoving()
-        {
-            system.ServerDataEvent("removePlayer", PlayerRemoving);
-        }
         public void PlayerRemoving(JToken data)
         {
             if (!ValidPlayer(data)) // exit if not valid username
@@ -74,10 +80,6 @@ namespace Game.Map
         }
         
         // Move the player when they click on a tile
-        public void OnPlayerMoveTile()
-        {
-            system.ServerDataEvent("moveTile", PlayerMoveTile);
-        }
         public void PlayerMoveTile(JToken data)
         {
             if (!ValidPlayer(data)) // exit if not valid username
@@ -90,10 +92,6 @@ namespace Game.Map
         }
         
         // When the player types out a chat message
-        public void OnPlayerChatted()
-        {
-            system.ServerDataEvent("chat",PlayerChatted);
-        }
 
         public void PlayerChatted(JToken data)
         {
@@ -107,10 +105,6 @@ namespace Game.Map
         
         // When the player interacts with a prop
 
-        public void OnPlayerPropInteracted()
-        {
-            system.ServerDataEvent("propInteract", PlayerPropInteracted);
-        }
 
         public void PlayerPropInteracted(JToken data)
         {
@@ -125,12 +119,6 @@ namespace Game.Map
         }
         
         // When the player dresses/undresses character
-        public void OnPlayerDressed()
-        {
-            system.ServerDataEvent("dress", PlayerDressed);
-            system.ServerDataEvent("undress", PlayerUndressed);
-        }
-
         public void PlayerDressed(JToken data)
         {
             if (!ValidPlayer(data)) // exit if not valid username
@@ -152,13 +140,6 @@ namespace Game.Map
             int itemId = (int) data["item"];
             player.UndressCharacter(itemId);
             
-        }
-        
-        // When the player sends a friend request to the localplayer
-        public void OnPlayerFriended()
-        {
-            system.ServerDataEvent("receiveFrRequest",FriendRequested);
-            system.ServerDataEvent("acceptFrRequest",FriendAdded);
         }
         public void FriendRequested(JToken data)
         {

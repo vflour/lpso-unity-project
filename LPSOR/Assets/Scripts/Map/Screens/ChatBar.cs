@@ -10,12 +10,18 @@ namespace Game.Map
 {
     public class ChatBar : MonoBehaviour
     {
+        [Header("Chat Bar")]
         public TMP_InputField inputBox;
         public TMP_Text resultBox;
         public Button button;
         public HUDScreen HudScreen;
         private bool filtered;
         public string filteredText = "";
+
+        [Header("Speech Path")] 
+        public SpeechPathMenu speechPathMenu;
+        public Button speechPathButton;
+        
         public bool Filtered
         {
             get => button.enabled;
@@ -27,15 +33,22 @@ namespace Game.Map
             // send message if queue is not full
             if (HudScreen.gameUI.system.GetHandler<ChatHandler>().CheckLocalQueue() && filteredText != "")
             {
-                HudScreen.gameUI.system.GetHandler<UserHandler>().SendChat(inputBox.text);
+                SendChat(inputBox.text);
                 filteredText = "";
                 inputBox.SetTextWithoutNotify(""); // reset text
             }
         }
 
+        public void SendChat(string text)
+        {
+            HudScreen.gameUI.system.GetHandler<UserHandler>().SendChat(text);
+        }
+
         private void Start()
         {
             inputBox.characterLimit = HudScreen.gameUI.system.GetHandler<ChatHandler>().filter.maxLength;
+            speechPathMenu.speechPathFound = speech => SendChat(speech);
+            speechPathMenu.tailRelativeTo = speechPathButton.transform;
         }
         private void Update()
         {
