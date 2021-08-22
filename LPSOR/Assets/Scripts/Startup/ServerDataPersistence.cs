@@ -25,6 +25,25 @@ namespace Game.Networking
             }
         }
 
+        public static void SaveOneServer(ServerInformation serverInfo)
+        {
+            try
+            {
+                List<ServerInformation> serverList = LoadServerData();
+                int serverMatch = serverList.FindIndex((data) => serverInfo.IP == data.IP);
+                if (serverMatch!=-1)
+                {
+                    serverList[serverMatch] = serverInfo;
+                    SaveServerData(serverList);
+                }
+            }            
+            catch( System.Exception ex )
+            {
+                Debug.LogException(ex);
+            }
+            
+        }
+
         public static List<ServerInformation> LoadServerData() // deserializes the serverInformation binary if there is one
         {
             List<ServerInformation> data = new List<ServerInformation>();

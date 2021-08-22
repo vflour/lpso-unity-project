@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Map;
+using Game.UI;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -179,7 +180,21 @@ namespace Game
             }
         }
         #endregion
-        
+
+        #region Descriptor
+        public void AddDialogDescriptor(string[] text, Sprite icon)
+        {
+            // Add the dialog descriptor prompt
+            DialogPrompt prompt = gameObject.AddComponent<DialogPrompt>();
+            prompt.data = new DialogData()
+            {
+                type=UI.DialogType.Information,
+                text=text,
+                icon=icon,
+            };
+            prompt.mouseHandler = characterHandler.system.GetHandler<MouseHandler>();
+        }
+        #endregion
         
     }
 }

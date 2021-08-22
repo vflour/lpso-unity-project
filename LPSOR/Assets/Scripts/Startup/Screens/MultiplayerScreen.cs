@@ -139,8 +139,7 @@ namespace Game.UI.Startup
         }
         public void InitializeServerPageButtons(List<GameObject> serverButtons)
         {
-            arrowList.Initialize(serverButtons.Count);
-            arrowList.InitializePageObject(serverButtons.ToArray());
+            arrowList.Initialize(serverButtons.ToArray());
             // adds the arrowlist buttons to the button count if theres any
             foreach(ArrowListButton button in arrowList.activeButtons) buttons.Add(button.GetComponent<UnityEngine.UI.Button>());
         }

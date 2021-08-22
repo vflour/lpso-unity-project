@@ -203,8 +203,7 @@ namespace Game.UI.CRaP
                 }
                 
                 // Initialize Arrowlist + Active Palette buttons
-                paletteModArrowLists[containerIndex].Initialize(PaletteObjects.Count);
-                paletteModArrowLists[containerIndex].InitializePageObject(PaletteObjects.ToArray());
+                paletteModArrowLists[containerIndex].Initialize(PaletteObjects.ToArray());
                 activePaletteButtons[containerIndex] = PaletteObjects;
                 
                 SetPaletteSection(containerIndex, 0);

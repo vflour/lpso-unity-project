@@ -11,6 +11,7 @@ namespace Game.Map
     using Inventory;
     public class PlayerHandler : MonoBehaviour, IHandler
     {
+        public Sprite playerIcon;
         public Dictionary<string,Player> players = new Dictionary<string,Player>();
         #region Initialization
         // IHandler methods
@@ -196,6 +197,15 @@ namespace Game.Map
             players.Remove(player.name);
             player.Remove();
         }
+        
+        // Gets a player object via the character
+        public Player GetPlayerFromCharacter(Character character)
+        {
+            foreach(Player p in players.Values)
+                if (p.session.data._id == character.data._id)
+                    return p;
+            return null;
+        }
 
         // Requests the Character to be removed
         public void RequestCharacterRemoval(Character character)
@@ -205,12 +215,12 @@ namespace Game.Map
         }
         
         // Requests character data, it, and sets the session
-        public void RequestCharacterGeneration(ref Character generatedCharacter, CharacterData characterData)
+        public void RequestCharacterGeneration(ref Character generatedCharacter, CharacterData characterData, Player player)
         {
             // Generate character sprite
             CharacterHandler characterHandler = system.GetHandler<CharacterHandler>();
             generatedCharacter = characterHandler.AddCharacter(characterData._id, characterData);
-            
+            generatedCharacter.AddDialogDescriptor(new []{player.data.userName},playerIcon);
             // Set saved location
             MapHandler mapHandler = system.GetHandler<MapHandler>();
             generatedCharacter.tilePosition = mapHandler.CheckCoordinates(characterData.lastLocation);

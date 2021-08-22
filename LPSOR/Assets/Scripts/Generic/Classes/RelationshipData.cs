@@ -1,6 +1,7 @@
 namespace Game
 {
-    public enum RelationshipType{Friend,BFF,Ignored}
+    public enum RelationshipType{Friend,BFF,Ignored,Stranger}
+    [System.Serializable]
     public class RelationshipData
     {
         public string userName;

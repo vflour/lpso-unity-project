@@ -84,7 +84,11 @@ namespace Spriter2UnityDX {
 		}
 
 		private void OnDisable () {
-			DoForAll (x => x.enabled = false);
+			DoForAll (x =>
+			{
+				if(x!=null)
+					x.enabled = false;
+			});
 		}
 		
 		private void DoForAll (Action<SpriteRenderer> action) {

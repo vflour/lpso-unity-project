@@ -7,15 +7,15 @@ namespace Game.UI
     public class ArrowListPage : MonoBehaviour
     {
         // Create an array of lists, where each list represents a page holding a set amount of items
-        private List<GameObject>[] itemPages;
+        protected List<GameObject>[] itemPages;
         // Initializing the page objects
-        public void Initialize(GameObject[] items, int itemsPerPage)
+        public virtual void Initialize(GameObject[] items, int itemsPerPage)
         {
             int itemCount = items.Length;
             int pageCount = itemCount / itemsPerPage + 1;
             
             // exit code if theres only one page
-            if (pageCount == 1) return;
+           // if (pageCount == 1) return;
             
             // Allocate n amount of List arrays, where n=pageCount
             itemPages = new List<GameObject>[pageCount];
@@ -29,6 +29,7 @@ namespace Game.UI
                 // add the item to the page list
                 itemPages[pageIndex].Add(items[itemIndex]);
             }
+            CurrentPage = 0;
         }
         // Property to getting/setting the current visible page
         private int _currentPage;
@@ -48,7 +49,7 @@ namespace Game.UI
             for(int pageNumber = 0; pageNumber < itemPages.Length; pageNumber++)
                 SetPageVisible(pageNumber,visible);
         }
-        public void SetPageVisible(int pageNumber, bool visible)
+        public virtual void SetPageVisible(int pageNumber, bool visible)
         {
             foreach(GameObject item in itemPages[pageNumber])
                 item.SetActive(visible);

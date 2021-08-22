@@ -95,7 +95,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -106,8 +106,8 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: f782489f330ce884c979bf5021576db6, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 33052777198d6414c817f85eb1f5f1f0, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -143,9 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102c0564d17f4421bb9793947de5818e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 0
-  activeSprite: {fileID: 0}
-  inactiveSprite: {fileID: 0}
+  buttonType: 2
+  activeSprite: {fileID: 21300000, guid: 33052777198d6414c817f85eb1f5f1f0, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: 33052777198d6414c817f85eb1f5f1f0, type: 3}
   activeSize: {x: 1, y: 1, z: 1}
   inactiveSize: {x: 1, y: 1, z: 1}
   arrowList: {fileID: 0}

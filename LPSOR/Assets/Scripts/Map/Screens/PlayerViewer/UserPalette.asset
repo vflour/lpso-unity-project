@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43363371d6d044e18af6889f51b0a7a5, type: 3}
+  m_Name: UserPalette
+  m_EditorClassIdentifier: 
+  petButtonSprites:
+  - {fileID: 21300000, guid: 1ae6539998549f99285348278bd95b78, type: 3}
+  - {fileID: 21300000, guid: 388a8e0036b00e75085dc2123e5ec4cd, type: 3}
+  - {fileID: 21300000, guid: 952e5a99d19594ec1851e898eaa96523, type: 3}
+  - {fileID: 21300000, guid: 791075481b1225007ae1989f2586c8f7, type: 3}
+  - {fileID: 21300000, guid: d858be348eb7522ddaf3ce36a750e3f7, type: 3}
+  - {fileID: 21300000, guid: df026e0623de5e994b8b6fb952b6c641, type: 3}
+  - {fileID: 21300000, guid: d904cd54969b6e3f9be89fdd023ebbaa, type: 3}
+  - {fileID: 21300000, guid: 24684cd026b5f2bc8ba80badd20d76fa, type: 3}
+  - {fileID: 21300000, guid: 515a8b68bea0df736a3a6496b50f138f, type: 3}
+  - {fileID: 21300000, guid: 98ba7c5b5b56146ea967835b8d56b4e9, type: 3}
+  - {fileID: 21300000, guid: b7e085618cda9dbff88932d865943884, type: 3}
+  - {fileID: 21300000, guid: bedbe7e9104fff8a1b6e9893fe1d21b6, type: 3}
+  emptyBoxSprite: {fileID: 21300000, guid: d96f277a11b99436aae3dbbfcfdad018, type: 3}
+  fieldSprite: {fileID: 21300000, guid: a855153a9ccfa4443812bf702c2b090a, type: 3}
+  textColor: {r: 0.10588235, g: 0.47673938, b: 0.78431374, a: 1}
+  mainBoxes:
+    m_keys:
+    - UserName
+    - Counter
+    - Character
+    - Pets
+    m_values:
+    - {fileID: 21300000, guid: db3afaf124b7ab65ca3f974489199e8c, type: 3}
+    - {fileID: 21300000, guid: dd8356634a287b212aa5f7beaddefe23, type: 3}
+    - {fileID: 21300000, guid: 527218fe8cb1af047bb17d8decc2c439, type: 3}
+    - {fileID: 21300000, guid: 20218f951a7080cb89eb14bf3f1d8072, type: 3}
+  userNameBox: {fileID: 21300000, guid: db3afaf124b7ab65ca3f974489199e8c, type: 3}
+  counterBox: {fileID: 21300000, guid: dd8356634a287b212aa5f7beaddefe23, type: 3}
+  characterBox: {fileID: 21300000, guid: 527218fe8cb1af047bb17d8decc2c439, type: 3}
+  petsBox: {fileID: 21300000, guid: 20218f951a7080cb89eb14bf3f1d8072, type: 3}
+  buttons: 0000000001000000020000000300000004000000

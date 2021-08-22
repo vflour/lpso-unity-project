@@ -30,7 +30,7 @@ namespace Game.Map
         #region Character generation
         public void SpawnCharacter(CharacterData characterData)
         {
-            playerHandler.RequestCharacterGeneration(ref session, characterData);
+            playerHandler.RequestCharacterGeneration(ref session, characterData, this);
             session.transform.SetParent(transform);
           
         }

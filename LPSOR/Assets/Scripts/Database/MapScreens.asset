@@ -18,9 +18,11 @@ MonoBehaviour:
     - Loading
     - Inventory
     - PDA
+    - PlayerViewer
     m_values:
     - {fileID: 4049367497450171009, guid: fecb5514b0f90e8c684eba9344c67ec6, type: 3}
     - {fileID: 189876172710155261, guid: fcb658b86487e02acb9a18806bca27c3, type: 3}
     - {fileID: 2410723881641635256, guid: 3ed2660d8f17ec341ae2bcb7b631ee72, type: 3}
     - {fileID: 1545146764527347023, guid: 520d0def99162015e942d6c484aa4390, type: 3}
+    - {fileID: 5438685673853806574, guid: dd37066e4c65bc9eab0a468b614120b3, type: 3}
   firstItem: HUD

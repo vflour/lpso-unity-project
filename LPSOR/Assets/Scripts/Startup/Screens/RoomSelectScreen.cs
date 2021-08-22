@@ -42,8 +42,7 @@ namespace Game.UI.Startup
 
         public void InitializeRoomPageButtons(List<GameObject> roomButtons)
         {
-            arrowList.Initialize(roomButtons.Count);
-            arrowList.InitializePageObject(roomButtons.ToArray());
+            arrowList.Initialize(roomButtons.ToArray());
             // adds the arrowlist buttons to the button count if theres any
             foreach(ArrowListButton button in arrowList.activeButtons) buttons.Add(button.GetComponent<UnityEngine.UI.Button>());
         }

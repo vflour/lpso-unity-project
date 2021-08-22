@@ -15,22 +15,25 @@ namespace Game.UI
 [Header("Page Data")]         
         public int itemsPerPage;
         public ArrowListPage pageObject;
+        public bool showListIfOne;
         
 #region Initialization
-        public void Initialize(int itemCount)
+        public void Initialize(GameObject[] itemList)
         {
+            int itemCount = itemList.Length;
             maxPageCount = itemCount / itemsPerPage + 1;
             
             // Init buttons if theres more than one pages
-            if (maxPageCount > 1)
+            if (maxPageCount > 1 || showListIfOne)
             {
                 InitializeButtons();
                 CurrentPage = 0;
             }
-                
+
+            InitializePageObject(itemList);
         }
         // Initialize a page object if there is one
-        public void InitializePageObject(GameObject[] itemList)
+        private void InitializePageObject(GameObject[] itemList)
         {
             pageObject = GetComponent<ArrowListPage>();
             if (pageObject != null)
@@ -40,18 +43,19 @@ namespace Game.UI
         private void InitializeButtons()
         {
             // loop through the button order
-            foreach (ArrowListButtonType buttonType in buttonOrder)
+            for(int i = 0; i<buttonOrder.Length;i++)
             {
+                ArrowListButtonType buttonType = buttonOrder[i];
                 switch (buttonType)
                 {
+                    case ArrowListButtonType.PreviousArrow:
+                        InstantiateButton(-1, buttonType);
+                        break;
                     case ArrowListButtonType.PageButton:
                         InstantiateNPages();
                         break;
                     case ArrowListButtonType.NextArrow:
                         InstantiateButton(1, buttonType);
-                        break;
-                    case ArrowListButtonType.PreviousArrow:
-                        InstantiateButton(-1, buttonType);
                         break;
                     case ArrowListButtonType.MinButton:
                         InstantiateButton(0, buttonType);
@@ -75,7 +79,6 @@ namespace Game.UI
         {
             // Instantiate button based on buttontype
             GameObject button = GameObject.Instantiate(buttonSprites[(int) buttonType], transform);
-            
             // initialize arrowlistbutton component
             ArrowListButton buttonComponent = button.GetComponent<ArrowListButton>();
             buttonComponent.Value = buttonValue;
@@ -84,6 +87,7 @@ namespace Game.UI
             
             // add to active buttons
             activeButtons.Add(buttonComponent);
+            button.transform.SetAsLastSibling();
             return buttonComponent;
         }
 #endregion

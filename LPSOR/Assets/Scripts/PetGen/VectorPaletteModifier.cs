@@ -26,11 +26,12 @@ public class VectorPaletteModifier : MonoBehaviour
     }
     public void InitColorSwapTex(SpriteRenderer sprite)
     {
-        
+        if (palette[ColorIndex] == null) return;
         sprite.material.SetFloat("_ColorIndex", ColorIndex);
         sprite.material.SetFloat("_Saturation", palette[ColorIndex].saturationMultiplier);
         if (ColorIndex > 2) return;
-        sprite.material.color = palette[ColorIndex].color;
+        sprite.material.color = palette[ColorIndex].color;  
+        
     }
 
 }

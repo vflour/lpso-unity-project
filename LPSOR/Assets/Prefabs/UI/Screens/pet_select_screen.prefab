@@ -455,6 +455,7 @@ MonoBehaviour:
   activeButtons: []
   itemsPerPage: 6
   pageObject: {fileID: 0}
+  showListIfOne: 1
   maxPageButtons: 5
 --- !u!222 &21172140544003501
 CanvasRenderer:

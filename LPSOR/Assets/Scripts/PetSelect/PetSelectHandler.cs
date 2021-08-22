@@ -115,7 +115,8 @@ namespace Game.PetSelect
                 slots.Add(slotGroup);
             }
         }
-        
+
+
         private GameObject currentSlotDisplay;
         private GameObject currentPlatDisplay;
         public void SelectSlot(int i)

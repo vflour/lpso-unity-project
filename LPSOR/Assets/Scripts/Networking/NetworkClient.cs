@@ -132,13 +132,6 @@ namespace Game.Networking
         {
             socket.OnOpen += () => OpenConnection();// fires when the socket is opened
             socket.OnClose += () => ResetConnection();
-            //socket.On(QSocket.EVENT_DISCONNECT, e => ResetConnection());// fires when the player is disconnected from the server
-            //socket.On(QSocket.EVENT_CONNECT_ERROR, e=> ResetConnection()); // or when there's issues connecting in general
-            // socket.On(QSocket.EVENT_CONNECT_TIMEOUT, e => ResetConnection())
-        }
-        private void TestCock()
-        {
-            Debug.Log("large cock");
         }
         // Event method for opening the connection
         private void OpenConnection()
@@ -178,12 +171,19 @@ namespace Game.Networking
         }
         public void AddEvent(string eventName, SocketRequestDelegate requestDelegate)
         {
+            StartCoroutine(AddEventAsync(eventName, requestDelegate));
+        }
+
+        private IEnumerator AddEventAsync(string eventName, SocketRequestDelegate requestDelegate)
+        {
             Action<SocketIOEvent> receiveEvent =
                 data => ReceiveData(eventName, data.Data, requestDelegate);
-            
+            if (socketRequestData.ContainsKey(eventName))
+                yield return new WaitUntil(() => socketRequestData.ContainsKey(eventName)==false);
             socketRequestData.Add(eventName, receiveEvent);  
             socket.On(eventName, receiveEvent);
         }
+        
         public void RemoveEvent(string eventName)
         {
             socket.Off(eventName,socketRequestData[eventName]); // ARE YOU SERIOUS
@@ -197,11 +197,16 @@ namespace Game.Networking
         }
         public void RequestData(string eventName, string sendData, SocketRequestDelegate setResult)
         {
-            AddEvent(eventName, setResult);
+            StartCoroutine(RequestDataAsync(eventName, sendData, setResult));
+        }
+
+        public IEnumerator RequestDataAsync(string eventName, string sendData, SocketRequestDelegate setResult)
+        {
+            yield return AddEventAsync(eventName, setResult);
             SendData(eventName, sendData);
             requestsToRemove.Add(eventName);
         }
-        
+
         // Method that sets the socket request data once the .On event has been triggered
         private bool ReceiveData(string eventName, JArray arrayData)
         {

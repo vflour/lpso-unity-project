@@ -51,6 +51,7 @@ public class PlayerData
     public string userName;
     public List<string> friends;
     public List<ItemData> inventory;
+    public bool isMember;
     
     public int kibble;
     public int bronze;
@@ -58,9 +59,3 @@ public class PlayerData
     public int silver;
 }
 
-public class CharacterAction // Actions are basically animations/interacting with items
-{
-    public bool Active; // if Action is being performed
-    public int ActionType; // Actiontype
-    public int ObjectIndex; // If there's an object involved
-}

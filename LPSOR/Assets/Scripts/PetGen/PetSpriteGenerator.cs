@@ -6,7 +6,7 @@ using UnityEngine;
 public class PetSpriteGenerator
 {
     public PetDatabase petDatabase;
-
+    
     public PetSpriteGenerator(PetDatabase petDatabase)
     {
         this.petDatabase = petDatabase;

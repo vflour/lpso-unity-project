@@ -57,6 +57,7 @@ namespace Game
         {
             if (Input.GetMouseButtonDown(0) && !isFiring)
             {
+                if(EventSystem.current.IsPointerOverGameObject()) return;
                 isFiring = true;
                 Vector3 mousePosition = Input.mousePosition;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
