@@ -25,5 +25,5 @@ MonoBehaviour:
   - {x: 95, y: 72}
   - {x: 75, y: 85}
   - {x: 57, y: 91}
-  yOffset: 0.2
-  mapName: Waggington
+  yOffset: 0
+  mapName: 

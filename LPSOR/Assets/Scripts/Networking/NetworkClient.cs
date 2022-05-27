@@ -77,7 +77,7 @@ namespace Game.Networking
             if (socket == null)
             {
                 // Get URI and yield return
-                string uri = CurrentServer.IP;
+                string uri = CurrentServer.IP+"/socket.io/?EIO=4&transport=polling";
                 UnityWebRequest www = UnityWebRequest.Get(uri);
                 yield return www.SendWebRequest();
 
@@ -98,6 +98,7 @@ namespace Game.Networking
             //IO.Options options = new IO.Options {Reconnection = true, Timeout = 5000, ReconnectionDelay = 5000};
             Regex regex = new Regex("^(http[s]*)");
             uri = regex.Replace(uri, "ws")+ "/socket.io/?EIO=4&transport=websocket";
+
             socket = new SocketIO(uri);
             socket.Connect();
             SocketEvents();
