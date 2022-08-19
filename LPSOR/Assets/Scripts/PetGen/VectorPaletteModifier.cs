@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.VectorGraphics;
 using System.IO;
 
 public class VectorPaletteModifier : MonoBehaviour
