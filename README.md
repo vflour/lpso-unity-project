@@ -6,7 +6,8 @@ I'm not used to using github (I rarely use it, haha) so if I'm missing anything 
 
 1. Version information
 
-This project currently uses Unity version 2022.1.13f1
+This project currently uses Unity version 2022.1.15f1. For Windows and Linux builds, it uses the latest Visual Studio 2022 preview build. For MacOS and iOS builds, it uses the latest XCode 13.4.1
+For Android builds, it uses the latest JDK 8 and SDK 32, the JDK builds can be found here: https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&field_operating_system_target_id=436&field_architecture_target_id=391&field_java_package_target_id=396
 
 2. Source code
 
