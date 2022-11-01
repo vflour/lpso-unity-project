@@ -1,7 +1,7 @@
  
 # lpso-unity-project
 
-Welcome to the respository for LPSOR's source code.. Yay.
+Welcome to the respository for LPSOR's source code. Yay.
 I'm not used to using github (I rarely use it, haha) so if I'm missing anything -- don't hesitate to contact me!
 
 1. Version information
@@ -16,4 +16,4 @@ If you need me to make any changes at the code, please do tell! I've been learni
 
 3. Contact information
 
-My discord is vflour#0847 if you need to talk to me.
+My Discord is Daoko#7657 if you need to talk to me.
