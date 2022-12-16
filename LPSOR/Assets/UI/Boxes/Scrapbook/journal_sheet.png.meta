@@ -68,6 +68,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -76,9 +78,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -99,9 +101,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -468,6 +473,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      journal_sheet_4: -6615918038337297125
+      journal_sheet_14: -5748342735227102577
+      journal_sheet_6: -6485387136390815784
+      journal_sheet_11: -3646609970765078459
+      journal_sheet_9: -6571622146761923313
+      journal_sheet_2: -9007352532561140808
+      journal_sheet_0: 7605609492895217184
+      journal_sheet_3: -435308927640750165
+      journal_sheet_5: -3797159949564508253
+      journal_sheet_1: 7589780012766099731
+      journal_sheet_13: -2955486130187477201
+      journal_sheet_10: 6762879275767483791
+      journal_sheet_8: 3550771989639725280
+      journal_sheet_7: -4133268580531448217
+      journal_sheet_12: 3924052280549986982
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

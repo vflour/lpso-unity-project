@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.4" tiledversion="1.4.3" orientation="isometric" renderorder="right-down" width="40" height="40" tilewidth="106" tileheight="54" infinite="0" nextlayerid="21" nextobjectid="109">
+ <tileset firstgid="1" source="Laughing labs tiles.tsx"/>
+ <tileset firstgid="7" source="door.tsx"/>
+ <tileset firstgid="8" source="small wall.tsx"/>
+ <tileset firstgid="9" source="small wall1.tsx"/>
+ <tileset firstgid="10" source="wall1.tsx"/>
+ <tileset firstgid="11" source="small wall2.tsx"/>
+ <tileset firstgid="12" source="small wall3.tsx"/>
+ <tileset firstgid="13" source="objects/Sussy_Drink.tsx"/>
+ <tileset firstgid="14" source="objects/Iceberg.tsx"/>
+ <tileset firstgid="15" source="objects/chalkboard.tsx"/>
+ <tileset firstgid="16" source="objects/carpet.tsx"/>
+ <tileset firstgid="17" source="objects/Labs wheel.tsx"/>
+ <tileset firstgid="18" source="objects/floor_window_with_circles.tsx"/>
+ <tileset firstgid="19" source="objects/window.tsx"/>
+ <tileset firstgid="20" source="objects/sketch.tsx"/>
+ <tileset firstgid="21" source="objects/pinboard.tsx"/>
+ <tileset firstgid="22" source="objects/wall.tsx"/>
+ <tileset firstgid="23" source="objects/Music Toaster.tsx"/>
+ <tileset firstgid="24" source="objects/blueprint_table.tsx"/>
+ <tileset firstgid="25" source="objects/lamp.tsx"/>
+ <tileset firstgid="26" source="objects/pole with wires.tsx"/>
+ <tileset firstgid="27" source="objects/Strange.tsx"/>
+ <tileset firstgid="28" source="objects/box.tsx"/>
+ <tileset firstgid="29" source="objects/object1.tsx"/>
+ <tileset firstgid="30" source="objects/wood planks.tsx"/>
+ <tileset firstgid="31" source="objects/shelf.tsx"/>
+ <tileset firstgid="32" source="objects/bucket.tsx"/>
+ <tileset firstgid="33" source="objects/shelf 2.tsx"/>
+ <tileset firstgid="34" source="objects/Box1.tsx"/>
+ <tileset firstgid="35" source="objects/chair.tsx"/>
+ <tileset firstgid="36" source="objects/table.tsx"/>
+ <tileset firstgid="37" source="objects/broken floor.tsx"/>
+ <tileset firstgid="38" source="objects/jar.tsx"/>
+ <tileset firstgid="39" source="objects/stool.tsx"/>
+ <tileset firstgid="40" source="objects/box2.tsx"/>
+ <tileset firstgid="41" source="objects/chest.tsx"/>
+ <tileset firstgid="42" source="objects/Labs back table.tsx"/>
+ <tileset firstgid="43" source="objects/circles.tsx"/>
+ <tileset firstgid="44" source="objects/circles1.tsx"/>
+ <tileset firstgid="45" source="objects/trashcan.tsx"/>
+ <tileset firstgid="46" source="objects/scrolls.tsx"/>
+ <tileset firstgid="47" source="objects/open box.tsx"/>
+ <tileset firstgid="48" source="objects/shelf 3.tsx"/>
+ <tileset firstgid="49" source="objects/book.tsx"/>
+ <tileset firstgid="50" source="objects/paper.tsx"/>
+ <tileset firstgid="51" source="objects/paper1.tsx"/>
+ <tileset firstgid="52" source="wall.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="40" height="40">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,6,6,1,1,1,4,5,5,5,5,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,6,6,1,1,1,4,3,2,3,3,1,3,3,4,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,3,5,1,6,6,4,2,1,1,3,1,3,4,2,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,5,5,5,5,5,3,1,2,3,2,2,4,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,1,1,3,3,2,2,4,2,2,5,3,5,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,4,4,1,1,6,4,2,4,6,3,1,5,4,3,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,3,4,3,3,4,3,4,3,4,3,2,4,3,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,2,3,2,2,4,2,3,3,3,3,3,3,6,5,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,6,5,5,2,1,1,1,3,3,3,5,3,2,2,2,2,3,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,6,2,2,2,1,2,1,2,3,3,5,5,3,2,1,1,2,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,6,3,3,2,1,3,1,2,5,5,5,4,2,1,1,2,2,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,6,2,1,2,3,2,1,2,5,1,3,3,1,1,2,1,2,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,6,5,2,5,6,6,6,2,2,2,3,3,2,3,2,2,2,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,6,6,6,2,2,3,3,3,3,3,5,5,5,6,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="20" name="walls" locked="1">
+  <object id="105" gid="52" x="1109.29" y="1308.59" width="1619.33" height="541.579"/>
+  <object id="10" gid="10" x="1559.19" y="1306.81" width="116.753" height="199.046"/>
+  <object id="12" gid="11" x="1576.82" y="1181.75" width="391.763" height="213.976" rotation="359.598"/>
+ </objectgroup>
+ <objectgroup id="18" name="objects 10">
+  <object id="83" gid="44" x="1096.02" y="1578.98" width="65.75" height="36.1913"/>
+ </objectgroup>
+ <objectgroup id="9" name="objects 3">
+  <object id="43" gid="23" x="1524.52" y="1630.14" width="151.333" height="151.333"/>
+  <object id="44" gid="24" x="1346.29" y="1544.44" width="129.957" height="127.761"/>
+  <object id="45" gid="25" x="1351.47" y="1611.19" width="172.841" height="182.214"/>
+  <object id="30" gid="16" x="984.548" y="1117.42" width="255.605" height="256.833"/>
+  <object id="48" gid="28" x="1080.43" y="1200.57" width="86.1667" height="86.1667"/>
+  <object id="52" gid="30" x="796.099" y="1293.9" width="78" height="57.5967"/>
+  <object id="54" gid="31" x="679.928" y="1565.4" width="161.843" height="90.6993"/>
+  <object id="55" gid="32" x="676.84" y="1336.49" width="37.5402" height="38.4518"/>
+  <object id="56" gid="33" x="663.648" y="1289.13" width="72.8652" height="57.0565"/>
+  <object id="57" gid="1073741858" x="1105.29" y="1551.89" width="68.9412" height="66.0909" rotation="180"/>
+  <object id="58" gid="1073741858" x="1105.29" y="1551.89" width="68.9412" height="66.0909" rotation="180"/>
+  <object id="60" gid="34" x="1577.68" y="1547.32" width="87.6078" height="83.9858"/>
+  <object id="68" gid="36" x="728.83" y="1611.68" width="112.333" height="70.164"/>
+  <object id="70" gid="1073741852" x="1499.39" y="1552.95" width="93.1667" height="93.1667" rotation="180"/>
+  <object id="74" gid="28" x="1212.46" y="1581.21" width="122.167" height="122.167"/>
+  <object id="80" gid="43" x="1275.33" y="1423.37" width="421.416" height="220.781"/>
+  <object id="81" gid="44" x="1369.25" y="1362.08" width="65.75" height="36.1913"/>
+  <object id="87" gid="45" x="1532.39" y="1568.67" width="34.4754" height="40.5315"/>
+ </objectgroup>
+ <objectgroup id="4" name="small walls">
+  <object id="4" gid="8" x="874.588" y="1718.49" width="310.405" height="172.778" rotation="0.481747"/>
+  <object id="5" gid="8" x="949.792" y="1718.86" width="310.405" height="172.778" rotation="0.481747"/>
+  <object id="6" gid="8" x="1371.28" y="1716.74" width="306.884" height="170.308" rotation="0.481747"/>
+  <object id="15" gid="12" x="1045.97" y="1733.73" width="119.806" height="81.9291" rotation="0.620809"/>
+ </objectgroup>
+ <objectgroup id="15" name="objects 7">
+  <object id="61" gid="35" x="1533.59" y="1370.41" width="170.333" height="191.895"/>
+  <object id="75" gid="38" x="1205.05" y="1540.62" width="26.9499" height="40.7191"/>
+  <object id="76" gid="39" x="1385.07" y="1523.43" width="47.019" height="38.7075"/>
+  <object id="94" gid="1073741871" x="1055.13" y="880.582" width="55.4011" height="46.4834" rotation="180"/>
+  <object id="99" gid="48" x="800.766" y="897.067" width="83.1311" height="65.0952"/>
+ </objectgroup>
+ <objectgroup id="14" name="smal walls 2">
+  <object id="8" gid="8" x="1522.33" y="1718.24" width="310.405" height="172.778" rotation="0.481747"/>
+  <object id="9" gid="9" x="1669.53" y="1558.03" width="323.486" height="179.476" rotation="359.483"/>
+  <object id="28" gid="9" x="1669.53" y="1504.7" width="323.486" height="179.476" rotation="359.483"/>
+ </objectgroup>
+ <objectgroup id="3" name="door">
+  <object id="3" gid="7" x="1123.45" y="1781.55" width="187.72" height="230.61"/>
+ </objectgroup>
+ <objectgroup id="12" name="objects 5">
+  <object id="47" gid="27" x="923.014" y="979.986" width="206.833" height="206.833"/>
+  <object id="49" gid="28" x="810.437" y="979.23" width="123.667" height="123.667"/>
+  <object id="50" gid="29" x="1210.21" y="1603.66" width="144.333" height="192.538"/>
+  <object id="62" gid="34" x="1148.44" y="955.229" width="57.9295" height="55.5345"/>
+  <object id="82" gid="44" x="1420.37" y="1315.3" width="32.5827" height="17.9348"/>
+  <object id="84" gid="44" x="987.558" y="1474.11" width="32.5827" height="17.9348"/>
+  <object id="85" gid="44" x="983.158" y="1125.84" width="32.5827" height="17.9348"/>
+ </objectgroup>
+ <objectgroup id="5" name="small walls 1">
+  <object id="14" gid="12" x="1187.29" y="1732.41" width="119.806" height="81.9291" rotation="0.620809"/>
+ </objectgroup>
+ <objectgroup id="17" name="obejcts 9">
+  <object id="79" gid="42" x="841.704" y="948.462" width="73.3767" height="54.089"/>
+  <object id="39" gid="20" x="722.044" y="933.289" width="90" height="107.089"/>
+  <object id="102" gid="51" x="795.884" y="1013.95" width="88.4242" height="44.4801"/>
+ </objectgroup>
+ <objectgroup id="19" name="objects 11">
+  <object id="88" gid="46" x="762.723" y="995.11" width="43.6667" height="76.3082"/>
+ </objectgroup>
+ <objectgroup id="6" name="objects 1">
+  <object id="16" gid="13" x="779.113" y="1342.89" width="144" height="144"/>
+  <object id="17" gid="14" x="795.205" y="1518.35" width="249.485" height="174.263"/>
+  <object id="29" gid="15" x="783.708" y="1247.29" width="207" height="205"/>
+  <object id="33" gid="18" x="934.183" y="1256.49" width="222.67" height="113.756"/>
+  <object id="34" gid="18" x="1359.74" y="1086.93" width="227.504" height="116.225"/>
+  <object id="35" gid="19" x="641.802" y="1446.2" width="90" height="102.152"/>
+  <object id="36" gid="19" x="615.717" y="1555.28" width="40" height="46.9565"/>
+  <object id="37" gid="19" x="603.074" y="1291.93" width="55.1896" height="62.6415"/>
+  <object id="38" gid="19" x="705.166" y="1000.17" width="64.7436" height="73.4855"/>
+  <object id="40" gid="1073741843" x="954.829" y="786.809" width="78.9666" height="89.629" rotation="180"/>
+  <object id="41" gid="21" x="1210.75" y="913.253" width="159.364" height="148.971"/>
+  <object id="42" gid="22" x="1042.58" y="1058.44" width="298.487" height="385.504" rotation="0.601443"/>
+  <object id="46" gid="26" x="820.331" y="1051.67" width="257.596" height="145.5"/>
+  <object id="98" gid="1073741843" x="1308.28" y="808.665" width="82.8879" height="94.0798" rotation="180"/>
+  <object id="106" gid="1073741843" x="1211.55" y="796.063" width="54.6971" height="62.0825" rotation="180"/>
+ </objectgroup>
+ <objectgroup id="16" name="objects 8">
+  <object id="71" gid="28" x="1316.2" y="1015.13" width="116.667" height="116.667"/>
+  <object id="67" gid="1073741858" x="1244.03" y="903.052" width="29.9295" height="28.6921" rotation="180"/>
+  <object id="72" gid="28" x="1316.2" y="1015.13" width="116.667" height="116.667"/>
+  <object id="100" gid="49" x="809.555" y="927.15" width="36.2329" height="25.4047"/>
+  <object id="101" gid="50" x="732.671" y="1346.3" width="70.4743" height="37.7343"/>
+  <object id="107" gid="34" x="1436.83" y="985.507" width="129.263" height="123.919"/>
+ </objectgroup>
+ <objectgroup id="13" name="objects 6">
+  <object id="51" gid="28" x="1046.89" y="955.108" width="86.1667" height="86.1667"/>
+  <object id="59" gid="1073741858" x="1197.58" y="1540" width="37.4412" height="35.8932" rotation="180"/>
+  <object id="63" gid="34" x="1276.07" y="1014.26" width="57.9295" height="55.5345"/>
+  <object id="64" gid="34" x="1276.07" y="1014.26" width="57.9295" height="55.5345"/>
+  <object id="66" gid="1073741858" x="1337.13" y="1002.61" width="29.9295" height="28.6921" rotation="180"/>
+  <object id="77" gid="40" x="718.356" y="1331.48" width="51.703" height="41.8633"/>
+  <object id="78" gid="41" x="1427.16" y="1598.84" width="42" height="55.3412"/>
+  <object id="91" gid="47" x="1239.56" y="1615.08" width="48.6379" height="40.8089"/>
+  <object id="95" gid="1073741871" x="1174.39" y="905.118" width="64.4622" height="54.086" rotation="180"/>
+  <object id="96" gid="1073741871" x="1330.95" y="964.552" width="64.4622" height="54.086" rotation="180"/>
+  <object id="97" gid="1073741871" x="1289.04" y="930.21" width="46.935" height="39.3801" rotation="180"/>
+  <object id="108" gid="28" x="1379.33" y="919.998" width="63.3337" height="63.3337"/>
+ </objectgroup>
+ <objectgroup id="8" name="objects 2" locked="1">
+  <object id="32" gid="17" x="1324.41" y="1228.19" width="510.333" height="510.333"/>
+  <object id="69" gid="37" x="786.943" y="1120.33" width="50.1212" height="27.5603"/>
+  <object id="90" gid="1073741871" x="684.103" y="856.312" width="81.4011" height="68.2983" rotation="180"/>
+  <object id="92" gid="1073741871" x="1487.35" y="1461.75" width="48.1284" height="40.3813" rotation="180"/>
+  <object id="65" gid="34" x="1429.68" y="1048.66" width="60.5961" height="58.0908"/>
+ </objectgroup>
+ <objectgroup id="11" name="objects 4" locked="1">
+  <object id="73" gid="28" x="1279.55" y="994.78" width="89.6667" height="89.6667"/>
+ </objectgroup>
+</map>

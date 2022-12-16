@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: 35fffbf35c1ae2a49b1ffaf3954281f2
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 1fa25d03934ea624a82bf2fcee6f0873, type: 3}
+  missingFiles: []
+  errors:
+  - Errors detected in tileset 'tree.tsx'. Check the tileset inspector for more details.
+    Your map may be broken until these are fixed.
+  - Errors detected in tileset 'Laughing_labs (1).tsx'. Check the tileset inspector
+    for more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'potted_bush.tsx'. Check the tileset inspector for
+    more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'sea_star_1.tsx'. Check the tileset inspector for
+    more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'grass_tuft_1.tsx'. Check the tileset inspector for
+    more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'Grasspatch2.tsx'. Check the tileset inspector for
+    more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'house_sign.tsx'. Check the tileset inspector for
+    more details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'Roots.tsx'. Check the tileset inspector for more
+    details. Your map may be broken until these are fixed.
+  - Errors detected in tileset 'guppy.tsx'. Check the tileset inspector for more
+    details. Your map may be broken until these are fixed.
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '795' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '789' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '727' on tile object ''
+  - Missing tile '790' on tile object ''
+  - Missing tile '790' on tile object ''
+  - Missing tile '790' on tile object ''
+  - Missing tile '737' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '767' on tile object ''
+  - Missing tile '767' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '768' on tile object ''
+  - Missing tile '768' on tile object ''
+  - Missing tile '768' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '768' on tile object ''
+  - Missing tile '768' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '773' on tile object ''
+  - Missing tile '769' on tile object ''
+  warnings: []
+  missingSortingLayers: []
+  missingLayers: []
+  missingTags: []
+  importerVersion: 26
+  pixelsPerUnit: 100
+  edgesPerEllipse: 32
+  numberOfObjectsImported: 2
+  tilesAsObjects: 0
+  sortingMode: 0
+  isIsometric: 1
+  customImporterClassName: 
+  internalTilesets: []
