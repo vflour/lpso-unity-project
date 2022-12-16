@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/startupScene.unity
+    path: Assets/Scenes/System/startupScene.unity
     guid: 9c69e5ab40f11d243b695fed27918922
   - enabled: 1
     path: Assets/Scenes/characterselectScene.unity
@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CrAPScene.unity
     guid: 53056fcf0e943aeee99a6da84203b308
   - enabled: 1
-    path: Assets/Scenes/waggingtonMapScene.unity
+    path: Assets/Scenes/Waggington/waggingtonMapScene.unity
     guid: 876cad2a08dc3c7fdb7b54c7a61ef9fc
   m_configObjects: {}
